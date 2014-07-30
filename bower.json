@@ -1,0 +1,10 @@
+{
+  "name": "pb-scaffold",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass-official": "~3.2.0+1"
+  }
+}
