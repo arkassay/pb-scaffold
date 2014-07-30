@@ -35,7 +35,7 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint'],
+                tasks: ['gjslint'],
                 options: {
                     livereload: true
                 }
@@ -123,7 +123,23 @@ module.exports = function (grunt) {
             },
             server: '.tmp'
         },
-
+        // Using Google's Closure linter over JSHint
+        gjslint: {
+            options: {
+                flags: [
+                    '--disable 220', //ignore error code 220 from gjslint
+                    '--strict',
+                    '--nojsdoc'
+                ],
+                reporter: {
+                    name: 'console'
+                }
+            },
+            all: [
+                '<%= config.app %>/scripts/{,*/}*.js',
+                '!<%= config.app %>/scripts/vendors/*'
+            ]
+        },
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
             options: {
@@ -393,7 +409,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy:dist',
-        'rev',
+        //'rev',
         'usemin',
         'htmlmin'
     ]);
@@ -401,6 +417,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'newer:jshint',
         'test',
-        'build'
+        'build',
+        'gjslint'
     ]);
 };
