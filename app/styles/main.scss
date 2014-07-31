@@ -2,8 +2,8 @@
 // endbower
 
 
-@import 'sass/_custom-variables.scss';
-@import 'sass/_grid.scss';
+@import 'application/_custom-variables';
+@import 'vendors/bootstrap/_bootstrap-custom';
 
 /*BOOTSTRAP STYLE OVERRIDES*/
 .container-fluid{
@@ -47,4 +47,3 @@ body{
 @media (max-width: 480px) {
 
 }
-
