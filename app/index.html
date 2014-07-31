@@ -38,7 +38,7 @@
           </div><!--/.row-fluid-->
         </div><!--/.container-fluid-->
       </header>
-      <div id="content-area">
+      <div id="home-area">
         <div id="wrapper">
           <div class="header">
               <button class="up">up</button>
@@ -47,12 +47,11 @@
               <button class="bottom">bottom</button>
           </div>
           <div class="snappish-main">
-              <article>1</article>
-              <article>2</article>
-              <article>3</article>
-              <article>4</article>
-              <article>5</article>
-              <article>6</article>
+              <article class="welcome"></article>
+              <article class="brand-story-1"></article>
+              <article class="brand-story-2"></article>
+              <article class="brand-story-3"></article>
+              <article class="brand-story-4"></article>
           </div>
         </div><!--/#wrapper-->
       </div><!--#content-area-->
@@ -74,31 +73,8 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/pb.main.js"></script>
+        <script src="scripts/pb.home.js"></script>
         <!-- endbuild -->
 
-        <script>
-          $('#wrapper').snappish()
-              .on('scrollbegin.snappish', function(e, data) {
-                  data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
-              }).on('scrollend.snappish', function(e, data) {
-                  data.toSlide.css('background-color', 'transparent');
-              });
-
-          $('button.up').on('click', function() {
-              $('#wrapper').trigger('scrollup.snappish');
-          });
-
-          $('button.down').on('click', function() {
-              $('#wrapper').trigger('scrolldown.snappish');
-          });
-
-          $('button.top').on('click', function() {
-              $('#wrapper').trigger('scrollto.snappish', 0);
-          });
-
-          $('button.bottom').on('click', function() {
-              $('#wrapper').trigger('scrollto.snappish', 5);
-          });
-        </script>
 </body>
 </html>

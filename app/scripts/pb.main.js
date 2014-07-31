@@ -26,7 +26,7 @@ pb.namespace('controller');
 pb.controller = (function() {
 
   var init = function init() {
-
+    pb.home.init();
 
     handlers();
 
