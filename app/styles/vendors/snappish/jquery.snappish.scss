@@ -1,0 +1,38 @@
+.snappish-wrapper {
+  float: left;
+  z-index: 10;
+  overflow: hidden; }
+
+.snappish-main {
+  width: 100%;
+  z-index: 9;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform; }
+
+@for $i from 1 through 20 {
+    .snappish-#{$i}-slides {
+        height: 100% * $i;
+
+        .snappish-slide {
+            height: 100% / $i;
+        }
+    }
+}
+
+.snappish-slide {
+  width: 100%;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0); }

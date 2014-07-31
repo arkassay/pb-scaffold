@@ -33,22 +33,29 @@
       <header>
         <div class="container-fluid">
           <div class="row">
-            <div class="logo col-xs-12 col-sm-4"><a href="#">LOGO HERE</a></div>
-            <nav class="col-xs-12 col-sm-8">
-              <ul>
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-              </ul>
-            </nav>
+            <div class="logo col-xs-12 col-sm-4"><a href="#"></a></div>
+            <nav class="col-xs-12 col-sm-8"></nav>
           </div><!--/.row-fluid-->
         </div><!--/.container-fluid-->
-      </header> 
-
-      <div class="content-area">
-        
-      </div><!--/.content-area-->
-
+      </header>
+      <div id="content-area">
+        <div id="wrapper">
+          <div class="header">
+              <button class="up">up</button>
+              <button class="down">down</button>
+              <button class="top">top</button>
+              <button class="bottom">bottom</button>
+          </div>
+          <div class="snappish-main">
+              <article>1</article>
+              <article>2</article>
+              <article>3</article>
+              <article>4</article>
+              <article>5</article>
+              <article>6</article>
+          </div>
+        </div><!--/#wrapper-->
+      </div><!--#content-area-->
       <footer>
 
       </footer>
@@ -56,6 +63,11 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
+        <script src="scripts/vendors/jquery/jquery-1.11.1.min.js"></script>
+        <script src="scripts/vendors/jquery/jquery.mousewheel.min.js"></script>
+        <script src="scripts/vendors/jquery/jquery.event.move.js"></script>
+        <script src="scripts/vendors/jquery/jquery.event.swipe.js"></script>
+        <script src="scripts/vendors/snappish/jquery.snappish.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -63,5 +75,30 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/pb.main.js"></script>
         <!-- endbuild -->
+
+        <script>
+          $('#wrapper').snappish()
+              .on('scrollbegin.snappish', function(e, data) {
+                  data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
+              }).on('scrollend.snappish', function(e, data) {
+                  data.toSlide.css('background-color', 'transparent');
+              });
+
+          $('button.up').on('click', function() {
+              $('#wrapper').trigger('scrollup.snappish');
+          });
+
+          $('button.down').on('click', function() {
+              $('#wrapper').trigger('scrolldown.snappish');
+          });
+
+          $('button.top').on('click', function() {
+              $('#wrapper').trigger('scrollto.snappish', 0);
+          });
+
+          $('button.bottom').on('click', function() {
+              $('#wrapper').trigger('scrollto.snappish', 5);
+          });
+        </script>
 </body>
 </html>
