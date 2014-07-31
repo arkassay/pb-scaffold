@@ -2,7 +2,5 @@
   "name": "pb-scaffold",
   "private": true,
   "dependencies": {},
-  "devDependencies": {
-    "jquery-snappish": "~0.2.0"
-  }
+  "devDependencies": {}
 }

@@ -3,41 +3,68 @@
 pb.namespace('home');
 
 pb.home = (function() {
+  var currStory = 0;
 
-  var init = function init() {
+  function init() {
     handlers();
   };
 
+  function story1() {
+
+  };
+
+  function story2() {
+
+  };
+
+  function story3() {
+
+  };
+
+  function story4() {
+
+  };
+
+  function goToStory(num) {
+    $('#wrapper').trigger('scrollto.snappish', num);
+  };
+
+  function updateStoryRef(data) {
+    pb.home.currStory = data.toSlideNum;
+  }
+
   function handlers() {
+    var home = pb.home;
     //insert initial controller event handlers here.
     $(window).load(function() {
+
       $('#wrapper').snappish()
         .on('scrollbegin.snappish', function(e, data) {
             //data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
           })
         .on('scrollend.snappish', function(e, data) {
-            //data.toSlide.css('background-color', 'transparent');
+            updateStoryRef(data);
           });
 
-      $('button.up').on('click', function() {
+      $('.welcome a').click(function(e) {
+        e.preventDefault();
+        var story = $(this).attr('class');
+        story = parseInt(story.split('-')[1]);
+        goToStory(story);
+      });
+
+      /*$('button.up').on('click', function() {
         $('#wrapper').trigger('scrollup.snappish');
-      });
+      });*/
 
-      $('button.down').on('click', function() {
+      $('.down-arrow').on('click', function() {
         $('#wrapper').trigger('scrolldown.snappish');
-      });
-
-      $('button.top').on('click', function() {
-        $('#wrapper').trigger('scrollto.snappish', 0);
-      });
-
-      $('button.bottom').on('click', function() {
-        $('#wrapper').trigger('scrollto.snappish', 4);
       });
     });
   }
 
   return {
-    init: init
+    init: init,
+    currStory: currStory
   };
 })();
