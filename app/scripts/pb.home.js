@@ -11,13 +11,12 @@ pb.home = (function() {
   function handlers() {
     //insert initial controller event handlers here.
     $(window).load(function() {
-
       $('#wrapper').snappish()
         .on('scrollbegin.snappish', function(e, data) {
-            data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
+            //data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
           })
         .on('scrollend.snappish', function(e, data) {
-            data.toSlide.css('background-color', 'transparent');
+            //data.toSlide.css('background-color', 'transparent');
           });
 
       $('button.up').on('click', function() {
