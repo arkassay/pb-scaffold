@@ -10,12 +10,13 @@ pb.home = (function() {
   };
 
   //for modern browsers use pushState()
-  function goToCategory(pagename, content) {
+  function goToCategory(pagename) {
     history.pushState(null, null, pagename + '.html');
-    var requestContent = getCategoryContent(content);
+    var requestContent = getCategoryContent(pagename);
 
     if (requestContent !== false) {
-      $('article[data-url=' + pagename + ']').html(requestContent);
+      //$('article[data-url=' + pagename + ']').html(requestContent);
+      //fill content area and animate category page show
       //start category page animations
     }
   }
@@ -39,27 +40,42 @@ pb.home = (function() {
     $('#wrapper').trigger('scrollto.snappish', num);
   };
 
+  function animateArea(prevArea, storyArea) {
+    if (storyArea === 'welcome') {
+      pb.welcome.init();
+    } else if (storyArea === 'story-1') {
+      pb.story1.init();
+    }
+
+    if (prevArea === 'story-1') {
+      pb.story1.clearAnimations();
+    }
+  };
+
   function handlers() {
     var home = pb.home;
     //insert initial controller event handlers here.
     $(window).load(function() {
 
+      //page loads, animate the welcome screen
+      pb.welcome.init();
+
       $('#wrapper').snappish()
         .on('scrollbegin.snappish', function(e, data) {
-            //data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
+            var prevArea = data.fromSlide.attr('id');
+            var storyArea = data.toSlide.attr('id');
+            //clearPrevArea(prevArea);
+            animateArea(prevArea, storyArea);
           })
         .on('scrollend.snappish', function(e, data) {
             pb.home.currStory = data.toSlideNum;
-            //var pagename = data.toSlide.attr('data-url');
-            //var storycontent = data.toSlide.attr('data-content');
-            //changeStory(pagename, storycontent);
+
           });
 
       $('.welcome a').click(function(e) {
         e.preventDefault();
-        var category = $(this).attr('class');
-        category = parseInt(category.split('-')[1]);
-        goToCategory(pagename, content);
+        var category = $(this).attr('id');
+        goToCategory(pagename);
       });
 
       /*$('button.up').on('click', function() {
