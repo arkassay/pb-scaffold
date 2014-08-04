@@ -9,39 +9,14 @@ pb.home = (function() {
     handlers();
   };
 
-  function animateStory1() {
-    console.log('animating story 1');
-  };
-
-  function animateStory2() {
-
-  };
-
-  function animateStory3() {
-
-  };
-
-  function animateStory4() {
-
-  };
-
   //for modern browsers use pushState()
-  function changeStory(pagename, storycontent) {
+  function goToCategory(pagename, content) {
     history.pushState(null, null, pagename + '.html');
-    var requestContent = getStoryContent(storycontent);
+    var requestContent = getCategoryContent(content);
 
     if (requestContent !== false) {
       $('article[data-url=' + pagename + ']').html(requestContent);
-      //start correct animation
-      if (pagename === 'brand-story-1') {
-        animateStory1();
-      } else if (pagename === 'brand-story-2') {
-        animateStory2();
-      } else if (pagename === 'brand-story-3') {
-        animateStory3();
-      } else if (pagename === 'brand-story-4') {
-        animateStory4();
-      }
+      //start category page animations
     }
   }
 
@@ -50,9 +25,9 @@ pb.home = (function() {
     location.href(pagename);
   }
 
-  function getStoryContent(storycontent) {
+  function getStoryContent(content) {
     var req = new XMLHttpRequest();
-    req.open('GET', '/content/' + storycontent + '.html', false);
+    req.open('GET', '/content/' + content + '.html', false);
     req.send(null);
     if (req.status == 200) {
       return req.responseText;
@@ -75,16 +50,16 @@ pb.home = (function() {
           })
         .on('scrollend.snappish', function(e, data) {
             pb.home.currStory = data.toSlideNum;
-            var pagename = data.toSlide.attr('data-url');
-            var storycontent = data.toSlide.attr('data-content');
-            changeStory(pagename, storycontent);
+            //var pagename = data.toSlide.attr('data-url');
+            //var storycontent = data.toSlide.attr('data-content');
+            //changeStory(pagename, storycontent);
           });
 
       $('.welcome a').click(function(e) {
         e.preventDefault();
-        var story = $(this).attr('class');
-        story = parseInt(story.split('-')[1]);
-        goToStory(story);
+        var category = $(this).attr('class');
+        category = parseInt(category.split('-')[1]);
+        goToCategory(pagename, content);
       });
 
       /*$('button.up').on('click', function() {
@@ -99,6 +74,7 @@ pb.home = (function() {
 
   return {
     init: init,
-    currStory: currStory
+    currStory: currStory,
+    goToStory: goToStory
   };
 })();
