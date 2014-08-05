@@ -1,3 +1,39 @@
+header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  /*height: 50px;
+  background: rgba(255,255,255,0.5);*/
+  z-index: 1;
+  .logo{
+    padding: 20px;
+  }
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float:right;
+  }
+  li{
+    float:right;
+    .icn-menu, .icn-search, .icn-cart{
+      display:block;
+      width: 60px;
+      height: 60px;
+    }
+    .icn-menu{
+      background: url('../images/icn-menu.png') no-repeat center;
+    }
+    .icn-search{
+      background: url('../images/icn-search.png') no-repeat center;
+    }
+    .icn-cart{
+      background: url('../images/icn-cart.png') no-repeat center;
+    }
+  }
+}
+
 .menu-overlay{
   position:absolute;
   width: 100%;
@@ -5,10 +41,25 @@
   background-color: #12b1c9;
   color: #FFF;
   box-sizing: border-box;
+  display:none;
+  z-index: 2;
+  .fixed-top{
+    position:fixed;
+    top: 0;
+    width: 100%;
+  }
   .logo{
-    position:absolute;
+    position:relative;
+    padding: 20px;
+  }
+  .close{
+    float:right;
+    position:relative;
     top: 20px;
-    left: 20px;
+    right: 20px;
+    background: url('../images/icn-close.png') no-repeat;
+    width: 23px;
+    height: 21px;
   }
   .table{
     display: table;
@@ -44,11 +95,19 @@
     li{
       display:inline-block;
       text-align:center;
+      padding-top: 10px;
+      padding-bottom: 10px;
       a, a:hover{
         color: #FFF;
         font-size: 1.5em;
         text-decoration:none;
       }
     }
+    li.last{
+      border-left: 1px solid #FFF;
+    }
   }
+}
+.menu-overlay.open{
+  display:block;
 }

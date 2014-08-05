@@ -75,7 +75,7 @@ pb.home = (function() {
       $('.welcome a').click(function(e) {
         e.preventDefault();
         var category = $(this).attr('id');
-        goToCategory(pagename);
+        goToCategory(category);
       });
 
       /*$('button.up').on('click', function() {

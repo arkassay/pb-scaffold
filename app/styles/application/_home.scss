@@ -39,19 +39,31 @@ article {
     height: 100%;
 }
 
-.header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    /*height: 50px;
-    background: rgba(255,255,255,0.5);*/
-    z-index: 100;
-    font-size: 16px;
-    text-align: center;
-}
 @import 'brand-story-animations/_welcome';
 @import 'brand-story-animations/_story1';
 @import 'brand-story-animations/_story2';
 @import 'brand-story-animations/_story3';
 @import 'brand-story-animations/_story4';
+@media screen and (max-width: 767px){
+  html{
+    height: 100%;
+  }
+  body{
+    overflow: hidden !important;
+    height: 100%;
+    background: #212121;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-highlight: none;
+    overflow: hidden;
+margin: 0px;
+padding: 0px;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+position: fixed;
+  }
+
+}
