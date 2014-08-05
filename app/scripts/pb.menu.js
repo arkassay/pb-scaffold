@@ -3,11 +3,7 @@ pb.namespace('menu');
 pb.menu = (function() {
 
   function init() {
-    $('.icn-menu, .close').click(function(e) {
-      e.preventDefault();
-      toggleMenu();
-    });
-
+    handlers();
   };
 
   function toggleMenu() {
@@ -26,6 +22,32 @@ pb.menu = (function() {
     }
 
   };
+
+  function placeholder($input) {
+    var default_val = $input.val();
+
+    $input.focus(function() {
+      if ($input.val() == default_val) {
+        $input.val('');
+      }
+    });
+    $input.blur(function() {
+      if ($input.val().length == 0) {
+        $input.val(default_val);
+      }
+    });
+  };
+
+  function handlers() {
+    $('.icn-menu, .close').click(function(e) {
+      e.preventDefault();
+      toggleMenu();
+    });
+
+    $('input').each(function() {
+      placeholder($(this));
+    });
+  }
 
   return {
     init: init
