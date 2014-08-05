@@ -5,9 +5,10 @@ header{
   right: 0;
   /*height: 50px;
   background: rgba(255,255,255,0.5);*/
-  z-index: 1;
+  z-index: 10;
   .logo{
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   ul{
     list-style-type: none;
@@ -42,7 +43,7 @@ header{
   color: #FFF;
   box-sizing: border-box;
   display:none;
-  z-index: 2;
+  z-index: 12;
   .fixed-top{
     position:fixed;
     top: 0;
@@ -110,4 +111,34 @@ header{
 }
 .menu-overlay.open{
   display:block;
+}
+
+@media screen and (max-width: 767px){
+
+  header{
+    .logo{
+
+    }
+
+  }
+  .menu-overlay{
+    height: auto;
+    .fixed-top{
+      position:relative;
+      top: 0;
+    }
+    .table{
+      display:block;
+      .vertical-wrap{
+        display: block;
+      }
+    }
+    ul.catLinks{
+      li{
+        a, a:hover{
+          font-size: 3em;
+        }
+      }
+    }
+  }
 }

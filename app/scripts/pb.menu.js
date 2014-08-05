@@ -16,10 +16,12 @@ pb.menu = (function() {
     if ($menu.hasClass('open')) {
       $menu.fadeOut(function() {
         $menu.removeClass('open');
+        $('body').removeClass('scroll');
       });
     } else {
       $menu.fadeIn(function() {
         $(this).addClass('open');
+        $('body').addClass('scroll');
       });
     }
 

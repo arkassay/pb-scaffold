@@ -4,7 +4,9 @@ body {
   overflow: hidden;
   padding: 0;
   margin: 0;
-  font-size: 12px;
+}
+body.scroll{
+  overflow-y: scroll;
 }
 #home-area{
   position:absolute;
@@ -45,25 +47,6 @@ article {
 @import 'brand-story-animations/_story3';
 @import 'brand-story-animations/_story4';
 @media screen and (max-width: 767px){
-  html{
-    height: 100%;
-  }
-  body{
-    overflow: hidden !important;
-    height: 100%;
-    background: #212121;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-touch-callout: none;
-    -webkit-text-size-adjust: none;
-    -webkit-highlight: none;
-    overflow: hidden;
-margin: 0px;
-padding: 0px;
-top: 0px;
-left: 0px;
-right: 0px;
-bottom: 0px;
-position: fixed;
-  }
+
 
 }
