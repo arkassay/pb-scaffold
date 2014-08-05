@@ -5,6 +5,7 @@
 @import 'application/_custom-variables';
 @import 'vendors/bootstrap/_bootstrap-custom';
 @import 'vendors/snappish/jquery.snappish';
+@import 'vendors/_animate';
 
 /*BOOTSTRAP STYLE OVERRIDES*/
 .container-fluid{
@@ -50,4 +51,5 @@ body{
 }
 
 //ADD CUSTOM APPLICATION FILES BELOW
-@import 'application/_home-animation';
+@import 'application/_menu';
+@import 'application/_home';

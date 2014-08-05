@@ -9,39 +9,15 @@ pb.home = (function() {
     handlers();
   };
 
-  function animateStory1() {
-    console.log('animating story 1');
-  };
-
-  function animateStory2() {
-
-  };
-
-  function animateStory3() {
-
-  };
-
-  function animateStory4() {
-
-  };
-
   //for modern browsers use pushState()
-  function changeStory(pagename, storycontent) {
+  function goToCategory(pagename) {
     history.pushState(null, null, pagename + '.html');
-    var requestContent = getStoryContent(storycontent);
+    var requestContent = getCategoryContent(pagename);
 
     if (requestContent !== false) {
-      $('article[data-url=' + pagename + ']').html(requestContent);
-      //start correct animation
-      if (pagename === 'brand-story-1') {
-        animateStory1();
-      } else if (pagename === 'brand-story-2') {
-        animateStory2();
-      } else if (pagename === 'brand-story-3') {
-        animateStory3();
-      } else if (pagename === 'brand-story-4') {
-        animateStory4();
-      }
+      //$('article[data-url=' + pagename + ']').html(requestContent);
+      //fill content area and animate category page show
+      //start category page animations
     }
   }
 
@@ -50,9 +26,9 @@ pb.home = (function() {
     location.href(pagename);
   }
 
-  function getStoryContent(storycontent) {
+  function getStoryContent(content) {
     var req = new XMLHttpRequest();
-    req.open('GET', '/content/' + storycontent + '.html', false);
+    req.open('GET', '/content/' + content + '.html', false);
     req.send(null);
     if (req.status == 200) {
       return req.responseText;
@@ -64,27 +40,42 @@ pb.home = (function() {
     $('#wrapper').trigger('scrollto.snappish', num);
   };
 
+  function animateArea(prevArea, storyArea) {
+    if (storyArea === 'welcome') {
+      pb.welcome.init();
+    } else if (storyArea === 'story-1') {
+      pb.story1.init();
+    }
+
+    if (prevArea === 'story-1') {
+      pb.story1.clearAnimations();
+    }
+  };
+
   function handlers() {
     var home = pb.home;
     //insert initial controller event handlers here.
     $(window).load(function() {
 
+      //page loads, animate the welcome screen
+      pb.welcome.init();
+
       $('#wrapper').snappish()
         .on('scrollbegin.snappish', function(e, data) {
-            //data.toSlide.css('background-color', 'rgba(0,0,0,0.2)');
+            var prevArea = data.fromSlide.attr('id');
+            var storyArea = data.toSlide.attr('id');
+            //clearPrevArea(prevArea);
+            animateArea(prevArea, storyArea);
           })
         .on('scrollend.snappish', function(e, data) {
             pb.home.currStory = data.toSlideNum;
-            var pagename = data.toSlide.attr('data-url');
-            var storycontent = data.toSlide.attr('data-content');
-            changeStory(pagename, storycontent);
+
           });
 
       $('.welcome a').click(function(e) {
         e.preventDefault();
-        var story = $(this).attr('class');
-        story = parseInt(story.split('-')[1]);
-        goToStory(story);
+        var category = $(this).attr('id');
+        goToCategory(pagename);
       });
 
       /*$('button.up').on('click', function() {
@@ -99,6 +90,7 @@ pb.home = (function() {
 
   return {
     init: init,
-    currStory: currStory
+    currStory: currStory,
+    goToStory: goToStory
   };
 })();
