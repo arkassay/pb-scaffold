@@ -1,6 +1,6 @@
-pb.namespace('story1');
+pb.namespace('brandstory.story1');
 
-pb.story1 = (function() {
+pb.brandstory.story1 = (function() {
 
   function init() {
     window.setTimeout(function() {

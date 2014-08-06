@@ -1,3 +1,7 @@
+$homeLinkColor: #FFF;
+$homeLinkOnColor: #FFF;
+$homeFontColor: #FFF;
+
 body {
   width: 100%;
   height: 100%;
@@ -38,9 +42,142 @@ article {
     height: 100%;
 }
 
-@import 'partials/home/_welcome';
+article.welcome{
+  -webkit-transition: background-color 1s ease;
+  -moz-transition: background-color 1s ease;
+  -o-transition: background-color 1s ease;
+  -ms-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+article.welcome .catbg{
 
-@media screen and (max-width: 767px){
+}
+article.welcome{
+  .container-fluid{
+    position:relative;
+    height: 100%;
 
+    .page-title{
+      position:absolute;
+      height: 100%;
+      text-align:center;
+      h1, h2{
+        color: $homeFontColor;
+        font-weight: normal;
+        position:relative;
+        top: 40%;
+        margin: 0;
+        padding: 0;
+        font-size: 3.5em;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        -ms-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+      }
+      h1.init{
+        opacity: 1;
+        display:block;
+      }
+      h1.hidden, h2.hidden{
+        display:none;
+      }
+      h2.category-1,
+      h2.category-2,
+      h2.category-3,
+      h2.category-4,
+      h2.category-5{
+        display:none;
+      }
+    }
+    .links{
+      position:relative;
+      top: 80%;
+    }
+    .cat{
+      position:relative;
+      margin-top: 0;
+      /*min-height: 80px;
+      border-right: 1px solid rgba(255,255,255,.3);*/
+      padding: 0;
+      a, a:hover{
+        color: $homeLinkColor;
+        font-size: 1.333em;
+        text-decoration: none;
+        height: 100%;
+        position:relative;
+        padding: 20px 0;
+        display:inline-block;
+        width: 100%;
+      }
+      //hover transition state
+      a{
+        opacity: .5;
+        -webkit-transition: opacity .5s ease-in-out;
+        -moz-transition: opacity .5s ease-in-out;
+        -o-transition: opacity .5s ease-in-out;
+        -ms-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out;
+      }
+      a:hover{
+        zoom: 1;
+        filter: alpha(opacity=1);
+        opacity: 1;
+        color: $homeLinkOnColor;
+      }
+    }
+    .cat.last{
+      border-right: none;
+    }
+    .down-arrow{
+      position:absolute;
+      width: 70px;
+      height: auto;
+      margin-left: -35px;
+      left: 50%;
+      bottom: 100px;
+      cursor: pointer;
+    }
+  }
 
+}
+article.welcome{
+  .catbg{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+}
+article.welcome#category-1{
+    .catbg{
+      background-image: url('../images/bg-cat1.jpeg');
+    }
+    h2.category-1{
+      display:block;
+    }
+}
+article.welcome#category-2{
+    .catbg{
+      background-image: url('../images/bg-cat2.jpg');
+    }
+    h2.category-2{
+      display:block;
+    }
+}
+article.welcome#category-3{
+    .catbg{
+      background-image: url('../images/bg-cat3.jpg');
+    }
+    h2.category-3{
+      display:block;
+    }
+}
+article.welcome#category-4{
+    .catbg{
+      background-image: url('../images/bg-cat4.jpg');
+    }
+    h2.category-4{
+      display:block;
+    }
 }
