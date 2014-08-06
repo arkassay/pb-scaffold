@@ -54,11 +54,8 @@ pb.brandstory = (function() {
 
   function handlers() {
     var home = pb.home;
-    //insert initial controller event handlers here.
     $(window).load(function() {
-
-      //page loads, animate the welcome screen
-
+      pb.brandstory.story1.init();
       $('#wrapper').snappish()
         .on('scrollbegin.snappish', function(e, data) {
             var prevArea = data.fromSlide.attr('id');

@@ -24,13 +24,28 @@ article#story-1{
     }
     .down-arrow{
       position:absolute;
-      width: 70px;
+      width: 50px;
       height: auto;
-      margin-left: -35px;
+      margin-left: -25px;
       left: 50%;
       bottom: 100px;
       cursor: pointer;
     }
   }
 
+}
+
+@media screen and (max-width: 767px) {
+  article#story-1{
+    .container-fluid{
+      .story-title{
+        padding-top: 50%;
+      }
+      .down-arrow{
+        width: 30px;
+        margin-left: -15px;
+      }
+    }
+
+  }
 }

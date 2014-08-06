@@ -3,7 +3,8 @@ pb.namespace('home');
 pb.home = (function() {
 
   function init() {
-    //$('#wrapper').snappish(); //removed because removed snappish from this page
+    //removed because removed snappish from this page
+    //$('#wrapper').snappish();
     animateHeading();
     animateCategoryLinks();
     animateDownArrow();
