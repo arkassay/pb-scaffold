@@ -2,7 +2,7 @@
 // endbower
 
 
-@import 'application/_custom-variables';
+@import 'partials/_custom-variables';
 @import 'vendors/bootstrap/_bootstrap-custom';
 @import 'vendors/snappish/jquery.snappish';
 @import 'vendors/_animate';
@@ -66,4 +66,4 @@ body{
 }
 
 //ADD CUSTOM APPLICATION FILES BELOW
-@import 'application/_menu';
+@import 'partials/_menu';
