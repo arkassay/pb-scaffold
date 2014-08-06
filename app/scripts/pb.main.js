@@ -27,7 +27,7 @@ pb.controller = (function() {
 
   function init() {
     pb.home.init();
-
+    pb.menu.init();
     handlers();
 
   };

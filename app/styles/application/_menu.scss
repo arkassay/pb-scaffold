@@ -1,3 +1,40 @@
+header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  /*height: 50px;
+  background: rgba(255,255,255,0.5);*/
+  z-index: 10;
+  .logo{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float:right;
+  }
+  li{
+    float:right;
+    .icn-menu, .icn-search, .icn-cart{
+      display:block;
+      width: 60px;
+      height: 60px;
+    }
+    .icn-menu{
+      background: url('../images/icn-menu.png') no-repeat center;
+    }
+    .icn-search{
+      background: url('../images/icn-search.png') no-repeat center;
+    }
+    .icn-cart{
+      background: url('../images/icn-cart.png') no-repeat center;
+    }
+  }
+}
+
 .menu-overlay{
   position:absolute;
   width: 100%;
@@ -5,10 +42,25 @@
   background-color: #12b1c9;
   color: #FFF;
   box-sizing: border-box;
+  display:none;
+  z-index: 12;
+  .fixed-top{
+    position:fixed;
+    top: 0;
+    width: 100%;
+  }
   .logo{
-    position:absolute;
+    position:relative;
+    padding: 20px;
+  }
+  .close{
+    float:right;
+    position:relative;
     top: 20px;
-    left: 20px;
+    right: 20px;
+    background: url('../images/icn-close.png') no-repeat;
+    width: 23px;
+    height: 21px;
   }
   .table{
     display: table;
@@ -26,6 +78,8 @@
     padding: 0 0 5em 0; /*60/12 (base font) */
     border-bottom: 1px solid #FFF;
     box-sizing:border-box;
+    width: 90%;
+    margin: 0 auto;
     li{
       display:block;
       text-align:center;
@@ -44,10 +98,75 @@
     li{
       display:inline-block;
       text-align:center;
+      padding-top: 10px;
+      padding-bottom: 10px;
       a, a:hover{
         color: #FFF;
         font-size: 1.5em;
         text-decoration:none;
+      }
+    }
+    li.last{
+      border-left: 1px solid #FFF;
+    }
+  }
+}
+.menu-overlay.open{
+  display:block;
+}
+
+@media screen and (max-width: 767px){
+  .menu-overlay{
+    height: auto;
+    .fixed-top{
+      position:relative;
+      top: 0;
+    }
+    .logo{
+      padding-left: 1.5625%;
+      padding-right: 1.5625%;
+      box-sizing: border-box;
+    }
+    .close{
+      display:inline-block;
+      float: right;
+      position: relative;
+      top: 25px;
+      padding: 0;
+      right: 0;
+    }
+    .mobile-search{
+      border-radius: 0px;
+      border: 1px solid #FFF;
+      box-shadow: 0 0 0 0 rgba(0,0,0,0);
+      background: none;
+      color: white;
+      text-decoration:none;
+      -webkit-appearance: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+
+    }
+    .table{
+      display:block;
+      .vertical-wrap{
+        display: block;
+      }
+    }
+    ul.catLinks{
+      padding-top: 40px;
+      li{
+        a, a:hover{
+          font-size: 3em;
+        }
+      }
+    }
+    ul.bottomLinks{
+      margin: 0;
+      padding: 40px 0;
+      li.last{
+        border-left: none;
       }
     }
   }
