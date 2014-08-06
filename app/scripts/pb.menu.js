@@ -18,6 +18,7 @@ pb.menu = (function() {
       $menu.fadeIn(function() {
         $(this).addClass('open');
         $('body').addClass('scroll');
+
       });
     }
 
