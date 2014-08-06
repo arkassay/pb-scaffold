@@ -1,3 +1,7 @@
+$welcomeLinkColor: #FFF;
+$welcomeLinkOnColor: #FFF;
+$welcomeFontColor: #FFF;
+
 article.welcome{
   -webkit-transition: background-color 1s ease;
   -moz-transition: background-color 1s ease;
@@ -18,7 +22,7 @@ article.welcome{
       height: 100%;
       text-align:center;
       h1, h2{
-        color: #FFF;
+        color: $welcomeFontColor;
         font-weight: normal;
         position:relative;
         top: 40%;
@@ -48,16 +52,16 @@ article.welcome{
     }
     .links{
       position:relative;
-      top: 60%;
+      top: 80%;
     }
     .cat{
       position:relative;
       margin-top: 0;
-      min-height: 80px;
-      border-right: 1px solid rgba(255,255,255,.3);
+      /*min-height: 80px;
+      border-right: 1px solid rgba(255,255,255,.3);*/
       padding: 0;
       a, a:hover{
-        color: #FFF;
+        color: $welcomeLinkColor;
         font-size: 1.333em;
         text-decoration: none;
         height: 100%;
@@ -79,6 +83,7 @@ article.welcome{
         zoom: 1;
         filter: alpha(opacity=1);
         opacity: 1;
+        color: $welcomeLinkOnColor;
       }
     }
     .cat.last{
