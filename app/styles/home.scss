@@ -130,13 +130,7 @@ article.welcome{
       border-right: none;
     }
     .down-arrow{
-      position:absolute;
-      width: 70px;
-      height: auto;
-      margin-left: -35px;
-      left: 50%;
-      bottom: 100px;
-      cursor: pointer;
+      display:none;
     }
   }
 
@@ -180,4 +174,47 @@ article.welcome#category-4{
     h2.category-4{
       display:block;
     }
+}
+
+@media screen and (max-width: 767px){
+  body{
+    overflow-y: scroll;
+  }
+  article.welcome{
+    position:relative;
+    .container-fluid{
+      .down-arrow{
+        position:absolute;
+        width: 30px;
+        height: auto;
+        margin-left: -15px;
+        left: 50%;
+        bottom: 100px;
+        cursor: pointer;
+        display:block;
+      }
+    }
+  }
+  article.category-1{
+    background-color: #01202d;
+    background-image: url('../images/brandstory/mobile/bg-cat1.png');
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  article.category-2{
+    background-color: #093e54;
+    background-image: url('../images/brandstory/mobile/bg-cat2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  article.category-3{
+    background: #176D90;
+  }
+  article.category-4{
+
+  }
+  article.category-5{
+
+  }
 }

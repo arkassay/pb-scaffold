@@ -20,6 +20,11 @@ pb.home = (function() {
   };
 
   function animateDownArrow() {
+    $('.down-arrow').click(function() {
+      var nextScreen = $('article.category-1').offset();
+      $('html, body').animate({ scrollTop: nextScreen.top });
+    });
+
     $('.down-arrow').addClass('animated infinite pulse');
 
     window.setTimeout(function() {
