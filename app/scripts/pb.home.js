@@ -3,7 +3,7 @@ pb.namespace('home');
 pb.home = (function() {
 
   function init() {
-    $('#wrapper').snappish(); //remove this after fixing full height layout
+    //$('#wrapper').snappish(); //removed because removed snappish from this page
     animateHeading();
     animateCategoryLinks();
     animateDownArrow();

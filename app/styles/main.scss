@@ -4,8 +4,8 @@
 
 @import 'partials/_custom-variables';
 @import 'vendors/bootstrap/_bootstrap-custom';
-@import 'vendors/snappish/jquery.snappish';
 @import 'vendors/_animate';
+@import 'partials/_menu';
 
 /*BOOTSTRAP STYLE OVERRIDES*/
 .container-fluid{
@@ -64,6 +64,3 @@ body{
 @media (max-width: 480px) {
 
 }
-
-//ADD CUSTOM APPLICATION FILES BELOW
-@import 'partials/_menu';
