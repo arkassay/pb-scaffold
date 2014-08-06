@@ -38,12 +38,7 @@ article {
     height: 100%;
 }
 
-@import 'brand-story-animations/_welcome';
-@import 'brand-story-animations/_story1';
-@import 'brand-story-animations/_story2';
-@import 'brand-story-animations/_story3';
-@import 'brand-story-animations/_story4';
-@media screen and (max-width: 767px){
-
-
-}
+@import 'application/brand-story-animations/_story1';
+@import 'application/brand-story-animations/_story2';
+@import 'application/brand-story-animations/_story3';
+@import 'application/brand-story-animations/_story4';
