@@ -7,29 +7,9 @@ article#story-1{
     position:relative;
     width: 100%;
     height: 100%;
-    .story-title{
-      position:absolute;
-      height: 100%;
-      padding-top: 35%;
-      h3{
-        position:relative;
-        font-size: 2.5em;
-        color: $storyFontColor;
-        margin: 0;
-        padding: 0 0 10px 0;
-        border-bottom: 1px solid #FFF;
-      }
-      p{
-        position:relative;
-        color: $storyFontColor;
-        font-size: 1.5em;
-        margin-top: 30px;
-      }
-    }
-
   }
-
 }
+
 
 @media screen and (max-width: 767px) {
   article#story-1{
@@ -37,10 +17,7 @@ article#story-1{
       .story-title{
         padding-top: 50%;
       }
-      .down-arrow{
-        width: 30px;
-        margin-left: -15px;
-      }
+      
     }
 
   }

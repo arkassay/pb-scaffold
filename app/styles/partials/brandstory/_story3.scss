@@ -8,4 +8,17 @@ article#story-3{
     width: 100%;
     height: 100%;
   }
+  .story-title{
+    h3{
+      border-bottom:none;
+    }
+  }
+  .subtext{
+    p{
+      color: $storyFontColor;
+      padding: 15px 35px;
+      text-align:left;
+      border:1px solid #FFF;
+    }
+  }
 }
