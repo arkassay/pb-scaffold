@@ -42,6 +42,7 @@ header{
 
 .menu-overlay{
   position:absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: $menuBgColor;
@@ -129,6 +130,7 @@ header{
 @media screen and (max-width: 767px){
   body.scroll{
     overflow-y: scroll;
+    position:relative;
   }
   header{
     .logo-mobile{
@@ -152,6 +154,7 @@ header{
     }
   }
   .menu-overlay{
+    min-height: 100%;
     height: auto;
     .divider{
       height: 1px;

@@ -12,14 +12,19 @@ pb.home = (function() {
   };
 
   function animateHeading() {
-    $('.page-title h1').addClass('animated fadeInUp');
+    //$('.page-title h1').addClass('animated fadeInUp');
   };
 
   function animateCategoryLinks() {
-    $('.welcome .links').addClass('animated fadeInUp');
+    //$('.welcome .links').addClass('animated fadeInUp');
   };
 
   function animateDownArrow() {
+    $('.down-arrow').click(function() {
+      var nextScreen = $('article.category-1').offset();
+      $('html, body').animate({ scrollTop: nextScreen.top });
+    });
+
     $('.down-arrow').addClass('animated infinite pulse');
 
     window.setTimeout(function() {
@@ -34,15 +39,20 @@ pb.home = (function() {
       var category = $(this).attr('class');
       $('.welcome').attr('id', category);
 
-      $('h1.init').addClass('hidden');
+      var headlineText = $('.group.' + category + ' .row').html();
+      $('.page-title').fadeOut(function() {
+        $(this).html(headlineText);
+        //$('.page-title h2, .page-title p')
+        //.addClass('animated fadeInUp');
+        $('.page-title').fadeIn();
+      });
 
+      //fade in/out with css3 -
+      //may need to change to js fade for ie8
       $('.welcome .catbg')
-        .removeClass('animated fadeOut')
-        .addClass('animated fadeIn');
+        .removeClass('fadeOut')
+        .addClass('fadeIn');
 
-      $('h2.' + category)
-        .removeClass('hidden')
-        .addClass('animated fadeInUp');
 
     });
 
@@ -50,13 +60,17 @@ pb.home = (function() {
     $('.links a').mouseout(function() {
       var category = $(this).attr('class');
       $('.welcome .catbg')
-        .removeClass('animated fadeIn')
-        .addClass('animated fadeOut');
+        .removeClass('fadeIn')
+        .addClass('fadeOut');
 
-      $('h2.' + category).addClass('hidden')
-        .removeClass('animated fadeInUp');
+      var defaultText = $('.group.default .row').html();
+      $('.page-title').fadeOut(function() {
+        $(this).html(defaultText);
+        //$('.page-title h2, .page-title p, .page-title h1')
+        //.addClass('animated fadeInUp');
+        $('.page-title').fadeIn();
+      });
 
-      $('h1.init').removeClass('hidden');
 
     });
   };

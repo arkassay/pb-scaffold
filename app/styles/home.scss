@@ -34,6 +34,7 @@ article {
     padding: 0;
     margin: 0;
   }
+
 }
 
 #wrapper {
@@ -53,6 +54,21 @@ article.welcome .catbg{
 }
 article.welcome{
   position:absolute;
+  //hover transition state
+  a{
+    opacity: .5;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+  }
+  a:hover{
+    zoom: 1;
+    filter: alpha(opacity=1);
+    opacity: 1;
+    color: $homeLinkOnColor;
+  }
   .container-fluid{
     position:relative;
     height: 100%;
@@ -75,19 +91,18 @@ article.welcome{
         -ms-transition: opacity 1s ease-in-out;
         transition: opacity 1s ease-in-out;
       }
-      h1.init{
-        opacity: 1;
-        display:block;
-      }
-      h1.hidden, h2.hidden{
-        display:none;
-      }
-      h2.category-1,
-      h2.category-2,
-      h2.category-3,
-      h2.category-4,
-      h2.category-5{
-        display:none;
+      p{
+        position:relative;
+        top: 40%;
+        color: $homeFontColor;
+        font-size: 1.6em;
+        a,a:hover{
+          color: $homeLinkColor;
+          text-decoration: none;
+        }
+        a:hover{
+          color: $homeLinkOnColor;
+        }
       }
     }
     .links{
@@ -110,33 +125,12 @@ article.welcome{
         display:inline-block;
         width: 100%;
       }
-      //hover transition state
-      a{
-        opacity: .5;
-        -webkit-transition: opacity .5s ease-in-out;
-        -moz-transition: opacity .5s ease-in-out;
-        -o-transition: opacity .5s ease-in-out;
-        -ms-transition: opacity .5s ease-in-out;
-        transition: opacity .5s ease-in-out;
-      }
-      a:hover{
-        zoom: 1;
-        filter: alpha(opacity=1);
-        opacity: 1;
-        color: $homeLinkOnColor;
-      }
     }
     .cat.last{
       border-right: none;
     }
     .down-arrow{
-      position:absolute;
-      width: 70px;
-      height: auto;
-      margin-left: -35px;
-      left: 50%;
-      bottom: 100px;
-      cursor: pointer;
+      display:none;
     }
   }
 
@@ -180,4 +174,73 @@ article.welcome#category-4{
     h2.category-4{
       display:block;
     }
+}
+
+@media screen and (max-width: 767px){
+  body{
+    overflow-y: scroll;
+    background: -webkit-linear-gradient(right top, rgba(43,71,92,1),rgba(72,146,131,1));
+    background: -moz-linear-gradient(bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
+    background: linear-gradient(to bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
+  }
+  #home-area{
+    position:relative;
+    height: auto;
+    width: 100%;
+    background-image: url('../images/brandstory/mobile/bg-cat1.png');
+    background-position: center 300px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+  article{
+    background: none;
+    position:relative;
+    height: auto;
+    width: 100%;
+    padding: 50px 0;
+    h2{
+      font-size: 3.5em;
+      font-weight: normal;
+    }
+  }
+  article.welcome{
+    .catbg{
+      display:none;
+    }
+    position:relative;
+    width: auto;
+    height: auto;
+    padding: 150px 0 50px 0;
+    display:block;
+    .container-fluid{
+      .page-title{
+        position:relative;
+        /*h2.category-1, h2.category-2, h2.category-3, h2.category-4, h2.category-5{
+          display:block;
+          padding: 50px 0;
+        }*/
+      }
+    }
+  }
+  article.category-1{
+    /*MAY USE FOR ANIMATIONS ON BRAND STORY PAGE
+    background-color: #01202d;
+    background-image: url('../images/brandstory/mobile/bg-cat1.png');
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;*/
+  }
+  article.category-2{
+    /*background-color: #093e54;
+    background-image: url('../images/brandstory/mobile/bg-cat2.png');
+    background-repeat: no-repeat;
+    background-size: cover;*/
+  }
+  article.category-3{
+    /*background: #176D90;*/
+  }
+  article.category-4{
+  }
+  article.category-5{
+  }
 }
