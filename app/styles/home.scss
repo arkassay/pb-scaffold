@@ -9,22 +9,21 @@ body {
   padding: 0;
   margin: 0;
 }
+body.scroll{
+  overflow-y: scroll;
+  min-height:100%;
+  height:auto;
+}
 #home-area{
   position:absolute;
   width: 100%;
   height: 100%;
+  background: -webkit-linear-gradient(right top, rgba(43,71,92,1),rgba(72,146,131,1));
+  background: -moz-linear-gradient(bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
+  background: linear-gradient(to bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
 }
 article {
-    background: -webkit-linear-gradient(right top, rgba(43,71,92,1),rgba(72,146,131,1));
-    background: -moz-linear-gradient(bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
-    background: linear-gradient(to bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
-    //background-color: rgba(43,71,92,1);
     text-align: center;
-    /*-webkit-transition: background-color 1s ease;
-    -moz-transition: background-color 1s ease;
-    -o-transition: background-color 1s ease;
-    -ms-transition: background-color 1s ease;
-    transition: background-color 1s ease;*/
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -77,14 +76,16 @@ article.welcome{
       position:absolute;
       height: 100%;
       text-align:center;
+      .headline{
+        position:relative;
+        top: 25%;
+      }
       h1, h2{
         color: $homeFontColor;
         font-weight: normal;
-        position:relative;
-        top: 40%;
         margin: 0;
         padding: 0;
-        font-size: 3.5em;
+        font-size: 5em;
         -webkit-transition: opacity 1s ease-in-out;
         -moz-transition: opacity 1s ease-in-out;
         -o-transition: opacity 1s ease-in-out;
@@ -92,10 +93,9 @@ article.welcome{
         transition: opacity 1s ease-in-out;
       }
       p{
-        position:relative;
-        top: 40%;
         color: $homeFontColor;
-        font-size: 1.6em;
+        font-weight:lighter;
+        font-size: 2em;
         a,a:hover{
           color: $homeLinkColor;
           text-decoration: none;
@@ -143,9 +143,15 @@ article.welcome{
     background-size: cover;
   }
 }
+article.welcome#welcome{
+  background-image: url('../images/home/bg-brand-story.png');
+  background-size: auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
 article.welcome#category-1{
     .catbg{
-      background-image: url('../images/bg-cat1.jpeg');
+      //background-image: url('../images/bg-cat1.jpeg');
     }
     h2.category-1{
       display:block;
@@ -153,7 +159,7 @@ article.welcome#category-1{
 }
 article.welcome#category-2{
     .catbg{
-      background-image: url('../images/bg-cat2.jpg');
+      background-image: url('../images/home/bg-location-intelligence.png');
     }
     h2.category-2{
       display:block;
@@ -161,7 +167,7 @@ article.welcome#category-2{
 }
 article.welcome#category-3{
     .catbg{
-      background-image: url('../images/bg-cat3.jpg');
+      //background-image: url('../images/bg-cat3.jpg');
     }
     h2.category-3{
       display:block;
@@ -169,9 +175,19 @@ article.welcome#category-3{
 }
 article.welcome#category-4{
     .catbg{
-      background-image: url('../images/bg-cat4.jpg');
+      background-image: url('../images/home/bg-shipping-mailing.png');
     }
     h2.category-4{
+      display:block;
+    }
+}
+article.welcome#category-5{
+    .catbg{
+      background-image: url('../images/home/bg-global-ecommerce.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    h2.category-5{
       display:block;
     }
 }
@@ -187,10 +203,7 @@ article.welcome#category-4{
     position:relative;
     height: auto;
     width: 100%;
-    background-image: url('../images/brandstory/mobile/bg-cat1.png');
-    background-position: center 300px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
+    background: none;
   }
   article{
     background: none;
@@ -198,9 +211,25 @@ article.welcome#category-4{
     height: auto;
     width: 100%;
     padding: 50px 0;
-    h2{
+    h1, h2{
       font-size: 3.5em;
       font-weight: normal;
+      margin-bottom:15px;
+    }
+    p.larger{
+      font-size: 2.375em;
+      a, a:hover{
+        color:$homeLinkColor;
+        text-decoration: none;
+      }
+      a:hover{
+        color: $homeLinkOnColor;
+      }
+
+    }
+    p{
+      color: $homeFontColor;
+      font-size:1.6em;
     }
   }
   article.welcome{
@@ -210,7 +239,7 @@ article.welcome#category-4{
     position:relative;
     width: auto;
     height: auto;
-    padding: 150px 0 50px 0;
+    padding: 50px 0;
     display:block;
     .container-fluid{
       .page-title{
@@ -222,25 +251,32 @@ article.welcome#category-4{
       }
     }
   }
+  article.welcome#welcome{
+    background: none;
+  }
+  article
+  {
+    background-size:auto 80%;
+    background-position:center center;
+    background-repeat:no-repeat;
+  }
   article.category-1{
-    /*MAY USE FOR ANIMATIONS ON BRAND STORY PAGE
-    background-color: #01202d;
-    background-image: url('../images/brandstory/mobile/bg-cat1.png');
-    background-position: center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;*/
+    min-height:228px;
+    /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
   }
   article.category-2{
-    /*background-color: #093e54;
-    background-image: url('../images/brandstory/mobile/bg-cat2.png');
-    background-repeat: no-repeat;
-    background-size: cover;*/
+    min-height:198px;
+    background-image: url('../images/home/mobile/bg-location-intelligence.png');
   }
   article.category-3{
+    min-height:198px;
     /*background: #176D90;*/
   }
   article.category-4{
+    min-height:198px;
   }
   article.category-5{
+    min-height:233px;
+    /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
   }
 }

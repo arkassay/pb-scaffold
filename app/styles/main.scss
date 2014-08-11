@@ -28,9 +28,20 @@ body{
   font-size: 12px;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
+.icn{
+  margin-left:8px;
+  display:inline-block;
+}
+.icn-caret{
+  width:5px;
+  height:12px;
+  background-image: url('../images/sprite-mobile/icn-right-arrow2x.png');
+  background-size:100% auto;
+  background-repeat:no-repeat;
+}
 
 //TABLET GENERAL STYLES HERE
 @media screen and (min-width: 768px) and (max-width: 1024px){

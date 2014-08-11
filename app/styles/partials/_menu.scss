@@ -44,7 +44,8 @@ header{
   position:absolute;
   top: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   background-color: $menuBgColor;
   color: $menuFontColor;
   box-sizing: border-box;
@@ -54,6 +55,7 @@ header{
     position:fixed;
     top: 0;
     width: 100%;
+    z-index: 2;
   }
   .logo{
     position:relative;
@@ -78,10 +80,25 @@ header{
     width: 100%;
     vertical-align:middle;
   }
+  .secondary-nav{
+    text-align: center;
+    padding-top: 20px;
+    .us-link{
+      text-align:center;
+    }
+    a, a:hover{
+      font-size: 1.33333em;
+      color: $menuLinkColor;
+      text-decoration: none;
+    }
+    a:hover{
+      color: $menuLinkOnColor;
+    }
+  }
   ul.cat-links{
     list-style-type:none;
     position:relative;
-    padding: 0 0 5em 0; /*60/12 (base font) */
+    padding: 5em 0; /*60/12 (base font) */
     border-bottom: 1px solid #FFF;
     box-sizing:border-box;
     width: 100%;
@@ -92,7 +109,7 @@ header{
       padding-bottom: 3.3333em; /* 40/12 (base font)*/
         a, a:hover{
           color: $menuLinkColor;
-          font-size: 3.5em;
+          font-size: 2.5em;
           text-decoration: none;
           font-weight: normal;
         }
@@ -103,12 +120,14 @@ header{
   }
   ul.bottom-links{
     list-style-type: none;
-    padding-top: 3.3333em;
+    padding: 3.3333em 0;
+    text-align:center;
     li{
       display:inline-block;
       text-align:center;
       padding-top: 10px;
       padding-bottom: 10px;
+      padding-right: 45px;
       a, a:hover{
         color: $menuLinkColor;
         font-size: 1.5em;
@@ -119,7 +138,7 @@ header{
       }
     }
     li.last{
-      border-left: 1px solid #FFF;
+      padding-right: 0;
     }
   }
 }
@@ -133,6 +152,7 @@ header{
     position:relative;
   }
   header{
+    background: rgba(43,75,84,.9);
     .logo-mobile{
       max-width: 100%;
     }
@@ -211,7 +231,7 @@ header{
       }
     }
     ul.cat-links{
-      padding: 15px 0 0 0px;
+      padding: 0;
       width: 100%;
       border-bottom: 0;
       li{
@@ -230,13 +250,20 @@ header{
     ul.bottom-links{
       margin: 0;
       padding: 0;
+      li{
+        width: 50%;
+        text-align:center;
+        padding-right: 0;
+        float:left;
+      }
       li.last{
         border-left: none;
       }
     }
-    .mobile-links{
-      padding-top: 0px;
-      padding-bottom: 30px;
+    .secondary-nav{
+      padding-top: 30px;
+      padding-bottom: 0px;
+
       .col-xs-6{
         text-align:center;
         a, a:hover{

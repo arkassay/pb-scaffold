@@ -12,7 +12,17 @@ pb.home = (function() {
   };
 
   function animateHeading() {
-    //$('.page-title h1').addClass('animated fadeInUp');
+    var defaultText = $('.group.default .row').html();
+    $('.page-title').fadeOut(function() {
+      $(this).html(defaultText);
+      $('.page-title').fadeIn();
+
+    });
+    $('.welcome .catbg').fadeOut(function() {
+      $('.welcome').attr('id', 'welcome');
+      $(this).fadeIn();
+    });
+
   };
 
   function animateCategoryLinks() {
@@ -37,41 +47,22 @@ pb.home = (function() {
 
     $('.links a').mouseenter(function() {
       var category = $(this).attr('class');
-      $('.welcome').attr('id', category);
-
       var headlineText = $('.group.' + category + ' .row').html();
       $('.page-title').fadeOut(function() {
         $(this).html(headlineText);
-        //$('.page-title h2, .page-title p')
-        //.addClass('animated fadeInUp');
         $('.page-title').fadeIn();
       });
 
-      //fade in/out with css3 -
-      //may need to change to js fade for ie8
-      $('.welcome .catbg')
-        .removeClass('fadeOut')
-        .addClass('fadeIn');
-
+      $('.welcome .catbg').fadeOut(function() {
+        $('.welcome').attr('id', category);
+        $(this).fadeIn();
+      });
 
     });
 
 
     $('.links a').mouseout(function() {
-      var category = $(this).attr('class');
-      $('.welcome .catbg')
-        .removeClass('fadeIn')
-        .addClass('fadeOut');
-
-      var defaultText = $('.group.default .row').html();
-      $('.page-title').fadeOut(function() {
-        $(this).html(defaultText);
-        //$('.page-title h2, .page-title p, .page-title h1')
-        //.addClass('animated fadeInUp');
-        $('.page-title').fadeIn();
-      });
-
-
+      animateHeading();
     });
   };
 

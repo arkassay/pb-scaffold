@@ -14,19 +14,19 @@ article#story-1{
       h3{
         position:relative;
         font-size: 2.5em;
-        color: white;
+        color: $storyFontColor;
         margin: 0;
         padding: 0 0 10px 0;
         border-bottom: 1px solid #FFF;
       }
       p{
         position:relative;
-        color: #FFF;
+        color: $storyFontColor;
         font-size: 1.5em;
         margin-top: 30px;
       }
     }
-    
+
   }
 
 }
