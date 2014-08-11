@@ -34,6 +34,7 @@ article {
     padding: 0;
     margin: 0;
   }
+
 }
 
 #wrapper {
@@ -53,6 +54,21 @@ article.welcome .catbg{
 }
 article.welcome{
   position:absolute;
+  //hover transition state
+  a{
+    opacity: .5;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    -ms-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+  }
+  a:hover{
+    zoom: 1;
+    filter: alpha(opacity=1);
+    opacity: 1;
+    color: $homeLinkOnColor;
+  }
   .container-fluid{
     position:relative;
     height: 100%;
@@ -75,19 +91,18 @@ article.welcome{
         -ms-transition: opacity 1s ease-in-out;
         transition: opacity 1s ease-in-out;
       }
-      h1.init{
-        opacity: 1;
-        display:block;
-      }
-      h1.hidden, h2.hidden{
-        display:none;
-      }
-      h2.category-1,
-      h2.category-2,
-      h2.category-3,
-      h2.category-4,
-      h2.category-5{
-        display:none;
+      p{
+        position:relative;
+        top: 40%;
+        color: $homeFontColor;
+        font-size: 1.6em;
+        a,a:hover{
+          color: $homeLinkColor;
+          text-decoration: none;
+        }
+        a:hover{
+          color: $homeLinkOnColor;
+        }
       }
     }
     .links{
@@ -109,21 +124,6 @@ article.welcome{
         padding: 20px 0;
         display:inline-block;
         width: 100%;
-      }
-      //hover transition state
-      a{
-        opacity: .5;
-        -webkit-transition: opacity .5s ease-in-out;
-        -moz-transition: opacity .5s ease-in-out;
-        -o-transition: opacity .5s ease-in-out;
-        -ms-transition: opacity .5s ease-in-out;
-        transition: opacity .5s ease-in-out;
-      }
-      a:hover{
-        zoom: 1;
-        filter: alpha(opacity=1);
-        opacity: 1;
-        color: $homeLinkOnColor;
       }
     }
     .cat.last{
