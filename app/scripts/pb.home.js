@@ -39,15 +39,17 @@ pb.home = (function() {
       var category = $(this).attr('class');
       $('.welcome').attr('id', category);
 
-      $('h1.init').addClass('hidden');
+      var headlineText = $('.group.' + category + ' .row').html();
+      $('.page-title').fadeOut(function() {
+        $(this).html(headlineText);
+        $('.page-title h2, .page-title p').addClass('animated fadeInUp');
+        $('.page-title').fadeIn();
+      });
 
       $('.welcome .catbg')
         .removeClass('animated fadeOut')
         .addClass('animated fadeIn');
 
-      $('h2.' + category)
-        .removeClass('hidden')
-        .addClass('animated fadeInUp');
 
     });
 
@@ -58,10 +60,13 @@ pb.home = (function() {
         .removeClass('animated fadeIn')
         .addClass('animated fadeOut');
 
-      $('h2.' + category).addClass('hidden')
-        .removeClass('animated fadeInUp');
+      var defaultText = $('.group.default .row').html();
+      $('.page-title').fadeOut(function() {
+        $(this).html(defaultText);
+        $('.page-title h2, .page-title p').addClass('animated fadeInUp');
+        $('.page-title').fadeIn();
+      });
 
-      $('h1.init').removeClass('hidden');
 
     });
   };
