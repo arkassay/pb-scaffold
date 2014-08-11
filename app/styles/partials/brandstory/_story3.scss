@@ -1,4 +1,11 @@
-article[data-url="brand-story-3"]{
-  background-color: rgba(0,20,100,1);
-  color: white;
+article#story-3{
+  background: #085265;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  .container-fluid{
+    position:relative;
+    width: 100%;
+    height: 100%;
+  }
 }
