@@ -8,6 +8,7 @@ pb.menu = (function() {
 
   function toggleMenu() {
     var $menu = $('.menu-overlay');
+    var $menuItems = $('.menu-overlay .cat-links li');
 
     if ($menu.hasClass('open')) {
 
@@ -17,8 +18,12 @@ pb.menu = (function() {
       });*/
 
       $menu
-        .removeClass('fadeInDown open')
-        .addClass('fadeOutUp closed');
+        .removeClass('fadeIn open')
+        .addClass('fadeOut closed');
+      $menuItems
+        .removeClass('fadeInDown')
+        .addClass('fadeOutUp');
+
 
     } else {
       /*$menu.fadeIn(function() {
@@ -28,8 +33,12 @@ pb.menu = (function() {
       });*/
 
       $menu
-        .removeClass('fadeOutUp closed')
-        .addClass('animated fadeInDown open');
+        .removeClass('fadeOut closed')
+        .addClass('animated fadeIn open');
+
+      $menuItems
+        .removeClass('fadeOutUp')
+        .addClass('fadeInDown animated');
     }
 
   };
