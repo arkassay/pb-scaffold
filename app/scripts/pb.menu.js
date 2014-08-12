@@ -10,16 +10,26 @@ pb.menu = (function() {
     var $menu = $('.menu-overlay');
 
     if ($menu.hasClass('open')) {
-      $menu.fadeOut(function() {
+
+      /*$menu.fadeOut(function() {
         $menu.removeClass('open');
         $('body').removeClass('scroll');
-      });
+      });*/
+
+      $menu
+        .removeClass('fadeInDown open')
+        .addClass('fadeOutUp closed');
+
     } else {
-      $menu.fadeIn(function() {
+      /*$menu.fadeIn(function() {
         $(this).addClass('open');
         $('body').addClass('scroll');
 
-      });
+      });*/
+
+      $menu
+        .removeClass('fadeOutUp closed')
+        .addClass('animated fadeInDown open');
     }
 
   };

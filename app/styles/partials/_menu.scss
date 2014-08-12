@@ -50,6 +50,10 @@ header{
   color: $menuFontColor;
   box-sizing: border-box;
   display:none;
+  //opacity: 0;
+  //visibility: hidden;
+  //transition: opacity 1s, visibility 0s 1s;
+  //-webkit-transition: opacity 1s, visibility 0s 1s;
   z-index: 12;
   .fixed-top{
     position:fixed;
@@ -145,7 +149,9 @@ header{
 .menu-overlay.open{
   display:block;
 }
-
+.menu-overlay.closed{
+  display:block;
+}
 @media screen and (max-width: 767px){
   body.scroll{
     overflow-y: scroll;
