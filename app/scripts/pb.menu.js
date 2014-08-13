@@ -6,6 +6,21 @@ pb.menu = (function() {
     handlers();
   };
 
+  function searchClear() {
+    var $input = $('.search-overlay input');
+
+    $input.val('Search');
+  };
+
+  function toggleSearchMenu() {
+    var $searchMenu = $('.search-overlay');
+
+    $searchMenu.fadeToggle(function() {
+      $(this).toggleClass('open');
+      $('body').toggleClass('scroll');
+    });
+  };
+
   function toggleMenu() {
     var $menu = $('.menu-overlay');
     var $menuItems = $('.menu-overlay .cat-links li');
@@ -62,14 +77,25 @@ pb.menu = (function() {
   };
 
   function handlers() {
-    $('.icn-menu, .close').click(function(e) {
+    $('.icn-menu, .close.close-menu').click(function(e) {
       e.preventDefault();
       toggleMenu();
+    });
+
+    $('.icn-search, .close.close-search').click(function(e) {
+      e.preventDefault();
+      toggleSearchMenu();
     });
 
     $('input').each(function() {
       placeholder($(this));
     });
+
+    $('.search-clear').click(function(e) {
+      e.preventDefault();
+      searchClear();
+    });
+
   }
 
   return {
