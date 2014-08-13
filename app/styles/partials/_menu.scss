@@ -162,10 +162,6 @@ header{
 }
 
 @media screen and (max-width: 767px){
-  body.scroll{
-    overflow-y: scroll;
-    position:relative;
-  }
   header{
     background: rgba(43,75,84,.9);
     .logo-mobile{
@@ -190,7 +186,9 @@ header{
   }
   .menu-overlay{
     min-height: 100%;
-    height: auto;
+    height: 100%;
+    position:fixed;
+    overflow-y: scroll;
     .divider{
       height: 1px;
       background: white;

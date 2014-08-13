@@ -14,7 +14,7 @@ pb.menu = (function() {
 
       $menu.fadeOut(function() {
         $menu.removeClass('open');
-        //$('body').removeClass('scroll');
+        $('body').removeClass('scroll');
       });
 
       /*$menu
@@ -28,7 +28,7 @@ pb.menu = (function() {
     } else {
       $menu.fadeIn(function() {
         $(this).addClass('open');
-        //$('body').addClass('scroll');
+        $('body').addClass('scroll');
       });
 
       window.setTimeout(function() {
