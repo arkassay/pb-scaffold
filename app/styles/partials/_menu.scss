@@ -152,6 +152,15 @@ header{
 .menu-overlay.closed{
   display:block;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+  .touch{
+    header{
+      background: rgba(43,75,84,.9);
+    }
+  }
+}
+
 @media screen and (max-width: 767px){
   body.scroll{
     overflow-y: scroll;
