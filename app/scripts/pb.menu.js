@@ -12,33 +12,36 @@ pb.menu = (function() {
 
     if ($menu.hasClass('open')) {
 
-      /*$menu.fadeOut(function() {
+      $menu.fadeOut(function() {
         $menu.removeClass('open');
-        $('body').removeClass('scroll');
-      });*/
+        //$('body').removeClass('scroll');
+      });
 
-      $menu
+      /*$menu
         .removeClass('fadeIn open')
-        .addClass('fadeOut closed');
+        .addClass('fadeOut closed');*/
       $menuItems
         .removeClass('fadeInDown')
         .addClass('fadeOutUp');
 
 
     } else {
-      /*$menu.fadeIn(function() {
+      $menu.fadeIn(function() {
         $(this).addClass('open');
-        $('body').addClass('scroll');
+        //$('body').addClass('scroll');
+      });
 
-      });*/
+      window.setTimeout(function() {
+        $menuItems
+          .removeClass('fadeOutUp')
+          .addClass('fadeInDown animated');
+      }, 50);
 
-      $menu
+      /*$menu
         .removeClass('fadeOut closed')
-        .addClass('animated fadeIn open');
+        .addClass('animated fadeIn open');*/
 
-      $menuItems
-        .removeClass('fadeOutUp')
-        .addClass('fadeInDown animated');
+
     }
 
   };
