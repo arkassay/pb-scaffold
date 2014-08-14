@@ -1,0 +1,19 @@
+header{
+  background: rgba(43,75,84,.9);
+}
+.main-content{
+  .hero-wrapper{
+    background-image: url('../images/home/bg-location-intelligence.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    .headline{
+      text-align:center;
+      padding-top: 150px;
+      padding-bottom: 150px;
+    }
+  }
+  .category-content{
+    height: 200px;
+  }
+}

@@ -138,10 +138,12 @@ article.welcome{
   }
 }
 article.welcome#welcome{
-  background-image: url('../images/home/bg-brand-story.png');
-  background-size: auto;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+  .catbg{
+    background-image: url('../images/home/bg-brand-story.png');
+    background-size: auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+  }
 }
 article.welcome#category-1{
     .catbg{
