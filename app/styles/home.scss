@@ -49,7 +49,6 @@ article.welcome{
   position:absolute;
   //hover transition state
   a{
-    opacity: .5;
     -webkit-transition: opacity .5s ease-in-out;
     -moz-transition: opacity .5s ease-in-out;
     -o-transition: opacity .5s ease-in-out;
@@ -109,6 +108,9 @@ article.welcome{
       /*min-height: 80px;
       border-right: 1px solid rgba(255,255,255,.3);*/
       padding: 0 1.5625%;
+      &.inactive a {
+        opacity:.35;
+      }
       a, a:hover{
         color: $homeLinkColor;
         font-size: 1.333em;

@@ -9,47 +9,40 @@ pb.opensearch = (function() {
   function reset() {
     $searchOverlay.css('visibility', 'hidden');
     TweenMax.set($searchOverlay, {
-      top: 0, opacity: 1, rotationX: 0, scale: 1
+      bottom: 0, opacity: 1, rotationX: -20, scale: 1
     });
     TweenMax.set($searchBg, { top: '100%' });
-    TweenMax.set($searchBg, { rotationX: 15, scale: .72, opacity: 0 });
+    TweenMax.set($searchBg, { rotationX: 0, scale: .9, opacity: 0 });
   };
 
   function animateIn() {
-
     $searchOverlay.css('visibility', 'visible');
-    TweenMax.to($searchBg, .3, { autoAlpha: 1, top: '0%' });
+
+    TweenMax.to($searchBg, 2, { opacity: 1 });
+    TweenMax.to($searchBg, .3, { autoAlpha: 1, bottom: '0%' });
     TweenMax.to($searchBg, .5, { scale: 1, rotationX: 0, opacity: 1 });
-
-    var time = .5,
-        delay = .5;
-
-    var easing = Quad.easeOut;
-    var delay2 = delay + time - .2;
-    delay2 -= .3;
+    TweenMax.to($searchOverlay, 3, { rotationX: 0, ease: Elastic.easeOut});
   };
 
   function animateOut() {
 
-    TweenMax.to($searchBg, .4, { opacity: .4 });
-    TweenMax.to($searchOverlay, .4, {
-      transformOrigin: 'center bottom', scale: .8
+    TweenMax.to($searchBg, 2, { opacity: 0 });
+    TweenMax.to($searchOverlay, 2, { opacity: 0 });
+    TweenMax.to($searchOverlay, .1, {
+      transformOrigin: '50% 0', scale: 1
     });
-    TweenMax.to($searchOverlay, .5, { delay: .1, top: '120%' });
-    TweenMax.to($searchOverlay, .9, { rotationX: 10, onComplete: function() {
-      reset();}
+    TweenMax.to($searchOverlay, .2, { delay: 0, bottom: '180%' });
+    TweenMax.to($searchOverlay, 3, {
+      opacity: 1, rotationX: -180, ease: Elastic.easeOut,
+      onComplete: function() {
+        reset();
+      }
     });
   };
 
-  function animateOut() {
-    TweenMax.to($searchOverlay, .4, {
-      rotationX: 2, transformOrigin: 'center bottom', scale: .8
-    });
-    TweenMax.to($searchOverlay, .5, { delay: .2, top: '-120%', rotationX: 10 });
-  };
 
   function handlers() {
-    $('#sf-exit').click(function(e) {
+    $('.close.close-search').click(function(e) {
       animateOut();
     });
 
@@ -58,12 +51,16 @@ pb.opensearch = (function() {
         animateIn();
       }, 140);
     });
+
+    $(window).load(function() {
+      reset();
+    });
   };
 
   function init() {
-    TweenMax.set($searchOverlay, { transformPerspective: 600 });
+    TweenMax.set($searchOverlay, { transformPerspective: 400 });
     TweenMax.set($searchBg, {
-      transformPerspective: 600, rotationX: 15, scale: .72, opacity: 0
+      transformPerspective: 400, rotationX: 20, scale: .72, opacity: 0
     });
     handlers();
   };

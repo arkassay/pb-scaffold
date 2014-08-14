@@ -146,7 +146,9 @@ header{
     }
   }
 }
-.search-overlay.open,
+.search-overlay{
+  display:block;
+}
 .menu-overlay.open{
   display:block;
 }

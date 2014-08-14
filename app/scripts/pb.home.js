@@ -47,6 +47,7 @@ pb.home = (function() {
 
     $('.links a').mouseenter(function() {
       var category = $(this).attr('class');
+      $(this).parent().siblings().addClass('inactive');
       var headlineText = $('.group.' + category + ' .row').html();
       $('.page-title').fadeOut(function() {
         $(this).html(headlineText);
@@ -63,6 +64,8 @@ pb.home = (function() {
 
     $('.links a').mouseout(function() {
       animateHeading();
+      //$(body).find('.links .cat').removeClass('inactive');
+      $(this).parent().siblings().removeClass('inactive');
     });
   };
 
