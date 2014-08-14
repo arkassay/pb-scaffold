@@ -1,5 +1,10 @@
 header{
   background: rgba(43,75,84,.9);
+  .cat-title{
+    color: #FFF;
+    font-size: 1.5em;
+    margin-left: 20px;
+  }
 }
 .main-content{
   .hero-wrapper{
@@ -14,6 +19,7 @@ header{
     }
   }
   .category-content{
+    /*temporary fixed height - remove when content added*/
     height: 200px;
   }
 }
