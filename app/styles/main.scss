@@ -1,11 +1,17 @@
 // bower:scss
 // endbower
-
+$headerFont: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+$bodyFont: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+$bodyFontColor: #000;
+$bodyLinkColor: #000;
+$bodyLinkOnColor: #000;
+$darkBG: #053043;
 
 @import 'partials/_custom-variables';
 @import 'vendors/bootstrap/_bootstrap-custom';
 @import 'vendors/_animate';
 @import 'partials/_menu';
+@import 'partials/_footer';
 
 /*BOOTSTRAP STYLE OVERRIDES*/
 .container-fluid{
@@ -28,9 +34,43 @@ body{
   font-size: 12px;
   margin: 0;
   padding: 0;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: $bodyFont;
+  color: $bodyFontColor;
 }
 
+h1,h2,h3,h4,h5{
+  margin: 0;
+  padding: 0;
+  font-family: $headerFont;
+  font-weight: normal;
+}
+h1{
+  font-size: 5em;
+}
+h2{
+  font-size: 2em;
+}
+h3{
+  font-size: 1.5em;
+}
+h4{
+  font-size: 1.33333em;
+}
+h5{
+  font-size: 1.16667em;
+}
+a, a:hover{
+  text-decoration: none;
+  color: $bodyLinkColor;
+}
+a:hover{
+  color: $bodyLinkOnColor;
+}
+
+.darkbg{
+  background: $darkBG;
+  color: white;
+}
 .icn{
   margin-left:8px;
   display:inline-block;

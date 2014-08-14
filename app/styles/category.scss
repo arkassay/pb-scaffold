@@ -1,11 +1,19 @@
-$catFontColor: #000;
-$catLinkColor: #000;
-$catLinkOnColor: #000;
-
 header{
 
 }
 
-footer{
-
+.main-content{
+  .hero-wrapper{
+    background-image: url('../images/home/bg-location-intelligence.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    .headline{
+      text-align:center;
+      padding: 150px 0;
+    }
+  }
+  .category-content{
+    height: 1000px;
+  }
 }
