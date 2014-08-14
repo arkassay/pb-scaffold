@@ -3,6 +3,7 @@ pb.namespace('menu');
 pb.menu = (function() {
 
   function init() {
+    console.log('init run in menu');
     handlers();
   };
 

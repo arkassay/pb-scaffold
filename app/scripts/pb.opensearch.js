@@ -7,7 +7,10 @@ pb.opensearch = (function() {
   var $searchBg = $('.search-bg');
 
   function reset() {
-    $searchOverlay.css('visibility', 'hidden');
+    $searchOverlay.css({
+      'visibility': 'hidden',
+      'display': 'none'
+    });
     TweenMax.set($searchOverlay, {
       bottom: 0, opacity: 1, rotationX: -20, scale: 1
     });
@@ -16,7 +19,10 @@ pb.opensearch = (function() {
   };
 
   function animateIn() {
-    $searchOverlay.css('visibility', 'visible');
+    $searchOverlay.css({
+      'visibility': 'visible',
+      'display': 'block'
+    });
 
     TweenMax.to($searchBg, 2, { opacity: 1 });
     TweenMax.to($searchBg, .3, { autoAlpha: 1, bottom: '0%' });
@@ -51,18 +57,18 @@ pb.opensearch = (function() {
         animateIn();
       }, 140);
     });
-
-    $(window).load(function() {
-      reset();
-    });
   };
 
   function init() {
     TweenMax.set($searchOverlay, { transformPerspective: 400 });
     TweenMax.set($searchBg, {
-      transformPerspective: 400, rotationX: 20, scale: .72, opacity: 0
+      transformPerspective: 400, rotationX: -20, scale: .9, opacity: 0
+    });
+    TweenMax.to($searchOverlay, .1, {
+      transformOrigin: '50% 0', scale: 1
     });
     handlers();
+    reset();
   };
 
   return {
