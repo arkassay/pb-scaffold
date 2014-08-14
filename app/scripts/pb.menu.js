@@ -15,10 +15,8 @@ pb.menu = (function() {
   function toggleSearchMenu() {
     var $searchMenu = $('.search-overlay');
 
-    $searchMenu.fadeToggle(function() {
-      $(this).toggleClass('open');
-      $('body').toggleClass('scroll');
-    });
+    $($searchMenu).toggleClass('open animated flipInX');
+    $('body').toggleClass('scroll');
   };
 
   function toggleMenu() {
@@ -27,7 +25,7 @@ pb.menu = (function() {
 
     if ($menu.hasClass('open')) {
 
-      $menu.fadeOut(function() {
+      $menu.fadeOut('fast', function() {
         $menu.removeClass('open');
         $('body').removeClass('scroll');
       });
@@ -41,7 +39,7 @@ pb.menu = (function() {
 
 
     } else {
-      $menu.fadeIn(function() {
+      $menu.fadeIn('fast', function() {
         $(this).addClass('open');
         $('body').addClass('scroll');
       });
@@ -82,10 +80,10 @@ pb.menu = (function() {
       toggleMenu();
     });
 
-    $('.icn-search, .close.close-search').click(function(e) {
+    /*$('.icn-search, .close.close-search').click(function(e) {
       e.preventDefault();
       toggleSearchMenu();
-    });
+    });*/
 
     $('input').each(function() {
       placeholder($(this));

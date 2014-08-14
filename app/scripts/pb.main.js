@@ -27,6 +27,7 @@ pb.controller = (function() {
 
   function init() {
     pb.menu.init();
+    pb.opensearch.init();
     handlers();
   };
 
