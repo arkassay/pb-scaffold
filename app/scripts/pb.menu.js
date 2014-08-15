@@ -1,63 +1,51 @@
 pb.namespace('menu');
 
 pb.menu = (function() {
-
   function init() {
-    console.log('init run in menu');
     handlers();
   };
+
+  var $menu = $('.menu-overlay');
+  var $searchMenu = $('.search-overlay');
+
+  function resetMenu($overlayAnimated) {
+    TweenMax.set($overlayAnimated, { transformPerspective: 1100 });
+    TweenMax.to($overlayAnimated, .1, {
+      transformOrigin: '50% 0%', scale: 1
+    });
+    $menu.css({
+      'visibility': 'hidden',
+      'display': 'none'
+    });
+    TweenMax.set($overlayAnimated, {
+      bottom: 0, opacity: 0, rotationX: -10, scale: 1
+    });
+    openMenu($overlayAnimated);
+  };
+
+  function openMenu($overlayAnimated) {
+    $('body').addClass('scroll');
+
+    $overlayAnimated.css({
+      'visibility': 'visible',
+      'display': 'block'
+    });
+
+    TweenMax.to($overlayAnimated, .35, {
+      rotationX: 0, opacity: 1, ease: Ease.easeOut
+    });
+  }
+
+  function closeMenu($overlayAnimated) {
+    $overlayAnimated.fadeOut('fast', function() {
+      $('body').removeClass('scroll');
+    });
+  }
 
   function searchClear() {
     var $input = $('.search-overlay input');
 
     $input.val('Search');
-  };
-
-  function toggleSearchMenu() {
-    var $searchMenu = $('.search-overlay');
-
-    $($searchMenu).toggleClass('open animated flipInX');
-    $('body').toggleClass('scroll');
-  };
-
-  function toggleMenu() {
-    var $menu = $('.menu-overlay');
-    var $menuItems = $('.menu-overlay .cat-links li');
-
-    if ($menu.hasClass('open')) {
-
-      $menu.fadeOut('fast', function() {
-        $menu.removeClass('open');
-        $('body').removeClass('scroll');
-      });
-
-      /*$menu
-        .removeClass('fadeIn open')
-        .addClass('fadeOut closed');*/
-      $menuItems
-        .removeClass('fadeInDown')
-        .addClass('fadeOutUp');
-
-
-    } else {
-      $menu.fadeIn('fast', function() {
-        $(this).addClass('open');
-        $('body').addClass('scroll');
-      });
-
-      window.setTimeout(function() {
-        $menuItems
-          .removeClass('fadeOutUp')
-          .addClass('fadeInDown animated');
-      }, 50);
-
-      /*$menu
-        .removeClass('fadeOut closed')
-        .addClass('animated fadeIn open');*/
-
-
-    }
-
   };
 
   function placeholder($input) {
@@ -76,24 +64,35 @@ pb.menu = (function() {
   };
 
   function handlers() {
-    $('.icn-menu, .close.close-menu').click(function(e) {
+
+    $('.icn-menu').click(function(e) {
       e.preventDefault();
-      toggleMenu();
+      resetMenu($menu);
     });
 
-    /*$('.icn-search, .close.close-search').click(function(e) {
+    $('.close.close-menu').click(function(e) {
       e.preventDefault();
-      toggleSearchMenu();
-    });*/
+      closeMenu($menu);
+    });
 
-    $('input').each(function() {
-      placeholder($(this));
+    $('.icn-search').click(function(e) {
+      e.preventDefault();
+      resetMenu($searchMenu);
+    });
+
+    $('.close.close-search').click(function(e) {
+      e.preventDefault();
+      closeMenu($searchMenu);
     });
 
     $('.search-clear').click(function(e) {
       e.preventDefault();
       searchClear();
     });
+
+    /*$('input').each(function() {
+      placeholder($(this));
+    });*/
 
   }
 

@@ -160,11 +160,11 @@
             <div class="row">
               <div class="logo col-sm-4 col-xs-10">
                 <a href="#">
-                  <img src="images/pitneybowes-logo.png" alt="pitney bowes logo" class="hidden-xs"/>
+                  <img src="images/pitneybowes-logo.png" alt="pitney bowes logo"/>
                 </a>
               </div>
               <div class="col-xs-2 col-sm-8">
-                <a href="#" class="close close-menu"></a>
+                <a href="#" class="close close-menu pull-right"></a>
               </div>
             </div>
           </div>
@@ -172,8 +172,12 @@
         <div class="table">
           <div class="vertical-wrap">
             <div class="container-fluid">
-              <div class="row secondary-nav hidden-xs">
-                <div class="col-xs-6 col-sm-4 col-sm-offset-4 us-link"><a href="#">U.S. English</a></div>
+              <div class="row secondary-nav visible-xs">
+                <div class="col-xs-6"><a href="#">My Account</a></div>
+                <div class="col-xs-6"><a href="#">Shop</a></div>
+              </div>
+              <div class="col-xs-12 visible-xs">
+                <div class="divider"></div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
@@ -187,44 +191,46 @@
                     <li class="last"><a href="#">Brand Story FPO</a></li>
                   </ul>
                 </div>
-                <div class="col-xs-12">
-                  <div class="divider"></div>
-                </div>
               </div>
-              <ul class="bottom-links row">
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Industries</a></li>
-                <li><a href="#">Ink and Supplies</a></li>
-                <li class="last"><a href="#">Small Business</a></li>
-              </ul>
-              <div class="col-xs-12 visible-xs">
+              <div class="col-xs-12">
                 <div class="divider"></div>
               </div>
               <div class="row secondary-nav">
-                <div class="col-xs-6 visible-xs"><a href="#">My Account</a></div>
-                <div class="col-xs-6 visible-xs"><a href="#">U.S. English</a></div>
+                <div class="col-xs-12 col-sm-6 desktop-menu-footer">
+                  <div class="col-xs-6 col-sm-4"><a href="#">Support</a></div>
+                  <div class="col-xs-6 col-sm-4"><a href="#">Industries</a></div>
+                  <div class="col-xs-12 col-sm-4 hidden-xs"><a href="#">U.S. English</a></div>
+                </div>
               </div>
-
+              <div class="col-xs-12 visible-xs">
+                <div class="divider"></div>
+              </div>
+              <div class="row secondary-nav visible-xs">
+                <div class="col-xs-12 col-sm-4"><a href="#">U.S. English</a></div>
+              </div>
             </div><!--/.container-fluid-->
           </div><!--/.vertical-wrap-->
         </div><!--/.table-->
       </div><!--/.menu-overlay-->
 
       <div class="search-overlay">
-        <div class='search-bg'></div>
         <div class="fixed-top">
           <div class="container-fluid">
             <div class="row">
               <div class="logo col-sm-4 col-xs-10">
                 <a href="#">
-                  <img src="images/pitneybowes-logo.png" alt="pitney bowes logo" class="hidden-xs"/>
+                  <img src="images/pitneybowes-logo.png" alt="pitney bowes logo" class=""/>
                 </a>
-                <input type="text" value="Search" class="mobile-search" />
-                <a href="#" class="search-clear">clear</a>
               </div>
               <div class="col-xs-2 col-sm-8">
-                <a href="#" class="close close-search"></a>
+                <a href="#" class="close close-search pull-right"></a>
               </div>
+            </div>
+            <div class="row">
+             <div class="col-xs-12">
+               <input type="text" value="Search" class="mobile-search col-xs-12" />
+               <a href="#" class="search-clear">clear</a>
+            </div>
             </div>
           </div>
         </div><!--/.fixed-top-->
@@ -245,7 +251,6 @@
         <script src="scripts/pb.menu.js"></script>
         <script src="scripts/pb.header.js"></script>
         <script src="scripts/pb.home.js"></script>
-        <script src="scripts/pb.opensearch.js"></script>
         <!-- endbuild -->
 
 </body>

@@ -48,7 +48,7 @@ pb.opensearch = (function() {
 
 
   function handlers() {
-    $('.close.close-search').click(function(e) {
+    /*$('.close.close-search').click(function(e) {
       animateOut();
     });
 
@@ -56,7 +56,7 @@ pb.opensearch = (function() {
       setTimeout(function() {
         animateIn();
       }, 140);
-    });
+    });*/
   };
 
   function init() {

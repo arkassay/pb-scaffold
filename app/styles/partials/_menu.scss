@@ -2,6 +2,7 @@ $menuLinkColor: #FFF;
 $menuLinkOnColor: #FFF;
 $menuFontColor: #FFF;
 $menuBgColor: #12b1c9;
+$menuBarBgColor: #35bdd1;
 
 header{
   position: fixed;
@@ -12,8 +13,8 @@ header{
   background: rgba(255,255,255,0.5);*/
   z-index: 10;
   .logo{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   ul{
     list-style-type: none;
@@ -69,16 +70,15 @@ header{
     top: 0;
     width: 100%;
     z-index: 2;
+    background-color:$menuBarBgColor;
   }
   .logo{
     position:relative;
-    padding: 20px;
+    padding: 15px 0;
   }
   .close{
-    float:right;
-    position:relative;
-    top: 20px;
-    right: 20px;
+    display:inline-block;
+    margin:20px 0;
     background: url('../images/sprite/icn-close.png') no-repeat;
     width: 23px;
     height: 21px;
@@ -93,16 +93,24 @@ header{
     width: 100%;
     vertical-align:middle;
   }
+  .divider{
+    height: 1px;
+    background: white;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
   .secondary-nav{
-    text-align: center;
-    padding-top: 20px;
-    .us-link{
-      text-align:center;
+    .desktop-menu-footer {
+      margin:0 auto;
+      float:none;
     }
+    text-align: center;
     a, a:hover{
       font-size: 1.33333em;
       color: $menuLinkColor;
       text-decoration: none;
+      text-transform:uppercase;
     }
     a:hover{
       color: $menuLinkOnColor;
@@ -111,8 +119,8 @@ header{
   ul.cat-links{
     list-style-type:none;
     position:relative;
-    padding: 5em 0; /*60/12 (base font) */
-    border-bottom: 1px solid #FFF;
+    padding:90px 0 0;
+    /* padding: 5em 0; /*60/12 (base font) */
     box-sizing:border-box;
     width: 100%;
     margin: 0 auto;
@@ -169,16 +177,15 @@ header{
     color: white;
     text-decoration:none;
     -webkit-appearance: none;
-    width: 95%;
     box-sizing: border-box;
     padding: 10px 10px 10px 40px;
     line-height: 1em;
     font-size: 2.125em;
   }
   .search-clear{
-      position:absolute;
-      top:35px;
-      right:5%;
+      position:relative;
+      float:right;
+      top:-38px;
       padding-right:10px;
       font-size: 1.5em;
       color:$menuLinkColor;
@@ -230,15 +237,8 @@ header{
     height: 100%;
     position:fixed;
     overflow-y: scroll;
-    .divider{
-      height: 1px;
-      background: white;
-      width: 100%;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
     .fixed-top{
-      position:relative;
+      position:fixed;
       top: 0;
     }
     .logo{
@@ -252,15 +252,10 @@ header{
       background-repeat: no-repeat;
       background-size: 19px auto;
       background-position: right;
-      display:inline-block;
-      float: right;
-      position: relative;
-      top: 30px;
-      padding: 0;
-      right: 0;
     }
     .table{
       display:block;
+      margin-top:100px;
       .vertical-wrap{
         display: block;
       }
@@ -272,7 +267,7 @@ header{
       li{
         a, a:hover{
           color: $menuLinkColor;
-          font-size: 2.5em;
+          font-size: 3.125em;
         }
         a:hover{
           color: $menuLinkOnColor;
@@ -299,20 +294,9 @@ header{
       }
     }
     .secondary-nav{
-      padding-top: 30px;
-      padding-bottom: 0px;
-
-      .col-xs-6{
-        text-align:center;
         a, a:hover{
-          color: $menuLinkColor;
-          font-size: 1.875em;
-          text-decoration: none;
+          font-size:2.000em;
         }
-        a:hover{
-          color: $menuLinkOnColor;
-        }
-      }
     }
   }
 }
