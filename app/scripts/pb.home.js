@@ -2,16 +2,19 @@ pb.namespace('home');
 
 pb.home = (function() {
 
+  var powerPercentage;
+
   function init() {
     //removed because removed snappish from this page
     //$('#wrapper').snappish();
-    animateHeading();
+    //animateHeading();
     animateCategoryLinks();
     animateDownArrow();
     switchBG();
   };
 
-  function animateHeading() {
+  /* appears this is no longer needed
+  /*function animateHeading() {
     var defaultText = $('.group.default .row').html();
     $('.page-title').fadeOut(function() {
       $(this).html(defaultText);
@@ -23,7 +26,7 @@ pb.home = (function() {
       $(this).fadeIn();
     });
 
-  };
+  };*/
 
   function animateCategoryLinks() {
     //$('.welcome .links').addClass('animated fadeInUp');
@@ -45,46 +48,73 @@ pb.home = (function() {
 
   function switchBG() {
     // animated numbers
-    var powerPercentage = new pb.animatedvalues();
-    powerPercentage.init('#power-percentage', {afterText: '<span>%</span>'});
-    //powerPercentage.changeTo(0);
+    pb.home.powerPercentage = new pb.animatedvalues();
+    pb.home.powerPercentage
+      .init('.power-percentage', {afterText: '<span>%</span>'});
+    //pb.home.powerPercentage.changeTo(0);
+
+    pb.home.sendValue = new pb.animatedvalues();
+    pb.home.sendValue
+      .init('#send-value', {afterText: ''});
 
     $('.links a').mouseenter(function() {
       var category = $(this).attr('class');
+      var currentCategoryContainer = '.group.' + category;
       $(this).parent().siblings().addClass('inactive');
-      var headlineText = $('.group.' + category + ' .row').html();
-      $('.page-title').fadeOut(function() {
-        $(this).html(headlineText);
-        $('.page-title').fadeIn();
+      // var headlineText = $('.group.' + category + ' .row').html();
+
+      $('.group.default').fadeOut();
+      $('.group.default').removeClass('active');
+
+      $(currentCategoryContainer).fadeOut(function() {
+        $(currentCategoryContainer).fadeIn(function() {
+          $(currentCategoryContainer)
+            .toggleClass('visible-xs desktop-group-styles');
+        });
       });
 
-      $('.welcome .catbg').fadeOut(function() {
-        $('.welcome').attr('id', category);
-        $(this).fadeIn();
-      });
-
-      // initiate number animations
+      // initiate number animations ===================================
       if (category == 'category-1') {
-        console.log(category + ' < rolled over');
-        //  pb.animatedvalues.init.powerPercentage.animateTo('90');
-        //powerPercentage.changeTo(0);
-        powerPercentage.animateTo('90');
+        pb.home.powerPercentage.animateTo('90');
+      }else if (category == 'category-4') {
+        pb.home.sendValue.animateTo('38');
       }
 
     });
 
 
     $('.links a').mouseout(function() {
-      animateHeading();
-      //$(body).find('.links .cat').removeClass('inactive');
+      var category = $(this).attr('class');
+      var currentCategoryContainer = '.group.' + category;
+      //animateHeading();
       $(this).parent().siblings().removeClass('inactive');
-      //powerPercentage.changeTo(0);
+
+      $(currentCategoryContainer).fadeOut(function() {
+        $(currentCategoryContainer)
+          .toggleClass('visible-xs desktop-group-styles');
+        $('.group.default.active').fadeIn();
+      });
+
+      window.setTimeout(function() {
+        $('.group.default').addClass('active');
+      }, 1500);
+
+      // reset number animations ===================================
+      if (category == 'category-1') {
+        /* for some reason changeTo caused the 2nd
+        rollover of this not to animate */
+        pb.home.powerPercentage.animateTo('0');
+      }else if (category == 'category-4') {
+        //pb.home.sendValue.changeTo('0');
+        //$('#send-value').html('0');
+      }
     });
   };
 
 
   return {
-    init: init
+    init: init,
+    powerPercentage: powerPercentage
   };
 })();
 
