@@ -3,11 +3,15 @@
 pb.namespace('animatedvalues');
 
 pb.animatedvalues = function() {
-  function init(el, options) {
-    this.options = {};
-    if (options) this.options = options;
+
+  var $el, value, options;
+
+  function init(el, setOptions) {
+    options = {};
+    if (setOptions) this.options = setOptions;
     this.$el = $(el);
-    this.value = 0;
+    //console.log($el);
+    value = 0;
   };
 
   /*this.powerPercentage =
@@ -16,31 +20,29 @@ pb.animatedvalues = function() {
 
   function changeTo(val) {
     var s = '';
-
     if (this.options.beforeText) s += this.options.beforeText;
     s += val;
     if (this.options.afterText) s += this.options.afterText;
+    console.log(this.$el);
     this.$el.html(s);
-    this.value = val;
+    value = val;
   };
 
   function animateTo(val) {
     var selfRef = this;
-    console.log(val + ' < val  $el > ' + this.$el + '  selfRef >' + selfRef);
-    this.$el.css({ value: this.value });
+    this.$el.css({ value: pb.animatedvalues.value });
 
     this.$el.animate({
       value: val, left: this.percent * this.width
     }, {
       duration: 1400, step: function(now, tween)
       {
-        console.log('+');
         if (tween.prop == 'value') {
           var v =
               Math.floor(tween.now).
               toString().
               replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
-
+          console.log(v);
           selfRef.changeTo(v);
         }
       } // duration
@@ -51,6 +53,7 @@ pb.animatedvalues = function() {
   return {
     init: init,
     changeTo: changeTo,
-    animateTo: animateTo
+    animateTo: animateTo,
+    $el: $el
   };
 };
