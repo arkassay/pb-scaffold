@@ -239,7 +239,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= config.dist %>'
             },
-            html: '<%= config.app %>/index.html'
+          html: '<%= config.app %>/{,*/}*.html'
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -257,7 +257,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.app %>/images',
-                    src: '{,*/}*.{gif,jpeg,jpg,png}',
+                    src: '**/*.{gif,jpeg,jpg,png}',
                     dest: '<%= config.dist %>/images'
                 }]
             }
@@ -356,11 +356,17 @@ module.exports = function (grunt) {
             test: [
                 'copy:styles'
             ],
-            dist: [
+            distnoimage: [
                 'sass',
                 'copy:styles',
-                'imagemin',
+                //'imagemin',
                 'svgmin'
+            ],
+            dist: [
+              'sass',
+              'copy:styles',
+              'imagemin',
+              'svgmin'
             ]
         }
     });
@@ -399,6 +405,20 @@ module.exports = function (grunt) {
             'mocha'
         ]);
     });
+
+    grunt.registerTask('buildnoimage', [
+        'clean:dist',
+        'useminPrepare',
+        'concurrent:distnoimage',
+        //'autoprefixer',
+        'concat',
+        'cssmin',
+        'uglify',
+        'copy:dist',
+        //'rev',
+        'usemin',
+        'htmlmin'
+    ]);
 
     grunt.registerTask('build', [
         'clean:dist',
