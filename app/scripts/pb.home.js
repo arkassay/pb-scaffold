@@ -48,6 +48,7 @@ pb.home = (function() {
 
   function switchBG() {
     // animated numbers
+
     pb.home.powerPercentage = new pb.animatedvalues();
     pb.home.powerPercentage
       .init('.power-percentage', {afterText: '<span>%</span>'});
