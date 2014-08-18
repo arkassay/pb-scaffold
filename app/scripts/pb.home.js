@@ -47,7 +47,7 @@ pb.home = (function() {
     // animated numbers
     var powerPercentage = new pb.animatedvalues();
     powerPercentage.init('#power-percentage', {afterText: '<span>%</span>'});
-    powerPercentage.changeTo(0);
+    //powerPercentage.changeTo(0);
 
     $('.links a').mouseenter(function() {
       var category = $(this).attr('class');
@@ -67,6 +67,7 @@ pb.home = (function() {
       if (category == 'category-1') {
         console.log(category + ' < rolled over');
         //  pb.animatedvalues.init.powerPercentage.animateTo('90');
+        //powerPercentage.changeTo(0);
         powerPercentage.animateTo('90');
       }
 
@@ -77,7 +78,7 @@ pb.home = (function() {
       animateHeading();
       //$(body).find('.links .cat').removeClass('inactive');
       $(this).parent().siblings().removeClass('inactive');
-      powerPercentage.changeTo(0);
+      //powerPercentage.changeTo(0);
     });
   };
 
