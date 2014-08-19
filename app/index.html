@@ -21,6 +21,7 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/home.css">
+        <link rel="stylesheet" href="styles/category.css">
         <!-- endbuild -->
 
         <!--[if lt IE 9]>
@@ -56,20 +57,14 @@
         <div id="wrapper">
           <div class="header"></div>
           <!--<div class="snappish-main">-->
-              <article class="welcome" id="welcome">
-                  <div class="catbg"></div>
+              <article class="welcome">
                   <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-xs-12 page-title hidden-xs">
-
-                      </div><!--/.col-xs-12-->
-                    </div><!--/.row-->
                     <div class="row links hidden-xs">
                       <div class="cat col-sm-2 col-sm-offset-1">
                         <a href="#" class="category-1">Customer Information Management</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                       <div class="cat col-sm-2">
-                        <a href="#" class="category-2">Location Intelligence</a>
+                        <a href="#" class="category-2" data-cat="location-intelligence">Location Intelligence</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                       <div class="cat col-sm-2">
                         <a href="#" class="category-3">Customer Engagement</a>
@@ -83,12 +78,12 @@
                     </div>
                   </div>
               </article><!--/.welcome-->
-              <article class="visible-xs default group">
+              <article class="default group active">
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
                       <h1 class="animated fadeInUp">Brand Story FPO</h1>
-                      <p class="animated fadeInUp larger"><a href="brand-story.html">lorem ipsum sit amet<span class="icn icn-caret"></span></a></p>
+                      <p class="animated fadeIn larger"><a href="brand-story.html">lorem ipsum sit amet<span class="icn icn-caret"></span></a></p>
                     </div>
                   </div>
                 </div>
@@ -97,7 +92,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">We power <span id="power-percentage">90%</span> of the Fortune 500.</h2>
+                      <h2 class="animated fadeIn hidden-xs">We power <span id="power-percentage">0</span> of the Fortune 500.</h2>
                       <h2 class="visible-xs col-xs-12">Customer Information Management</h2>
                       <p class="animated fadeIn">Find new marketing opportunities through data optimization.</p>
                     </div>
@@ -108,7 +103,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">1.2 billion people use our technology to check-in on social media.</h2>
+                      <h2 class="animated fadeIn hidden-xs"><span class="myval">1.2</span> billion people use our technology to check-in on social media.</h2>
                       <h2 class="visible-xs col-xs-12">Location Intelligence</h2>
                       <p class="animated fadeIn">Turn information into insights by connecting geography with data.</p>
                     </div>
@@ -130,7 +125,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">We print, sort and send 38 million pieces of mail every day.</h2>
+                      <h2 class="animated fadeIn hidden-xs">We print, sort and send <span id="send-value">0</span> million pieces of mail every day.</h2>
                       <h2 class="visible-xs col-xs-12">Shipping and Mailing</h2>
                       <p class="animated fadeIn">Print. Mail. Ship. Increase productivity while lowering costs.</p>
                     </div>
@@ -141,7 +136,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">45 of the top 100 Internet retailers in the world use our technology.</h2>
+                      <h2 class="animated fadeIn hidden-xs"><span id='retailer-value'>45</span> of the top <span id='retailer-value-2'>100</span> Internet retailers in the world use our technology.</h2>
                       <h2 class="visible-xs col-xs-12">Global Ecommerce</h2>
                       <p class="animated fadeIn">Streamline international shipping by removing the hurdles.</p>
                     </div>
@@ -251,6 +246,9 @@
         <script src="scripts/pb.menu.js"></script>
         <script src="scripts/pb.header.js"></script>
         <script src="scripts/pb.home.js"></script>
+        <script src="scripts/pb.animatedvalues.js"></script>
+        <script src="scripts/pb.category.js"></script>
+        <script src="scripts/category/pb.category.content.js"></script>
         <!-- endbuild -->
 
 </body>
