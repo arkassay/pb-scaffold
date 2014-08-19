@@ -90,7 +90,7 @@ pb.home = (function() {
       $(currentCategoryContainer).fadeOut(function() {
         $(currentCategoryContainer).fadeIn(function() {
           $(currentCategoryContainer)
-            .toggleClass('visible-xs desktop-group-styles');
+            .toggleClass('visible-xs');
         });
       });
 
@@ -115,8 +115,7 @@ pb.home = (function() {
       // fade current section out  ==========================
       $(currentCategoryContainer).fadeOut(function() {
         $(currentCategoryContainer)
-          .toggleClass('visible-xs desktop-group-styles');
-        $('.group.default.active').fadeIn();
+          .toggleClass('visible-xs');
       });
 
       // fade homescreen in  ==========================
