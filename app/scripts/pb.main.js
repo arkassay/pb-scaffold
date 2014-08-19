@@ -28,6 +28,7 @@ pb.controller = (function() {
   function init() {
     pb.menu.init();
     pb.header.init();
+    pb.video.init();
     handlers();
   };
 
