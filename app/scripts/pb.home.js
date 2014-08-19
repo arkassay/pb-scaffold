@@ -11,6 +11,7 @@ pb.home = (function() {
     animateCategoryLinks();
     animateDownArrow();
     switchBG();
+    handlers();
   };
 
 
@@ -140,7 +141,16 @@ pb.home = (function() {
     });
   };
 
-
+  function handlers() {
+    $('.links a[data-cat=location-intelligence]').click(function(e) {
+      e.preventDefault();
+      pb.category.loadCategory('category', $('#home-area'));
+    });
+    //handle back button press - should load previous pages content
+    /*window.addEventListener('popstate', function(e) {
+      pb.category.loadCategory(location.pathname);
+    });*/
+  }
   return {
     init: init,
     powerPercentage: powerPercentage

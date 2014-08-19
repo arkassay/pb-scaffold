@@ -12,27 +12,18 @@ pb.category = (function() {
     handlers();
   };
 
-  function loadCategory(pagename) {
+  function loadCategory(pagename, $replace) {
     var pageContent = pb.category.content.getContent(pagename);
     pb.category.content.pushUrl(pagename);
 
-    $('.page-content').addClass('animated fadeOutLeft').fadeOut();
+    $replace.addClass('animated fadeOutLeft').fadeOut();
 
-    $('.page-container')
+    $('header')
       .append('<div class="page-content next animated fadeInRight"></div>');
     $('.page-content.next').html(pageContent);
   }
 
   function handlers() {
-    $('.categorychange').click(function(e) {
-      e.preventDefault();
-      loadCategory('story-1-content.html');
-    });
-
-    //handle back button press - should load previous pages content
-    window.addEventListener('popstate', function(e) {
-      //loadCategory(location.pathname);
-    });
   }
 
   return {

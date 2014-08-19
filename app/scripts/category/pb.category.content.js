@@ -16,7 +16,7 @@ pb.category.content = (function() {
   }
 
   function pushUrl(pagename) {
-    history.pushState(null, null, pagename);
+    history.pushState(null, null, pagename + '.html');
   }
 
   //for legacy support use location.href
@@ -27,7 +27,7 @@ pb.category.content = (function() {
   function getContent(pagename) {
 
     var req = new XMLHttpRequest();
-    req.open('GET', '/content/' + pagename, false);
+    req.open('GET', '/content/' + pagename + '-content.html', false);
     req.send(null);
     if (req.status == 200) {
       return req.responseText;
