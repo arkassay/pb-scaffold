@@ -84,6 +84,16 @@ a:hover{
   background-repeat:no-repeat;
 }
 
+//utilities
+.center{
+  text-align:center;
+}
+hr.white{
+  height: 1px solid #FFF;
+  margin: 35px 0;
+  border: none;
+}
+
 //TABLET GENERAL STYLES HERE
 @media screen and (min-width: 768px) and (max-width: 1024px){
 
