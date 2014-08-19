@@ -2,6 +2,8 @@ $highlightColor: #12b1c9;
 $contentTypeTitleTextColor:#FFF;
 $contentContentText:#053043;
 
+@import 'partials/category/_category-modules.scss';
+
 header{
   background: rgba(43,75,84,.9);
   .cat-title{
@@ -24,33 +26,39 @@ header{
   }
   .page-container{
     position:relative;
-    height: 700px;
   }
   .page-content{
-    position:absolute;
+    /*position: absolute;
     top: 0;
-    left: 0;
+    left: 0;*/
 
     width: 100%;
   }
   .category-content{
-
+    background: #f1f1f1;
+    padding-bottom: 20px;
+    .tabs{
+      background: #FFF;
+    }
     .tab{
+      text-align:center;
       a{
         display:block;
         padding:15px;
-        font-size:1.750em; /* mobile size - desktop not available */
         text-transform:uppercase;
       }
       &.active{
         border-bottom:10px solid $highlightColor;
       }
     }
+    .results{
+      font-style:italic;
+      font-size:1.5em; /* mobile size - desktop not available */
+      padding:0;
+      text-align:center;
+    }
     .tab-pane-content{
-      .results{
-        font-style:italic;
-        font-size:1.5em; /* mobile size - desktop not available */
-      }
+
       .content-type-title{
         display:inline-block;
         margin:0;
@@ -59,21 +67,6 @@ header{
         font-size:1em; /* mobile size - desktop not available */
         background:$highlightColor;
         position:absolute;
-      }
-      h3{
-        margin-top:20px;
-        font-size:2.250em; /* mobile size - desktop not available */
-        color:$contentContentText;
-      }
-      p{
-        margin-top:15px;
-        font-size:1.250em; /* mobile size - desktop not available */
-        color:$contentContentText;
-      }
-      a{
-        margin-top:15px;
-        font-size:1.5em; /* mobile size - desktop not available */
-        color:$contentContentText;
       }
       .content-bucket{
         background-color:#FFF;
