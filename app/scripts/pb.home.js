@@ -13,7 +13,7 @@ pb.home = (function() {
     switchBG();
   };
 
-  /* appears this is no longer needed
+
   /*function animateHeading() {
     var defaultText = $('.group.default .row').html();
     $('.page-title').fadeOut(function() {
@@ -25,7 +25,7 @@ pb.home = (function() {
       $('.welcome').attr('id', 'welcome');
       $(this).fadeIn();
     });
-
+    }
   };*/
 
   function animateCategoryLinks() {
@@ -47,26 +47,45 @@ pb.home = (function() {
   };
 
   function switchBG() {
+    var homeScreen = '.group.default';
     // animated numbers
 
     pb.home.powerPercentage = new pb.animatedvalues();
     pb.home.powerPercentage
-      .init('.power-percentage', {afterText: '<span>%</span>'});
+      .init('#power-percentage', {afterText: '<span>%</span>'});
     //pb.home.powerPercentage.changeTo(0);
 
     pb.home.sendValue = new pb.animatedvalues();
     pb.home.sendValue
       .init('#send-value', {afterText: ''});
+    pb.home.sendValue.changeTo(0);
+
+    pb.home.retailerValue = new pb.animatedvalues();
+    pb.home.retailerValue
+      .init('#retailer-value', {afterText: ''});
+    pb.home.retailerValue.changeTo(0);
+
+    pb.home.retailerValue2 = new pb.animatedvalues();
+    pb.home.retailerValue2
+      .init('#retailer-value-2', {afterText: ''});
+    pb.home.retailerValue2.changeTo(0);
+
 
     $('.links a').mouseenter(function() {
       var category = $(this).attr('class');
       var currentCategoryContainer = '.group.' + category;
       $(this).parent().siblings().addClass('inactive');
-      // var headlineText = $('.group.' + category + ' .row').html();
 
-      $('.group.default').fadeOut();
-      $('.group.default').removeClass('active');
+      // fade homescreen out  ==========================
+      //animateHeading();
+      if (!$(homeScreen).hasClass('visible-xs')) {
+        $(homeScreen).fadeOut('fast', function() {
+          $(homeScreen)
+            .toggleClass('visible-xs');
+        });
+      }
 
+      // fade current section in ==========================
       $(currentCategoryContainer).fadeOut(function() {
         $(currentCategoryContainer).fadeIn(function() {
           $(currentCategoryContainer)
@@ -74,11 +93,14 @@ pb.home = (function() {
         });
       });
 
-      // initiate number animations ===================================
+      // initiate number animations ==========================
       if (category == 'category-1') {
         pb.home.powerPercentage.animateTo('90');
       }else if (category == 'category-4') {
         pb.home.sendValue.animateTo('38');
+      }else if (category == 'category-5') {
+        pb.home.retailerValue.animateTo('45');
+        pb.home.retailerValue2.animateTo('100');
       }
 
     });
@@ -87,18 +109,23 @@ pb.home = (function() {
     $('.links a').mouseout(function() {
       var category = $(this).attr('class');
       var currentCategoryContainer = '.group.' + category;
-      //animateHeading();
       $(this).parent().siblings().removeClass('inactive');
 
+      // fade current section out  ==========================
       $(currentCategoryContainer).fadeOut(function() {
         $(currentCategoryContainer)
           .toggleClass('visible-xs desktop-group-styles');
         $('.group.default.active').fadeIn();
       });
 
-      window.setTimeout(function() {
-        $('.group.default').addClass('active');
-      }, 1500);
+      // fade homescreen in  ==========================
+      if ($(homeScreen).hasClass('visible-xs')) {
+        $(homeScreen).fadeOut(function() {
+          $(homeScreen)
+          .toggleClass('visible-xs');
+          $(homeScreen).fadeIn();
+        });
+      }
 
       // reset number animations ===================================
       if (category == 'category-1') {
@@ -106,8 +133,10 @@ pb.home = (function() {
         rollover of this not to animate */
         pb.home.powerPercentage.animateTo('0');
       }else if (category == 'category-4') {
-        //pb.home.sendValue.changeTo('0');
-        //$('#send-value').html('0');
+        pb.home.sendValue.changeTo('0');
+      }else if (category == 'category-5') {
+        pb.home.retailerValue.changeTo('0');
+        pb.home.retailerValue2.changeTo('0');
       }
     });
   };
