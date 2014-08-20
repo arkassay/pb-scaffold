@@ -67,6 +67,10 @@ $catLink: #12b1c9;
   .pos.left{
     left: 10%;
   }
+  .video-play{
+    margin: 0 auto;
+    display:block;
+  }
   .type-cat.border{
     a{
       padding-right: 20px;
@@ -188,6 +192,17 @@ $catLink: #12b1c9;
       background-color: #FFF
   }
 }
+.col1-halfbg.example2{
+  background: #FFF;
+
+  //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
+  .col-sm-6.bg{
+      background-image: url('../images/category-template/desktop/col2-bg-fullwidth4.jpg');
+      background-position: right;
+      background-size: cover;
+      background-color: #FFF
+  }
+}
 
 
 //2 column separate modules
@@ -217,6 +232,21 @@ $catLink: #12b1c9;
   .col2-content.pos{
     padding: 0;
   }
+  .halfheight-bg{
+    height: 200px;
+    background-size: cover;
+    width: 100%;
+    position:relative;
+    img{
+      width: auto;
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -28.5px;
+      margin-left: -25.5px;
+    }
+  }
+
 }
 .col2.left{
   margin-right: .78125%;
@@ -235,8 +265,15 @@ $catLink: #12b1c9;
 .col2.bgexample3{
   background-image: url('../images/category-template/desktop/col2-bg-fullwidth2.jpg');
 }
-
-
+.halfheight-bg.example1{
+  background-image: url('../images/category-template/desktop/col2-bg-halfheight1.jpg');
+}
+.halfheight-bg.example3{
+  background-image: url('../images/category-template/desktop/col2-bg-halfheight2.jpg');
+}
+.halfheight-bg.example2{
+  background-image: url('../images/category-template/desktop/col2-bg-halfheight3.jpg');
+}
 
 @media screen and (max-width: 767px) {
   .module{
