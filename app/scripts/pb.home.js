@@ -3,6 +3,8 @@ pb.namespace('home');
 pb.home = (function() {
 
   var powerPercentage;
+  var homeScreen = '.group.default';
+  var activeLinks = false;
 
   function init() {
     //removed because removed snappish from this page
@@ -15,19 +17,25 @@ pb.home = (function() {
   };
 
 
-  /*function animateHeading() {
-    var defaultText = $('.group.default .row').html();
-    $('.page-title').fadeOut(function() {
-      $(this).html(defaultText);
-      $('.page-title').fadeIn();
+  function animateHeading(activeLinks) {
 
-    });
-    $('.welcome .catbg').fadeOut(function() {
-      $('.welcome').attr('id', 'welcome');
-      $(this).fadeIn();
-    });
+    // fade homescreen out  ==========================
+    if (activeLinks == true && !$(homeScreen).hasClass('visible-xs')) {
+      $(homeScreen).fadeOut('fast', function() {
+        $(homeScreen)
+          .addClass('visible-xs');
+      });
     }
-  };*/
+
+    // fade homescreen in  ==========================
+    if (activeLinks == false && $(homeScreen).hasClass('visible-xs')) {
+      $(homeScreen).fadeOut(function() {
+        $(homeScreen)
+        .removeClass('visible-xs');
+        $(homeScreen).fadeIn();
+      });
+    }
+  };
 
   function animateCategoryLinks() {
     //$('.welcome .links').addClass('animated fadeInUp');
@@ -48,7 +56,6 @@ pb.home = (function() {
   };
 
   function switchBG() {
-    var homeScreen = '.group.default';
     // animated numbers
 
     pb.home.powerPercentage = new pb.animatedvalues();
@@ -78,13 +85,7 @@ pb.home = (function() {
       $(this).parent().siblings().addClass('inactive');
 
       // fade homescreen out  ==========================
-      //animateHeading();
-      if (!$(homeScreen).hasClass('visible-xs')) {
-        $(homeScreen).fadeOut('fast', function() {
-          $(homeScreen)
-            .toggleClass('visible-xs');
-        });
-      }
+      animateHeading(true);
 
       // fade current section in ==========================
       $(currentCategoryContainer).fadeOut(function() {
@@ -118,14 +119,7 @@ pb.home = (function() {
           .toggleClass('visible-xs');
       });
 
-      // fade homescreen in  ==========================
-      if ($(homeScreen).hasClass('visible-xs')) {
-        $(homeScreen).fadeOut(function() {
-          $(homeScreen)
-          .toggleClass('visible-xs');
-          $(homeScreen).fadeIn();
-        });
-      }
+      animateHeading(false);
 
       // reset number animations ===================================
       if (category == 'category-1') {
