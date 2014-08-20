@@ -80,3 +80,9 @@ header{
     }
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  body{
+    font-size: 10px;
+  }
+}
