@@ -10,6 +10,7 @@ $darkBG: #053043;
 @import 'partials/_custom-variables';
 @import 'vendors/bootstrap/_bootstrap-custom';
 @import 'vendors/_animate';
+@import 'partials/utils/_video';
 @import 'partials/_menu';
 @import 'partials/_footer';
 
@@ -81,6 +82,16 @@ a:hover{
   background-image: url('../images/sprite-mobile/icn-right-arrow2x.png');
   background-size:100% auto;
   background-repeat:no-repeat;
+}
+
+//utilities
+.center{
+  text-align:center;
+}
+hr.white{
+  height: 1px solid #FFF;
+  margin: 35px 0;
+  border: none;
 }
 
 //TABLET GENERAL STYLES HERE

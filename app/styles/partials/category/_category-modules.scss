@@ -1,0 +1,163 @@
+//generic module styles
+.module{
+  position:relative;
+  height: 400px;
+  margin-bottom: 20px;
+  .row{
+    height: 100%;
+  }
+  .table{
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+  .vertical-wrap{
+    display:table-cell;
+    width: 100%;
+    vertical-align:middle;
+  }
+  h3{
+    font-size: 2em;
+    color:$contentContentText;
+  }
+  p{
+    font-size: 1.5em;
+    color:$contentContentText;
+  }
+  a, a:hover{
+    color:$contentContentText;
+  }
+  .underline{
+    border-bottom: 1px solid #FFF;
+    padding: 0 0 35px 0;
+  }
+  .type-cat{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    width: 100%;
+    a, a:hover{
+      padding: 20px 40px 20px 0;
+      text-transform: uppercase;
+      color: #888;
+    }
+  }
+  .type-cat.border{
+    a{
+      padding-right: 20px;
+      border-right: 1px solid #888;
+      margin-right: 20px;
+    }
+    a.last{
+      border-right: none;
+    }
+  }
+  blockquote{
+    font-size: 2.5em;
+    color: white;
+    font-style:italic;
+  }
+  .quote-cite{
+    font-size: .46667em;
+    width: 100%;
+    margin-top: 35px;
+    display:block;
+    font-style:normal;
+  }
+  .vert{
+    height: 100%;
+  }
+}
+.module.darkbg{
+  h1, h2, h3, h4, h5, p, a, a:hover{
+    color: white;
+  }
+  .type-cat{
+    a, a:hover{
+      color: #FFF;
+    }
+  }
+}
+//1 column with background image
+.col1-fullbg{
+  //temporary background - will need to set this functionality up within CQ
+  background-image: url('../images/category-template/desktop/img-bg-fullwidth.jpg');
+  background-position: center top;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+.col1-fullbg.example1{
+  background-image: url('../images/category-template/desktop/img-bg-fullwidth-slant.jpg');
+}
+
+
+//2 column separate modules
+.col2{
+  padding: 0;
+  width: 49.21875%;
+  float:left;
+  background: white;
+  .type-cat{
+    left: 20px;
+  }
+  .col-xs-12{
+    padding: 0;
+    img{
+      width: 100%;
+    }
+  }
+  .col2-content{
+    padding: 15%;
+  }
+  .col2-content.half{
+    padding: 5% 15%;
+  }
+}
+.col2.left{
+  margin-right: .78125%;
+}
+.col2.right{
+  margin-left: .78125%;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .module{
+    height: auto;
+    padding: 40px 0;
+    .table{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .vertical-wrap{
+      display:block;
+    }
+    .vert{
+      height: auto;
+    }
+  }
+
+
+  .col2{
+    width: 100%;
+    .col-xs-12{
+      padding: 0 1.5625%;
+    }
+    .col2-content{
+      padding: 15%;
+    }
+    .col2-content.half{
+      padding: 5% 15%;
+    }
+  }
+  .col2.left{
+    margin-right: 0;
+  }
+  .col2.right{
+    margin-left: 0;
+  }
+
+}
