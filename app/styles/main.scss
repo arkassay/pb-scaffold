@@ -83,7 +83,16 @@ a:hover{
   background-size:100% auto;
   background-repeat:no-repeat;
 }
-
+.icn-dl{
+  width: 32px;
+  height: 32px;
+  display:inline-block;
+  background-image: url('../images/sprite/icn-dl.png');
+  background-repeat: no-repeat;
+  position:relative;
+  top: 10px;
+  padding-right: 10px;
+}
 //utilities
 .center{
   text-align:center;
