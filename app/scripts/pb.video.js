@@ -10,14 +10,25 @@ pb.video = (function() {
     tag.src = 'https://www.youtube.com/iframe_api';
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    $('.video-container').each(function(index, obj) {
+      this.$obj = $(obj);
+      this.$index = $(index);
+      playerId = 'player' + $(index);
+      videoId = this.$obj.data('video-id');
+      // need the next this to be the init object not the video container object
+      this.videoIdPlayerName = new initVideoPlayer(videoIdPlayerName);
+    });
   };
 
-  function initVideoPlayer() {
+  function initVideoPlayer(playerId, videoId) {
     // 3. This function creates an <iframe> (and YouTube player)
     //    after the API code downloads.
-    var player;
+    var currentPlayerName = this.playerId,
+        currentVideoId = this.videoId;
 
-    player = new YT.Player('player', {
+    this.playerId = new YT.Player(currentPlayerName, {
+      videoId: currentVideoId,
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -29,6 +40,13 @@ pb.video = (function() {
   // 4. The API will call this function when the video player is ready.
   function onPlayerReady(event) {
     event.target.playVideo();
+
+    // actually need this to be siblings clearly below won't work as is :)
+    var videosPlaying = event.target.siblings('.video-container');
+    videosPlaying.addEventListener('click', function() {
+      event.target.pauseVideo();
+    });
+
   }
 
   // 5. The API calls this function when the player's state changes.
@@ -41,9 +59,7 @@ pb.video = (function() {
       done = true;
     }
   }
-  function stopVideo() {
-    player.stopVideo();
-  }
+
 
   function handlers() {//insert initial controller event handlers here.
     $('.video-container').click(function(e) {

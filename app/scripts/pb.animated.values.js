@@ -1,9 +1,7 @@
 pb.namespace('animatedvalues');
 
 pb.animatedvalues = (function() {
-  console.log('asdfsadf');
   function init() {
-    console.log('init');
     AnimatedValue();
     // SettingValues.init();
     this.powerPercentage =
@@ -12,14 +10,12 @@ pb.animatedvalues = (function() {
   };
 
   function AnimatedValue(el, options) {
-    console.log('animated value running');
     this.options = {};
     if (options) this.options = options;
     this.$el = $(el);
     this.value = 0;
 
     this.changeTo = function(val) {
-      conosole.log('change To');
       var s = '';
 
       if (this.options.beforeText) s += this.options.beforeText;
