@@ -1,4 +1,8 @@
 //generic module styles
+$catHeader: #12b1c9;
+$catHeaderLight: #FFF;
+$catLink: #12b1c9;
+
 .module{
   position:relative;
   height: 400px;
@@ -6,6 +10,7 @@
   .row{
     height: 100%;
   }
+
   .table{
     display: table;
     width: 100%;
@@ -18,29 +23,53 @@
   }
   h3{
     font-size: 2em;
-    color:$contentContentText;
+    color: $catHeader;
+  }
+  h3.big{
+    font-size: 4em;
   }
   p{
     font-size: 1.5em;
     color:$contentContentText;
   }
+  p.small{
+    font-size: 1em;
+  }
   a, a:hover{
-    color:$contentContentText;
+    color:$catLink;
   }
   .underline{
     border-bottom: 1px solid #FFF;
     padding: 0 0 35px 0;
   }
+  .uppercase{
+    text-transform: uppercase;
+  }
   .type-cat{
     position: absolute;
     top: 20px;
     left: 0px;
-    width: 100%;
+    width: auto;
+    z-index: 1;
     a, a:hover{
       padding: 20px 40px 20px 0;
       text-transform: uppercase;
       color: #888;
     }
+  }
+  .pos{
+    position:absolute;
+
+  }
+  .pos.bottom{
+    bottom: 15%;
+  }
+  .pos.left{
+    left: 10%;
+  }
+  .video-play{
+    margin: 0 auto;
+    display:block;
   }
   .type-cat.border{
     a{
@@ -50,6 +79,41 @@
     }
     a.last{
       border-right: none;
+    }
+  }
+  .type-cat.white{
+    a{
+      color: white;
+      border-right: 1px solid #FFF;
+    }
+    a.last{
+      border-right: none;
+    }
+  }
+  .cat-techlinks{
+    position:absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    p{
+      font-size: 1em;
+      color: #888;
+    }
+    a{
+      padding: 10px 5px;
+      background: #f2f2f2;
+      margin-left: 10px;
+    }
+    .blue-box{
+      padding: 10px 0 10px 7px;
+      background: #f2f2f2 url('../images/sprite/icn-lftarrow-blue-sm.png') no-repeat center left;
+      margin-left: -3px;
+      a, a:hover{
+        background: $catLink;
+        color: #FFF;
+        margin-left: 0px;
+      }
     }
   }
   blockquote{
@@ -70,25 +134,74 @@
 }
 .module.darkbg{
   h1, h2, h3, h4, h5, p, a, a:hover{
-    color: white;
+    color: $catHeaderLight;
   }
   .type-cat{
     a, a:hover{
       color: #FFF;
     }
   }
+  .type-cat.border{
+    a{
+      border-right: 1px solid #FFF;
+    }
+    a.last{
+      border-right: none;
+    }
+  }
+  .cat-techlinks{
+    position:absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    p{
+      font-size: 1em;
+      color: #FFF;
+    }
+    a{
+      padding: 10px 5px;
+      background: rgba(255,255,255,.2);
+      margin-left: 10px;
+    }
+
+  }
 }
 //1 column with background image
 .col1-fullbg{
-  //temporary background - will need to set this functionality up within CQ
-  background-image: url('../images/category-template/desktop/img-bg-fullwidth.jpg');
+  //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
+  background-image: url('../images/category-template/desktop/col1-bg-fullwidth.jpg');
   background-position: center top;
   background-repeat:no-repeat;
   background-size: cover;
-}
 
-.col1-fullbg.example1{
-  background-image: url('../images/category-template/desktop/img-bg-fullwidth-slant.jpg');
+}
+.col1-halfbg {
+  .col-sm-6.left{
+    padding: 0 5%;
+  }
+}
+.col1-halfbg.example1{
+  background: #FFF;
+
+  //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
+  .col-sm-6.bg{
+      background-image: url('../images/category-template/desktop/col1-bg-halfwidth.jpg');
+      background-position: right;
+      background-size: cover;
+      background-color: #FFF
+  }
+}
+.col1-halfbg.example2{
+  background: #FFF;
+
+  //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
+  .col-sm-6.bg{
+      background-image: url('../images/category-template/desktop/col2-bg-fullwidth4.jpg');
+      background-position: right;
+      background-size: cover;
+      background-color: #FFF
+  }
 }
 
 
@@ -98,6 +211,8 @@
   width: 49.21875%;
   float:left;
   background: white;
+  background-size: cover;
+  background-repeat:no-repeat;
   .type-cat{
     left: 20px;
   }
@@ -108,11 +223,30 @@
     }
   }
   .col2-content{
-    padding: 15%;
+    /*padding: 10%;*/
+    padding: 0 10%;
   }
   .col2-content.half{
-    padding: 5% 15%;
+    padding: 5% 10%;
   }
+  .col2-content.pos{
+    padding: 0;
+  }
+  .halfheight-bg{
+    height: 200px;
+    background-size: cover;
+    width: 100%;
+    position:relative;
+    img{
+      width: auto;
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -28.5px;
+      margin-left: -25.5px;
+    }
+  }
+
 }
 .col2.left{
   margin-right: .78125%;
@@ -121,7 +255,25 @@
   margin-left: .78125%;
 }
 
-
+//JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
+.col2.bgexample1{
+  background-image: url('../images/category-template/desktop/col2-bg-fullwidth1.jpg');
+}
+.col2.bgexample2{
+  background-image: url('../images/category-template/desktop/col2-bg-fullwidth3.jpg');
+}
+.col2.bgexample3{
+  background-image: url('../images/category-template/desktop/col2-bg-fullwidth2.jpg');
+}
+.halfheight-bg.example1{
+  background-image: url('../images/category-template/desktop/col2-bg-halfheight1.jpg');
+}
+.halfheight-bg.example3{
+  background-image: url('../images/category-template/desktop/col2-bg-halfheight2.jpg');
+}
+.halfheight-bg.example2{
+  background-image: url('../images/category-template/desktop/col2-bg-halfheight3.jpg');
+}
 
 @media screen and (max-width: 767px) {
   .module{

@@ -24,6 +24,12 @@ header{
   }
   li{
     float:right;
+    .text-link{
+      display:inline-block;
+      padding:20px 15px;
+      color:$menuLinkColor;
+      font-size:1.333em;
+    }
     .icn-menu, .icn-search, .icn-cart{
       display:block;
       width: 60px;
@@ -51,15 +57,16 @@ header{
 }
 .search-overlay,
 .menu-overlay{
+  display:none;
   position:absolute;
   top: 0;
   width: 100%;
   min-height: 100%;
-  height: auto;
+  overflow-y:scroll;
   background-color: $menuBgColor;
   color: $menuFontColor;
   box-sizing: border-box;
-  display:none;
+  padding-bottom:40px;
   //opacity: 0;
   //visibility: hidden;
   //transition: opacity 1s, visibility 0s 1s;

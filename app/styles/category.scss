@@ -52,10 +52,10 @@ header{
       }
     }
     .results{
-      font-style:italic;
       font-size:1.5em; /* mobile size - desktop not available */
       padding:0;
       text-align:center;
+      color: #727272;
     }
     .tab-pane-content{
 
@@ -78,5 +78,11 @@ header{
           }
       }
     }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  body{
+    font-size: 10px;
   }
 }
