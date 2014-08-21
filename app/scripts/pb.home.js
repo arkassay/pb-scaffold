@@ -11,7 +11,6 @@ pb.home = (function() {
     //$('#wrapper').snappish();
     //animateHeading();
     animateCategoryLinks();
-    animateDownArrow();
     switchBG();
     handlers();
   };
@@ -41,22 +40,31 @@ pb.home = (function() {
     //$('.welcome .links').addClass('animated fadeInUp');
   };
 
-  function animateDownArrow() {
-    $('.down-arrow').click(function() {
-      var nextScreen = $('article.category-1').offset();
-      $('html, body').animate({ scrollTop: nextScreen.top });
-    });
-
-    $('.down-arrow').addClass('animated infinite pulse');
-
-    window.setTimeout(function() {
-      $('.down-arrow').removeClass('animated infinite pulse');
-    }, 3000);
-
-  };
 
   function switchBG() {
     // animated numbers
+
+    /*************
+    START: code to automate animated values
+    based on class for AEM integration
+
+    pb.home.animatedValues = [];
+
+    $('.animatedValue').each(function(index, value) {
+      var id = $(value).attr('id'),
+          percent = $(value).hasClass('percent');
+
+      pb.home.animatedValues[index] = new pb.animatedvalues();
+
+      if (percent) {
+        pb.home.animatedValues[index].init(id, {afterText: '<span>%</span>'});
+      } else {
+        pb.home.animatedValues[index].init(id, {afterText: ''});
+      }
+      pb.home.animatedValues[index].changeTo(0);
+    });
+    END**********/
+
 
     pb.home.powerPercentage = new pb.animatedvalues();
     pb.home.powerPercentage
@@ -92,12 +100,26 @@ pb.home = (function() {
         $(currentCategoryContainer).fadeIn(function() {
           $(currentCategoryContainer)
             .toggleClass('visible-xs');
+
+          //get animated value(s) within a visible category
+          //on hover and animate it
+          /*var animateVal = $(this).find('.animatedValue'),
+              animateId = $(animateVal).attr('id');
+
+          if (animateVal.length > 0) {
+            $.each(pb.home.animatedValues, function(i, val) {
+              if (pb.home.animatedValues[i].$el.selector == animateId) {
+                pb.home.animatedValues[i].animateTo(90);
+              }
+            });
+          }*/
         });
       });
 
       // initiate number animations ==========================
       if (category == 'category-1') {
         pb.home.powerPercentage.animateTo('90');
+
       }else if (category == 'category-4') {
         pb.home.sendValue.animateTo('38');
       }else if (category == 'category-5') {
@@ -122,16 +144,14 @@ pb.home = (function() {
       animateHeading(false);
 
       // reset number animations ===================================
-      if (category == 'category-1') {
-        /* for some reason changeTo caused the 2nd
-        rollover of this not to animate */
+      /*if (category == 'category-1') {
         pb.home.powerPercentage.animateTo('0');
       }else if (category == 'category-4') {
         pb.home.sendValue.changeTo('0');
       }else if (category == 'category-5') {
         pb.home.retailerValue.changeTo('0');
         pb.home.retailerValue2.changeTo('0');
-      }
+      }*/
     });
   };
 
