@@ -275,11 +275,18 @@ $catLink: #12b1c9;
 
 @media screen and (max-width: 767px) {
   .module{
-    height: auto;
+    position:relative;
+    height:auto;
     overflow:hidden;
     padding: 0 0 25px;
     margin-right:8px;
     margin-left:8px;
+    &.darkbg{
+      min-height: 400px;
+      .table{
+        min-height:400px;
+      }
+    }
     &.col1-halfbg{
       padding-bottom:0;
     }
@@ -296,9 +303,6 @@ $catLink: #12b1c9;
         top:0;
         left:5%;
       }
-    }
-    &.col1-fullbg{
-      // padding:25% 0;
     }
     &.halfheight{
       .half{
@@ -326,12 +330,7 @@ $catLink: #12b1c9;
       }
     }
     .table{
-      display: block;
       width: 100%;
-      height: auto;
-    }
-    .vertical-wrap{
-      display:block;
     }
     .white{
       color:$catHeaderLight;
@@ -348,6 +347,14 @@ $catLink: #12b1c9;
     }
     .pos{
       position:static;
+    }
+    .pos.bottom.left{
+      position:absolute;
+    }
+    /* used to make sure video images are big enough */
+    .vert{
+      padding-top:15%;
+      padding-bottom:15%;
     }
     .type-cat{
       a{
@@ -380,6 +387,7 @@ $catLink: #12b1c9;
       margin:-60px auto auto -60px;
     }
   }
+
 
   /*.col2{
     width: 100%;
