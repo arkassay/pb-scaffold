@@ -28,10 +28,6 @@ header{
     position:relative;
   }
   .page-content{
-    /*position: absolute;
-    top: 0;
-    left: 0;*/
-
     width: 100%;
   }
   .category-content{
@@ -51,14 +47,8 @@ header{
         border-bottom:10px solid $highlightColor;
       }
     }
-    .results{
-      font-size:1.5em; /* mobile size - desktop not available */
-      padding:0;
-      text-align:center;
-      color: #727272;
-    }
     .tab-pane-content{
-
+      padding-top:20px;
       .content-type-title{
         display:inline-block;
         margin:0;

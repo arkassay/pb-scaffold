@@ -14,7 +14,7 @@ pb.category = (function() {
         return false;
       }
     } else {
-      location.href = pagename;
+      location.href = pagename + '.html';
     }
   }
 
@@ -47,8 +47,13 @@ pb.category = (function() {
 
   function getContent(pagename) {
 
-    var req = new XMLHttpRequest();
-    req.open('GET', '/content/' + pagename + '-content.html', false);
+    var req = new XMLHttpRequest(),
+        path = location.pathname,
+        lastIndex = path.lastIndexOf('/');
+
+    path = path.slice(0, lastIndex);
+    req.open('GET', path +
+        '/content/' + pagename + '-content.html', false);
     req.send(null);
     if (req.status == 200) {
       return req.responseText;
