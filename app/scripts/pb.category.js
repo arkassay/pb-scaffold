@@ -18,13 +18,29 @@ pb.category = (function() {
 
     $replace
       .after('<div class="page-content next"></div>');
-    $('.page-content.next').html(pageContent);
-    //$replace.addClass('animated fadeOutUp');
 
-    $('.page-content.next').addClass('animated fadeInUp');
-    $replace.fadeOut(2000, function() {
-      $(this).remove();
-    });
+
+    if (!pb.model.touch) {
+      $('.page-content.next').html(pageContent).css({
+        'top' : '100%',
+        'position' : 'relative' }).animate({
+        'top': 0
+      }, 1000);
+
+      $replace.animate({
+        top: '-100%'
+      },1000, function() {
+        $replace.remove();
+      });
+    } else {
+      $('.page-content.next').html(pageContent);
+      $replace.slideUp(1000, function() {
+        $(this).remove();
+      });
+      //$('html, body').animate({ 'scrollTop' : '0px' });
+      $('html, body').scrollTop(0);
+    }
+
   }
 
   function handlers() {
