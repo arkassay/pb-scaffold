@@ -84,7 +84,7 @@ pb.home = (function() {
     }
 
     $('.links a').mouseenter(function() {
-      var category = $(this).attr('class');
+      var category = $(this).attr('data-catshow');
       var currentCategoryContainer = '.group.' + category;
       $(this).parent().siblings().addClass('inactive');
 
@@ -129,7 +129,7 @@ pb.home = (function() {
 
 
     $('.links a').mouseout(function() {
-      var category = $(this).attr('class');
+      var category = $(this).attr('data-catshow');
       var currentCategoryContainer = '.group.' + category;
       $(this).parent().siblings().removeClass('inactive');
 
@@ -157,7 +157,7 @@ pb.home = (function() {
 
 
   function handlers() {
-    $('.links a').click(function(e) {
+    $('.cat-transition').click(function(e) {
       e.preventDefault();
       var catPage = $(this).attr('data-cat');
       if (catPage) {
