@@ -246,28 +246,33 @@ article{
           }
         }
       }
-      article.welcome#welcome{
-        background: none;
+      article.default{
+        background-image: url('../images/home/mobile/brandstory-globe-bg.png');
+        background-position: bottom center;
+        background-size: 100% auto;
+        height: 400px;
+
       }
 
       article.category-1{
         min-height:228px;
-        /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
+        background-image: url('../images/home/mobile/cat1-bg.png');
       }
       article.category-2{
         min-height:198px;
-        background-image: url('../images/home/mobile/bg-location-intelligence.png');
+        background-image: url('../images/home/mobile/cat2-bg.png');
       }
       article.category-3{
         min-height:198px;
-        /*background: #176D90;*/
+        background-image: url('../images/home/mobile/cat3-bg.png');
       }
       article.category-4{
         min-height:198px;
+        background-image: url('../images/home/mobile/cat4-bg.png');
       }
       article.category-5{
         min-height:233px;
-        /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
+        background-image: url('../images/home/mobile/cat5-bg.png');
       }
       footer{
           padding:0;
@@ -353,24 +358,34 @@ article{
         background-position:center center;
         background-repeat:no-repeat;
       }
+      article.default{
+        background-image: url('../images/home/mobile/brandstory-globe-bg.png');
+        background-position: bottom center;
+        background-size: 100% auto;
+        background-repeat:no-repeat;
+        height: 300px;
+
+      }
+
       article.category-1{
         min-height:228px;
-        /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
+        background-image: url('../images/home/mobile/cat1-bg.png');
       }
       article.category-2{
         min-height:198px;
-        background-image: url('../images/home/mobile/bg-location-intelligence.png');
+        background-image: url('../images/home/mobile/cat2-bg.png');
       }
       article.category-3{
         min-height:198px;
-        /*background: #176D90;*/
+        background-image: url('../images/home/mobile/cat3-bg.png');
       }
       article.category-4{
         min-height:198px;
+        background-image: url('../images/home/mobile/cat4-bg.png');
       }
       article.category-5{
         min-height:233px;
-        /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
+        background-image: url('../images/home/mobile/cat5-bg.png');
       }
   }
 }
