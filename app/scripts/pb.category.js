@@ -4,34 +4,59 @@ pb.namespace('category');
 
 pb.category = (function() {
 
-  function init() {
-    /*var pagename = location.pathname;
-    var categoryContent = pb.category.content.getContent(pagename);
-    pb.category.content.setContent(categoryContent);*/
-
-    handlers();
-  };
-
-  function loadCategory(pagename, $replace) {
-    var pageContent = pb.category.content.getContent(pagename);
-    pb.category.content.pushUrl(pagename);
-
-    $replace.addClass('animated fadeOutLeft').fadeOut();
-
-    $('header')
-      .append('<div class="page-content next animated fadeInRight"></div>');
-    $('.page-content.next').html(pageContent);
+  function transition(pagename, $replace) {
+    if (window.history && window.history.pushState) {
+      history.pushState(null, null, pagename + '.html');
+      var content = getContent(pagename);
+      if (content != false) {
+        setContent(content, $replace);
+      } else {
+        return false;
+      }
+    } else {
+      location.href = pagename;
+    }
   }
 
-  function handlers() {
+  function setContent(content, $replace) {
+    $replace
+      .after('<div class="page-content next"></div>');
+
+
+    if (!pb.model.touch) {
+      $('.page-content.next').html(content).css({
+        'top' : '100%',
+        'position' : 'relative' }).animate({
+        'top': 0
+      }, 1000);
+
+      $replace.animate({
+        top: '-100%'
+      },1000, function() {
+        $replace.remove();
+      });
+    } else {
+      $('.page-content.next').html(content);
+      $replace.slideUp(1000, function() {
+        $(this).remove();
+      });
+      //$('html, body').animate({ 'scrollTop' : '0px' });
+      $('html, body').scrollTop(0);
+    }
+  }
+
+  function getContent(pagename) {
+
+    var req = new XMLHttpRequest();
+    req.open('GET', '/content/' + pagename + '-content.html', false);
+    req.send(null);
+    if (req.status == 200) {
+      return req.responseText;
+    }
+    return false;
   }
 
   return {
-    init: init,
-    loadCategory: loadCategory
+    transition: transition
   };
 })();
-
-$(function() {
-  pb.category.init();
-});

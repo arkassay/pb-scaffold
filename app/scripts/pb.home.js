@@ -61,30 +61,30 @@ pb.home = (function() {
     });
     END**********/
 
+    if (!pb.model.touch) {
+      pb.home.powerPercentage = new pb.animatedvalues();
+      pb.home.powerPercentage
+        .init('#power-percentage', {afterText: '<span>%</span>'});
+      //pb.home.powerPercentage.changeTo(0);
 
-    pb.home.powerPercentage = new pb.animatedvalues();
-    pb.home.powerPercentage
-      .init('#power-percentage', {afterText: '<span>%</span>'});
-    //pb.home.powerPercentage.changeTo(0);
+      pb.home.sendValue = new pb.animatedvalues();
+      pb.home.sendValue
+        .init('#send-value', {afterText: ''});
+      pb.home.sendValue.changeTo(0);
 
-    pb.home.sendValue = new pb.animatedvalues();
-    pb.home.sendValue
-      .init('#send-value', {afterText: ''});
-    pb.home.sendValue.changeTo(0);
+      pb.home.retailerValue = new pb.animatedvalues();
+      pb.home.retailerValue
+        .init('#retailer-value', {afterText: ''});
+      pb.home.retailerValue.changeTo(0);
 
-    pb.home.retailerValue = new pb.animatedvalues();
-    pb.home.retailerValue
-      .init('#retailer-value', {afterText: ''});
-    pb.home.retailerValue.changeTo(0);
-
-    pb.home.retailerValue2 = new pb.animatedvalues();
-    pb.home.retailerValue2
-      .init('#retailer-value-2', {afterText: ''});
-    pb.home.retailerValue2.changeTo(0);
-
+      pb.home.retailerValue2 = new pb.animatedvalues();
+      pb.home.retailerValue2
+        .init('#retailer-value-2', {afterText: ''});
+      pb.home.retailerValue2.changeTo(0);
+    }
 
     $('.links a').mouseenter(function() {
-      var category = $(this).attr('class');
+      var category = $(this).attr('data-catshow');
       var currentCategoryContainer = '.group.' + category;
       $(this).parent().siblings().addClass('inactive');
 
@@ -113,21 +113,23 @@ pb.home = (function() {
       });
 
       // initiate number animations ==========================
-      if (category == 'category-1') {
-        pb.home.powerPercentage.animateTo('90');
+      if (!pb.model.touch) {
+        if (category == 'category-1') {
+          pb.home.powerPercentage.animateTo('90');
 
-      }else if (category == 'category-4') {
-        pb.home.sendValue.animateTo('38');
-      }else if (category == 'category-5') {
-        pb.home.retailerValue.animateTo('45');
-        pb.home.retailerValue2.animateTo('100');
+        }else if (category == 'category-4') {
+          pb.home.sendValue.animateTo('38');
+        }else if (category == 'category-5') {
+          pb.home.retailerValue.animateTo('45');
+          pb.home.retailerValue2.animateTo('100');
+        }
       }
 
     });
 
 
     $('.links a').mouseout(function() {
-      var category = $(this).attr('class');
+      var category = $(this).attr('data-catshow');
       var currentCategoryContainer = '.group.' + category;
       $(this).parent().siblings().removeClass('inactive');
 
@@ -155,9 +157,12 @@ pb.home = (function() {
 
 
   function handlers() {
-    $('.links a[data-cat=location-intelligence]').click(function(e) {
+    $('.cat-transition').click(function(e) {
       e.preventDefault();
-      pb.category.loadCategory('category', $('#home-area'));
+      var catPage = $(this).attr('data-cat');
+      if (catPage) {
+        var loaded = pb.category.transition(catPage, $('#home-area'));
+      }
     });
     //handle back button press - should load previous pages content
     /*window.addEventListener('popstate', function(e) {

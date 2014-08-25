@@ -102,6 +102,21 @@ hr.white{
   margin: 35px 0;
   border: none;
 }
+.visible-touch{
+  display:none !important;
+}
+.hidden-touch{
+  display:block !important;
+}
+
+.touch {
+  .visible-touch{
+    display:block !important;
+  }
+  .hidden-touch{
+    display:none !important;
+  }
+}
 
 //TABLET GENERAL STYLES HERE
 @media screen and (min-width: 768px) and (max-width: 1024px){

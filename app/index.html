@@ -63,19 +63,19 @@
                   <div class="container-fluid">
                     <div class="row links hidden-xs">
                       <div class="cat col-sm-2 col-sm-offset-1">
-                        <a href="#" class="category-1">Customer Information Management</a>
+                        <a href="#" data-catshow="category-1">Customer Information Management</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                       <div class="cat col-sm-2">
-                        <a href="#" class="category-2" data-cat="location-intelligence">Location Intelligence</a>
+                        <a href="#" class="cat-transition" data-catshow="category-2" data-cat="category">Location Intelligence</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                       <div class="cat col-sm-2">
-                        <a href="#" class="category-3">Customer Engagement</a>
+                        <a href="#" data-catshow="category-3">Customer Engagement</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                       <div class="cat col-sm-2">
-                        <a href="#" class="category-4">Shipping and Mailing</a>
+                        <a href="#" data-catshow="category-4">Shipping and Mailing</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                       <div class="cat col-sm-2 last">
-                        <a href="#" class="category-5">Global Ecommerce</a>
+                        <a href="#" data-catshow="category-5">Global Ecommerce</a>
                       </div><!--/.col-sm-2.col-xs-12-->
                     </div>
                   </div>
@@ -94,8 +94,8 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">We power <span id="power-percentage" class="percent animatedValue">0</span> of the Fortune 500.</h2>
-                      <h2 class="visible-xs col-xs-12">Customer Information Management</h2>
+                      <h2 class="animated fadeIn hidden-touch">We power <span id="power-percentage" class="percent animatedValue">90%</span> of the Fortune 500.</h2>
+                      <h2 class="visible-touch">Customer Information Management</h2>
                       <p class="animated fadeIn">Find new marketing opportunities through data optimization.</p>
                     </div>
                   </div><!--/.row-->
@@ -105,8 +105,8 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs"><span class="myval">1.2</span> billion people use our technology to check-in on social media.</h2>
-                      <h2 class="visible-xs col-xs-12">Location Intelligence</h2>
+                      <h2 class="animated fadeIn hidden-touch"><span class="myval">1.2</span> billion people use our technology to check-in on social media.</h2>
+                      <h2 class="visible-touch"><a href="#" class="cat-transition" data-cat="category">Location Intelligence</a></h2>
                       <p class="animated fadeIn">Turn information into insights by connecting geography with data.</p>
                     </div>
                   </div><!--/.row-->
@@ -116,8 +116,8 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">We help 2 million businesses deliver an effective message.</h2>
-                      <h2 class="visible-xs col-xs-12">Customer Engagement</h2>
+                      <h2 class="animated fadeIn hidden-touch">We help 2 million businesses deliver an effective message.</h2>
+                      <h2 class="visible-touch">Customer Engagement</h2>
                       <p class="animated fadeIn">Build brand loyalty by starting the right conversation.</p>
                     </div>
                   </div><!--/.row-->
@@ -127,8 +127,8 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs">We print, sort and send <span id="send-value" class="animatedValue">0</span> million pieces of mail every day.</h2>
-                      <h2 class="visible-xs col-xs-12">Shipping and Mailing</h2>
+                      <h2 class="animated fadeIn hidden-touch">We print, sort and send <span id="send-value" class="animatedValue">38</span> million pieces of mail every day.</h2>
+                      <h2 class="visible-touch">Shipping and Mailing</h2>
                       <p class="animated fadeIn">Print. Mail. Ship. Increase productivity while lowering costs.</p>
                     </div>
                   </div><!--/.row-->
@@ -138,8 +138,8 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-xs"><span id='retailer-value'>45</span> of the top <span id='retailer-value-2' class="animatedValue">100</span> Internet retailers in the world use our technology.</h2>
-                      <h2 class="visible-xs col-xs-12">Global Ecommerce</h2>
+                      <h2 class="animated fadeIn hidden-touch"><span id='retailer-value'>45</span> of the top <span id='retailer-value-2' class="animatedValue">100</span> Internet retailers in the world use our technology.</h2>
+                      <h2 class="visible-touch">Global Ecommerce</h2>
                       <p class="animated fadeIn">Streamline international shipping by removing the hurdles.</p>
                     </div>
                   </div><!--/.row-->
@@ -246,11 +246,11 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/pb.main.js"></script>
         <script src="scripts/pb.menu.js"></script>
+        <script src="scripts/pb.model.js"></script>
         <script src="scripts/pb.header.js"></script>
         <script src="scripts/pb.home.js"></script>
         <script src="scripts/pb.animatedvalues.js"></script>
         <script src="scripts/pb.category.js"></script>
-        <script src="scripts/category/pb.category.content.js"></script>
         <!-- endbuild -->
 
 </body>
