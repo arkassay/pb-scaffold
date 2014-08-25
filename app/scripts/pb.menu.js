@@ -43,7 +43,7 @@ pb.menu = (function() {
   }
 
   function searchClear() {
-    var $input = $('.search-overlay input');
+    var $input = $('.mobile-search');
 
     $input.val('Search');
   };
@@ -90,9 +90,9 @@ pb.menu = (function() {
       searchClear();
     });
 
-    /*$('input').each(function() {
+    $('input').each(function() {
       placeholder($(this));
-    });*/
+    });
 
   }
 
