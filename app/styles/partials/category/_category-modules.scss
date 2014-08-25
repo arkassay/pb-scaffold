@@ -165,7 +165,6 @@ $catLink: #12b1c9;
       background: rgba(255,255,255,.2);
       /*margin-left: 10px;*/
     }
-
   }
 }
 //1 column with background image
@@ -295,6 +294,18 @@ $catLink: #12b1c9;
         .table{
           min-height:400px;
         }
+        .cat-techlinks{
+          a{
+          /*padding: 10px 5px;*/
+          display:none;
+          background: rgba(255,255,255,.2);
+          /*margin-left: 10px;*/
+          }
+          a:first-child,
+          a:last-child{
+            display:inline-block;
+          }
+        }
       }
       &.col1-halfbg{
         padding-bottom:0;
@@ -313,6 +324,13 @@ $catLink: #12b1c9;
           left:auto;
           margin-bottom:10px;
           margin-left:5%;
+          a{
+            display:none;
+          }
+          a:first-child,
+          a:last-child{
+            display:inline-block;
+          }
         }
       }
       &.col2,
