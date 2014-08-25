@@ -7,6 +7,7 @@ pb.brandstory = (function() {
 
   function init() {
     handlers();
+    //animateDownArrow();
   };
 
   //for modern browsers use pushState()
@@ -20,6 +21,20 @@ pb.brandstory = (function() {
       //start category page animations
     }
   }
+
+  function animateDownArrow() {
+    $('.down-arrow').click(function() {
+      var nextScreen = $('article.category-1').offset();
+      $('html, body').animate({ scrollTop: nextScreen.top });
+    });
+
+    $('.down-arrow').addClass('animated infinite pulse');
+
+    window.setTimeout(function() {
+      $('.down-arrow').removeClass('animated infinite pulse');
+    }, 3000);
+
+  };
 
   //for legacy support use location.href
   function legacyChangeUrl(pagename) {

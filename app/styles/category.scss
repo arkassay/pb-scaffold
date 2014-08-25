@@ -86,3 +86,19 @@ header{
     font-size: 10px;
   }
 }
+
+@media (max-width: 768px){
+  body{
+    font-size: 8px;
+  }
+  .main-content{
+
+    .category-content{
+
+        .results{
+          margin:20px 0;
+        }
+
+    }
+  }
+}
