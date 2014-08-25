@@ -250,9 +250,19 @@ header{
     }
     .logo{
       padding-left: 5%;
-      padding-right: 0%;
+      padding-right: 5%;
       box-sizing: border-box;
       padding-bottom: 15px;
+      max-width:100%;
+      img{
+        max-width:100%;
+      }
+    }
+    .logo-mobile{
+      max-width: 100%;
+      img{
+        max-width:100%;
+      }
     }
     .close{
       background-image: url('../images/sprite-mobile/icn-close2x.png');
