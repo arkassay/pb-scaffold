@@ -279,9 +279,33 @@ $catLink: #12b1c9;
   background-image: url('../images/category-template/desktop/col2-bg-halfheight3.jpg');
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .module{
+    h3.big{
+      font-size: 3em;
+    }
+    blockquote{
+      margin: 0;
+    }
+    .cat-techlinks{
+      left: 1.5625%;
+    }
+  }
+}
+
 @media screen and (max-width: 767px) {
   .touch,
   .no-touch{
+    .hero-wrapper {
+      .headline{
+        padding-top: 120px;
+        padding-bottom: 100px;
+        h1{
+          font-size: 1.5em;
+          margin-bottom: 25px;
+        }
+      }
+    }
     .module{
       position:relative;
       height:auto;
@@ -297,6 +321,12 @@ $catLink: #12b1c9;
           padding-top: 10px;
           padding-bottom: 10px;
         }
+      }
+      h3.big{
+        font-size: 3em;
+      }
+      blockquote{
+        margin: 0;
       }
       &.darkbg{
         /*min-height: 400px;*/
@@ -352,15 +382,18 @@ $catLink: #12b1c9;
         margin-left:8px;
       }
       &.col2{
+        .halfheight-bg{
+          min-height: 100px;
+          height: auto;
+        }
         .col2-content{
-          padding:0 5%;
+          padding:25px 5%;
+          display:inline-block;
           h3{
-            margin-top:30px;
-            margin-bottom:20px;
+            margin-bottom:15px;
           }
           p{
-            margin-top:0;
-            margin-bottom:30vpx;
+            margin:0;
           }
         }
       }
