@@ -273,97 +273,100 @@ article{
 
 
 @media screen and (max-width: 767px){
-    body{
-      background: -webkit-linear-gradient(right top, rgba(43,71,92,1),rgba(72,146,131,1));
-      background: -moz-linear-gradient(bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
-      background: linear-gradient(to bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
-    }
-    #home-area{
-      position:static;
-      height: auto;
-      width: 100%;
-      background: none;
-    }
-    article{
-      background: none;
-      position:static;
-      height: auto;
-      width: 100%;
-      padding: 50px 0;
-      h1, h2{
-        font-size: 3.5em;
-        font-weight: normal;
-        margin-bottom:15px;
+  .no-touch,
+  .touch{
+      body{
+        background: -webkit-linear-gradient(right top, rgba(43,71,92,1),rgba(72,146,131,1));
+        background: -moz-linear-gradient(bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
+        background: linear-gradient(to bottom left, rgba(43,71,92,1),rgba(72,146,131,1));
       }
-      p.larger{
-        font-size: 2.375em;
-        a, a:hover{
-          color:$homeLinkColor;
-          text-decoration: none;
+      #home-area{
+        position:static;
+        height: auto;
+        width: 100%;
+        background: none;
+      }
+      article{
+        background: none;
+        position:static;
+        height: auto;
+        width: 100%;
+        padding: 50px 0;
+        h1, h2{
+          font-size: 3.5em;
+          font-weight: normal;
+          margin-bottom:15px;
         }
-        a:hover{
-          color: $homeLinkOnColor;
+        p.larger{
+          font-size: 2.375em;
+          a, a:hover{
+            color:$homeLinkColor;
+            text-decoration: none;
+          }
+          a:hover{
+            color: $homeLinkOnColor;
+          }
+
+        }
+        p{
+          color: $homeFontColor;
+          font-size:1.6em;
+        }
+        // article background styles
+        &.default,
+        &.category-1,
+        &.category-2,
+        &.category-3,
+        &.category-4,
+        &.category-5{
+          background-image:none;
         }
 
       }
-      p{
-        color: $homeFontColor;
-        font-size:1.6em;
-      }
-      // article background styles
-      &.default,
-      &.category-1,
-      &.category-2,
-      &.category-3,
-      &.category-4,
-      &.category-5{
-        background-image:none;
-      }
-
-    }
-    article.default,
-    article.welcome{
-      position:static;
-      width: auto;
-      height: auto;
-      padding: 50px 0;
-      display:block;
-      background:none;
-      .container-fluid{
-        .row{
-          position:relative;
-          .headline{
-            position:static;
+      article.default,
+      article.welcome{
+        position:static;
+        width: auto;
+        height: auto;
+        padding: 50px 0;
+        display:block;
+        background:none;
+        .container-fluid{
+          .row{
+            position:relative;
+            .headline{
+              position:static;
+            }
           }
         }
       }
-    }
-    article.welcome#welcome{
-      background: none;
-    }
-    article
-    {
-      background-size:auto 80%;
-      background-position:center center;
-      background-repeat:no-repeat;
-    }
-    article.category-1{
-      min-height:228px;
-      /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
-    }
-    article.category-2{
-      min-height:198px;
-      background-image: url('../images/home/mobile/bg-location-intelligence.png');
-    }
-    article.category-3{
-      min-height:198px;
-      /*background: #176D90;*/
-    }
-    article.category-4{
-      min-height:198px;
-    }
-    article.category-5{
-      min-height:233px;
-      /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
-    }
+      article.welcome#welcome{
+        background: none;
+      }
+      article
+      {
+        background-size:auto 80%;
+        background-position:center center;
+        background-repeat:no-repeat;
+      }
+      article.category-1{
+        min-height:228px;
+        /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
+      }
+      article.category-2{
+        min-height:198px;
+        background-image: url('../images/home/mobile/bg-location-intelligence.png');
+      }
+      article.category-3{
+        min-height:198px;
+        /*background: #176D90;*/
+      }
+      article.category-4{
+        min-height:198px;
+      }
+      article.category-5{
+        min-height:233px;
+        /*background-image: url('../images/home/mobile/bg-global-ecommerce.png');*/
+      }
+  }
 }
