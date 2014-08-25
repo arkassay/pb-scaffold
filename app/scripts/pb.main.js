@@ -29,6 +29,9 @@ pb.controller = (function() {
     pb.menu.init();
     pb.header.init();
     handlers();
+    //set touch boolean for global access
+    pb.model.touch = $('html').hasClass('touch');
+
   };
 
   function handlers() {
