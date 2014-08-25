@@ -58,7 +58,7 @@ header{
 .search-overlay,
 .menu-overlay{
   display:none;
-  position:absolute;
+  position:fixed;
   top: 0;
   width: 100%;
   min-height: 100%;
