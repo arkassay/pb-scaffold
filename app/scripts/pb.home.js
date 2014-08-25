@@ -161,7 +161,7 @@ pb.home = (function() {
       e.preventDefault();
       var catPage = $(this).attr('data-cat');
       if (catPage) {
-        var loaded = pb.category.loadCategory(catPage, $('#home-area'));
+        var loaded = pb.category.transition(catPage, $('#home-area'));
       }
     });
     //handle back button press - should load previous pages content
