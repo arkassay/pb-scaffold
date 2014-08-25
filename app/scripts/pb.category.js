@@ -14,7 +14,13 @@ pb.category = (function() {
 
   function loadCategory(pagename, $replace) {
     var pageContent = pb.category.content.getContent(pagename);
-    pb.category.content.pushUrl(pagename);
+
+    if (window.history && window.history.pushState) {
+      pb.category.content.pushUrl(pagename);
+    } else {
+      pb.category.content.refreshUrl(pagename + '.html');
+      return;
+    }
 
     $replace
       .after('<div class="page-content next"></div>');

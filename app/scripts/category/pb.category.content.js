@@ -21,7 +21,8 @@ pb.category.content = (function() {
 
   //for legacy support use location.href
   function refreshUrl(pagename) {
-    location.href(pagename);
+    console.log('refresh page');
+    location.href = pagename;
   }
 
   function getContent(pagename) {
