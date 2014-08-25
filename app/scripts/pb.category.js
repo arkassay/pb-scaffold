@@ -14,7 +14,7 @@ pb.category = (function() {
         return false;
       }
     } else {
-      location.href = pagename;
+      location.href = pagename + '.html';
     }
   }
 
