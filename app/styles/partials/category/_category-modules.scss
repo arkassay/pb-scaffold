@@ -1,6 +1,7 @@
 //generic module styles
 $catHeader: #12b1c9;
 $catHeaderLight: #FFF;
+$catHeaderDark: #888;
 $catLink: #12b1c9;
 
 .module{
@@ -48,12 +49,12 @@ $catLink: #12b1c9;
   .type-cat{
     top: 20px;
     left: 0px;
-    width: auto;
+    /*width: auto;*/
     z-index: 1;
     a, a:hover{
       padding: 20px 40px 20px 0;
       text-transform: uppercase;
-      color: #888;
+      color: $catHeaderDark;
     }
   }
   .pos{
@@ -72,7 +73,7 @@ $catLink: #12b1c9;
   .type-cat.border{
     a{
       padding-right: 20px;
-      border-right: 1px solid #888;
+      border-right: 1px solid $catHeaderDark;
       margin-right: 20px;
     }
     a.last{
@@ -91,12 +92,13 @@ $catLink: #12b1c9;
   .cat-techlinks{
     position:absolute;
     bottom: 20px;
-    left: 0;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     z-index: 1;
+    padding:0;
     p{
       font-size: 1em;
-      color: #888;
+      color: $catHeaderDark;
     }
     a{
       padding: 10px 5px;
@@ -148,31 +150,36 @@ $catLink: #12b1c9;
     }
   }
   .cat-techlinks{
-    position:absolute;
+    /*position:absolute;
     bottom: 20px;
-    left: 0;
+    left: 5%;
     width: 100%;
-    z-index: 1;
+    padding:0;
+    z-index: 1;*/
     p{
-      font-size: 1em;
+      /*font-size: 1em;*/
       color: #FFF;
     }
     a{
-      padding: 10px 5px;
+      /*padding: 10px 5px;*/
       background: rgba(255,255,255,.2);
-      margin-left: 10px;
+      /*margin-left: 10px;*/
     }
 
   }
 }
 //1 column with background image
 .col1-fullbg{
+  padding:0 5%;
   //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
   background-image: url('../images/category-template/desktop/col1-bg-fullwidth.jpg');
   background-position: center top;
   background-repeat:no-repeat;
   background-size: cover;
 
+  .col-sm-8{
+    padding:0;
+  }
 }
 .col1-halfbg {
   .col-sm-6.left{
@@ -214,7 +221,7 @@ $catLink: #12b1c9;
   .type-cat{
     left: 20px;
   }
-  .col-xs-12{
+  > .col-xs-12{
     padding: 0;
     img{
       width: 100%;
@@ -274,138 +281,159 @@ $catLink: #12b1c9;
 }
 
 @media screen and (max-width: 767px) {
-  .module{
-    position:relative;
-    height:auto;
-    overflow:hidden;
-    padding: 0 0 25px;
-    margin-right:8px;
-    margin-left:8px;
-    &.darkbg{
-      min-height: 400px;
-      .table{
-        min-height:400px;
-      }
-    }
-    &.col1-halfbg{
-      padding-bottom:0;
-    }
-    &.col2,
-    &.con1{
-      float:none;
-      display:block;
-      width:auto;
+  .touch,
+  .no-touch{
+    .module{
+      position:relative;
+      height:auto;
+      overflow:hidden;
+      padding: 0 0 25px;
       margin-right:8px;
       margin-left:8px;
-      .type-cat{
-        position:relative;
-        z-index:5;
-        top:0;
-        left:5%;
-      }
-    }
-    &.halfheight{
-      .half{
-        width:100%;
-        height:100%;
-        padding:0;
-        margin-bottom:-135px;
-        h3{
-          position:relative;
-          z-index:5;
-          color:#FFF;
-          margin-left:10%;
-          margin-right:10%;
-        }
-        p{
-          position:relative;
-          top:-135px;
-          margin-left:10%;
-          margin-right:10%;
-        }
-        .halfheight-bg{
-          position:relative;
-          top:-135px;
+      &.darkbg{
+        min-height: 400px;
+        .table{
+          min-height:400px;
         }
       }
-    }
-    .table{
-      width: 100%;
-    }
-    .white{
-      color:$catHeaderLight;
-    }
-    h3,
-    h3.big{
-      font-size:3em;
-    }
-    p.small{
-      font-size:1.5em;
-    }
-    .vert{
-      height: auto;
-    }
-    .pos{
-      position:static;
-    }
-    .pos.bottom.left{
-      position:absolute;
-    }
-    /* used to make sure video images are big enough */
-    .vert{
-      padding-top:15%;
-      padding-bottom:15%;
-    }
-    .type-cat{
-      a{
-        display:inline-block;
-        margin-bottom:20px;
+      &.col1-halfbg{
+        padding-bottom:0;
+        .vert{
+          &.left{
+            padding-top:30px;
+            padding-bottom:30px;
+            .table{
+              height:auto;
+            }
+          }
+        }
+        .cat-techlinks{
+          position:static;
+          top:auto;
+          left:auto;
+          margin-bottom:10px;
+          margin-left:5%;
+        }
+      }
+      &.col2,
+      &.con1{
+        float:none;
+        display:block;
+        width:auto;
+        margin-right:8px;
+        margin-left:8px;
+      }
+      &.col2{
+        .col2-content{
+          padding:0 5%;
+          h3{
+            margin-top:30px;
+            margin-bottom:20px;
+          }
+          p{
+            margin-top:0;
+            margin-bottom:30vpx;
+          }
+        }
+      }
+      &.halfheight{
+        padding-bottom:0;
+        .type-cat.white.border{
+            a{
+              color:$catHeaderDark;
+              border-color:$catHeaderDark;
+            }
+        }
+      }
+      .table{
+        width: 100%;
+      }
+      .white{
+        color:$catHeaderLight;
+      }
+      h3,
+      h3.big{
+        font-size:3em;
+      }
+      p.small{
         font-size:1.5em;
       }
+      .vert{
+        height: auto;
+      }
+      .pos{
+        position:static;
+      }
+      .pos.bottom.left{
+        position:absolute;
+      }
+      /* used to make sure video images are big enough */
+      .vert{
+        padding-top:15%;
+        padding-bottom:15%;
+      }
+      .type-cat{
+        padding-left:5%;
+        left:auto;
+        top:auto;
+        clear:both;
+        a{
+          display:inline-block;
+          font-size:1.5em;
+        }
+      }
+      blockquote{
+        font-size:3.750em;
+      }
+      .quote-cite{
+        font-size:0.800em;
+      }
     }
-    blockquote{
-      font-size:3.750em;
-    }
-    .quote-cite{
-      font-size:0.800em;
-    }
-  }
 
-  .col1-halfbg.example2 .col-sm-6.bg.mobil-video-image-example{
-    background-image:none;
-    position:relative;
-    padding:0;
-    .video-bg-img{
-      width:100%;
-      height:auto;
+    .col1-halfbg.example2 .col-sm-6.bg.mobil-video-image-example{
+      background-image:none;
+      position:relative;
+      padding:0;
+      .video-bg-img{
+        width:100%;
+        height:auto;
+      }
+      .table{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:auto;
+        margin:-60px auto auto -60px;
+      }
     }
-    .table{
-      position:absolute;
-      top:50%;
-      left:50%;
-      width:auto;
-      margin:-60px auto auto -60px;
-    }
-  }
 
+    .col1-fullbg{
+      padding:0 5%;
+      .col-xs-11{
+        padding:0;
+      }
+      .type-cat{
+        padding-left:0;
+      }
+    }
 
-  /*.col2{
-    width: 100%;
-    .col-xs-12{
-      padding: 0 1.5625%;
+    /*.col2{
+      width: 100%;
+      .col-xs-12{
+        padding: 0 1.5625%;
+      }
+      .col2-content{
+        padding: 15%;
+      }
+      .col2-content.half{
+        padding: 5% 15%;
+      }
     }
-    .col2-content{
-      padding: 15%;
+    .col2.left{
+      margin-right: 0;
     }
-    .col2-content.half{
-      padding: 5% 15%;
-    }
+    .col2.right{
+      margin-left: 0;
+    }*/
   }
-  .col2.left{
-    margin-right: 0;
-  }
-  .col2.right{
-    margin-left: 0;
-  }*/
-
 }
