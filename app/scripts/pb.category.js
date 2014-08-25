@@ -16,11 +16,15 @@ pb.category = (function() {
     var pageContent = pb.category.content.getContent(pagename);
     pb.category.content.pushUrl(pagename);
 
-    $replace.addClass('animated fadeOutUp').fadeOut();
-
-    $('header')
-      .append('<div class="page-content next animated fadeInUp"></div>');
+    $replace
+      .after('<div class="page-content next"></div>');
     $('.page-content.next').html(pageContent);
+    //$replace.addClass('animated fadeOutUp');
+
+    $('.page-content.next').addClass('animated fadeInUp');
+    $replace.fadeOut(2000, function() {
+      $(this).remove();
+    });
   }
 
   function handlers() {
