@@ -16,10 +16,10 @@ pb.category = (function() {
     var pageContent = pb.category.content.getContent(pagename);
     pb.category.content.pushUrl(pagename);
 
-    $replace.addClass('animated fadeOutLeft').fadeOut();
+    $replace.addClass('animated fadeOutUp').fadeOut();
 
     $('header')
-      .append('<div class="page-content next animated fadeInRight"></div>');
+      .append('<div class="page-content next animated fadeInUp"></div>');
     $('.page-content.next').html(pageContent);
   }
 

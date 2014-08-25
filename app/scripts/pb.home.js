@@ -7,17 +7,13 @@ pb.home = (function() {
   var activeLinks = false;
 
   function init() {
-    //removed because removed snappish from this page
-    //$('#wrapper').snappish();
-    //animateHeading();
-    animateCategoryLinks();
+    //animateCategoryLinks();
     switchBG();
     handlers();
   };
 
 
   function animateHeading(activeLinks) {
-
     // fade homescreen out  ==========================
     if (activeLinks == true && !$(homeScreen).hasClass('visible-xs')) {
       $(homeScreen).fadeOut('fast', function() {
@@ -27,17 +23,17 @@ pb.home = (function() {
     }
 
     // fade homescreen in  ==========================
-    if (activeLinks == false && $(homeScreen).hasClass('visible-xs')) {
+    if (activeLinks == false &&
+        $(homeScreen).hasClass('visible-xs')) {
       $(homeScreen).fadeOut(function() {
-        $(homeScreen)
-        .removeClass('visible-xs');
+        $(homeScreen).removeClass('visible-xs');
         $(homeScreen).fadeIn();
       });
     }
   };
 
   function animateCategoryLinks() {
-    //$('.welcome .links').addClass('animated fadeInUp');
+    $('.welcome .links').addClass('animated fadeInUp');
   };
 
 
@@ -136,12 +132,14 @@ pb.home = (function() {
       $(this).parent().siblings().removeClass('inactive');
 
       // fade current section out  ==========================
+
       $(currentCategoryContainer).fadeOut(function() {
         $(currentCategoryContainer)
-          .toggleClass('visible-xs');
+        .toggleClass('visible-xs');
+        if (!$('.links .cat').hasClass('inactive')) {
+          animateHeading(false);
+        }
       });
-
-      animateHeading(false);
 
       // reset number animations ===================================
       /*if (category == 'category-1') {
@@ -154,6 +152,7 @@ pb.home = (function() {
       }*/
     });
   };
+
 
   function handlers() {
     $('.links a[data-cat=location-intelligence]').click(function(e) {
