@@ -371,10 +371,10 @@ $catLink: #12b1c9;
       }
       h3,
       h3.big{
-        font-size:3em;
+        /*font-size:3em;*/
       }
       p.small{
-        font-size:1.5em;
+        /*font-size:1.5em;*/
       }
       .vert{
         height: auto;
@@ -397,14 +397,14 @@ $catLink: #12b1c9;
         clear:both;
         a{
           display:inline-block;
-          font-size:1.5em;
+          /*font-size:1.5em;*/
         }
       }
       blockquote{
-        font-size:3.750em;
+        /*font-size:3.750em;*/
       }
       .quote-cite{
-        font-size:0.800em;
+        /*font-size:0.800em;*/
       }
     }
 
@@ -453,5 +453,26 @@ $catLink: #12b1c9;
     .col2.right{
       margin-left: 0;
     }*/
+
+    //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
+    .col2.bgexample1{
+      background-image: url('../images/category-template/mobile/col2-bg-fullwidth1.jpg');
+    }
+    .col2.bgexample2{
+      background-image: url('../images/category-template/mobile/col2-bg-fullwidth3.jpg');
+    }
+    .col2.bgexample3{
+      background-image: url('../images/category-template/mobile/col2-bg-fullwidth2.jpg');
+    }
+    .halfheight-bg.example1{
+      background-image: url('../images/category-template/mobile/col2-bg-halfheight1.jpg');
+    }
+    .halfheight-bg.example3{
+      background-image: url('../images/category-template/mobile/col2-bg-halfheight2.jpg');
+    }
+    .halfheight-bg.example2{
+      background-image: url('../images/category-template/mobile/col2-bg-halfheight3.jpg');
+    }
+
   }
 }
