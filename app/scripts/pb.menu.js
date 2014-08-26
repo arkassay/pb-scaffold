@@ -75,10 +75,10 @@ pb.menu = (function() {
       closeMenu($menu);
     });
 
-    $('.icn-search').click(function(e) {
+    /*$('.icn-search').click(function(e) {
       e.preventDefault();
       resetMenu($searchMenu);
-    });
+    });*/
 
     $('.close.close-search').click(function(e) {
       e.preventDefault();
