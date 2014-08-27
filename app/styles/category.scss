@@ -35,7 +35,19 @@ header{
     padding-bottom: 20px;
     .tabs{
       background: #FFF;
+      &.fixed {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        -webkit-transition-property: top;
+        -webkit-transition-duration: 0.5s;
+      }
+      &.pinned{
+        top: 60px;
+      }
     }
+
     .tab{
       text-align:center;
       a{
