@@ -1,0 +1,28 @@
+.long-form-content{
+  // move these styles out to global
+  .hero{
+    padding:150px 0;
+  }
+  .main-content{
+    .hero-wrapper{
+      .headline{
+        padding:0; // moved to hero
+        h1{
+          margin-bottom:30px;
+        }
+      }
+    }
+  }
+  ul.social-container{
+    list-style:none;
+    li{
+      display:inline-block;
+      width:30px;
+      height:30px;
+      border:2px solid #FFF;
+      + li {
+        margin-right:5px;
+      }
+    }
+  }
+}
