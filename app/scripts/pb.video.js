@@ -1,10 +1,12 @@
 pb.namespace('video');
 
 pb.video = (function() {
-  var videoPlayers = [];
+  var videoPlayers = [],
+      videoIndex = 0;
 
   function init() {
     // initiate something
+    handlers();
 
     //Loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -16,8 +18,6 @@ pb.video = (function() {
   function initVideoPlayer(playerId, videoId) {
 
     var videoPlayer = new YT.Player(playerId, {
-      /*height: '425',
-      width: '356',*/
       videoId: videoId,
       origin: location.origin,
       playerVars: {
@@ -32,8 +32,8 @@ pb.video = (function() {
     return videoPlayer;
   }
 
-  function onPlayerReady() {
-    console.log('player ready');
+  function onPlayerReady(event) {
+    event.target.playVideo();
   };
 
   function onPlayerStateChange(event) {
@@ -52,6 +52,24 @@ pb.video = (function() {
     }
   };
 
+  function handlers() {
+
+    $('.video-play').click(function(e) {
+      e.preventDefault();
+      $(this).parent().hide();
+
+      var videoId = $(this).parents('.video-container').attr('data-video-id'),
+          playerId = 'player-' + videoIndex;
+      $(this).parent().prev().attr('id', playerId);
+
+      /*pb.video.videoPlayers[videoIdex] = pb.video.
+        initVideoPlayer(playerId, videoId);*/
+      pb.video.initVideoPlayer(playerId, videoId);
+      videoIndex += 1;
+    });
+
+  }
+
   return {
     init: init,
     initVideoPlayer: initVideoPlayer,
@@ -63,16 +81,5 @@ pb.video = (function() {
 //reference: https://developers.google.com/youtube/iframe_api_reference
 function onYouTubeIframeAPIReady() {
   /*pb.video.initVideoPlayer();*/
-  $('.video-container').each(function(index, obj) {
-    // need the next this to be the init object not the video container object
-    var videoId = $(this).attr('data-video-id'),
-        playerId = $(this).children('div').attr('id');
-
-    pb.video.videoPlayers[index] = pb.video
-            .initVideoPlayer(playerId, videoId);
-  });
+  /*$('.video-container').each(function(index, obj) {});*/
 }
-
-$(function() {
-  pb.video.init();
-});

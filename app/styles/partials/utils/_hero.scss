@@ -1,0 +1,47 @@
+//generic module styles
+$catHeader: #12b1c9;
+$catHeaderLight: #FFF;
+$catHeaderDark: #888;
+$catLink: #12b1c9;
+
+$grid-gutter-width:1.5625%;
+
+.main-content{
+  .hero-wrapper{
+    background-image: url('../images/home/bg-location-intelligence.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+
+    .type-cat.border{
+      a{
+        padding-right: 20px;
+        border-right: 1px solid $catHeaderDark;
+        margin-right: 20px;
+      }
+      a.last{
+        border-right: none;
+      }
+    }
+    .type-cat.white{
+      a{
+        color: white;
+        border-right: 1px solid #FFF;
+      }
+      a.last{
+        border-right: none;
+      }
+    }
+    .type-cat.pos{
+      position:absolute;
+      top:70px;
+      margin-left:$grid-gutter-width;
+    }
+
+    .headline{
+      text-align:center;
+      padding-top: 150px;
+      padding-bottom: 150px;
+    }
+  }
+}

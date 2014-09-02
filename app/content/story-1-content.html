@@ -35,7 +35,25 @@
         <![endif]-->
     </head>
     <body>
-      <head       er>
+      <header>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="logo col-xs-6">
+              <a href="index.html">
+                <img src="images/pitneybowes-logo.png" alt="pitney bowes logo" class="hidden-xs"/>
+                <img src="images/sprite-mobile/pitneybowes-logo2x.png" alt="pitney bowes logo" class="visible-xs logo-mobile"/>
+              </a>
+            </div>
+            <nav class="col-xs-6">
+              <ul>
+                <li><a href="#" class="icn-menu"></a><li>
+                <li><a href="#" class="icn-search"></a></li>
+                <li><a href="#" class="text-link hidden-xs">Shop</a></li>
+                <li><a href="#" class="text-link hidden-xs">My Account</a></li>
+              </ul>
+            </nav>
+          </div><!--/.row-fluid-->
+        </div><!--/.container-fluid-->
       </header>
 <!----------------------------  END DELETE ME  ---------------------------->
 <div class="container-fluid">
@@ -49,17 +67,24 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-6 video-container" data-video-id="M7lc1UVf-VE">
-      <div id="player-1"></div>
-      <img class="video-still" src="http://placehold.it/640x395">
+      <div id=""></div>
+      <div class="video-still">
+        <img src="http://placehold.it/600x370">
+        <span class="video-play"></span>
+      </div>
     </div>
     <div class="col-xs-12 col-sm-6 video-container" data-video-id="txqiwrbYGrs">
-      <div id="player-2"></div>
-      <img class="video-still" src="http://placehold.it/640x395">
+      <div id=""></div>
+      <div class="video-still">
+        <img src="http://placehold.it/600x370">
+        <span class="video-play"></span>
+      </div>
     </div>
   </div>
 </div>
 <!----------------------------   DELETE ME   -------------------------------->
 <!-- build:js scripts/vendor.js -->
+<!-- build:js scripts/vendor-category.js -->
 <script src="../scripts/vendors/jquery/jquery-1.11.1.min.js"></script>
 <script src="../scripts/vendors/jquery/jquery-ui.min.js"></script>
 <script src="../scripts/vendors/modernizr.prod.min.js"></script>
@@ -68,14 +93,12 @@
 <!-- endbuild -->
 
 
-<!-- build:js({app,.tmp}) scripts/main.js -->
+<!-- build:js({app,.tmp}) scripts/main-category.js -->
 <script src="../scripts/pb.main.js"></script>
+<script src="../scripts/pb.model.js"></script>
 <script src="../scripts/pb.menu.js"></script>
 <script src="../scripts/pb.header.js"></script>
-<script src="../scripts/pb.home.js"></script>
-<script src="../scripts/pb.animatedvalues.js"></script>
 <script src="../scripts/pb.category.js"></script>
-<script src="../scripts/category/pb.category.content.js"></script>
 <script src="../scripts/pb.video.js"></script>
 <!-- endbuild -->
 

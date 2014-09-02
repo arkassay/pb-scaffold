@@ -3,14 +3,21 @@
 pb.namespace('header');
 
 pb.header = (function() {
-
-  function init() {
+  var headerpin;
+  function init(options) {
+    console.log('headroom');
     var header = document.querySelector('header');
-    var headroom = new Headroom(header);
-    headroom.init();
+    var headroom;
+    if (options) {
+      headroom = new Headroom(header, options);
+    } else {
+      headroom = new Headroom(header);
+    }
+    this.headerpin = headroom.init();
   };
 
   return{
-    init: init
+    init: init,
+    headerpin: headerpin
   };
 })();

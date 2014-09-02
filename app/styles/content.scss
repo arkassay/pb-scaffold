@@ -1,0 +1,274 @@
+@import 'partials/utils/_hero.scss';
+
+$mediumGray: #888888;
+
+.long-form-content{
+  text-align:center;
+
+  .hero{
+    padding:150px 0;
+  }
+  .main-content{
+    .hero-wrapper{
+      background-image: url('../images/long-form-content/content-peugeot-citroen.jpg');
+      .headline{
+        padding:0; // moved to hero
+        h1{
+          margin-bottom:30px;
+        }
+      }
+    }
+  }
+
+  .social-container{
+    list-style:none;
+    text-align:center;
+    text-transform:uppercase;
+    margin-top:35px;
+    color:#000;
+
+    .share-copy{
+      text-align:center;
+      font-size:2em;
+      line-height:1em;
+      margin-bottom:.5em;
+    }
+
+    li{
+      display:inline-block;
+      padding:10px 0;
+
+      a{
+        display:inline-block;
+        width:26px;
+        height:26px;
+        background-repeat:no-repeat;
+      }
+
+      + li {
+        margin-left:5px;
+      }
+      &.border-left{
+        border-left:1px solid #000;
+        padding-left:10px;
+        margin-left:10px;
+      }
+      &.facebook{
+        a {
+          background-image: url('../images/sprite/icon-facebook-dark.png');
+        }
+      }
+      &.twitter{
+        a {
+          background-image: url('../images/sprite/icon-twitter-dark.png');
+        }
+      }
+      &.linkedin{
+        a {
+          background-image: url('../images/sprite/icon-linkedin-dark.png');
+        }
+      }
+      &.email{
+        a {
+          background-image: url('../images/sprite/icon-email-dark.png');
+        }
+      }
+      &.download{
+        a {
+          background-image: url('../images/sprite/icon-download-dark.png');
+        }
+      }
+    }
+
+    &.light{
+      li{
+        &.border-left{
+          border-color:#FFF;
+        }
+        &.facebook{
+          a {
+            background-image: url('../images/sprite/icon-facebook-light.png');
+          }
+        }
+        &.twitter{
+          a {
+            background-image: url('../images/sprite/icon-twitter-light.png');
+          }
+        }
+        &.linkedin{
+          a {
+            background-image: url('../images/sprite/icon-linkedin-light.png');
+          }
+        }
+        &.email{
+          a {
+            background-image: url('../images/sprite/icon-email-light.png');
+          }
+        }
+        &.download{
+          a {
+            background-image: url('../images/sprite/icon-download-light.png');
+          }
+        }
+      }
+    }
+  }
+
+  .title-bg-detail{
+    margin-bottom:40px;
+    background-image: url('../images/title-bg-detail.jpg');
+    background-repeat:repeat-x;
+    background-position:center center;
+
+    h2{
+      display:inline-block;
+      margin-left:auto;
+      margin-right:auto;
+      padding:0 30px;
+      font-size:4em;
+      background:#FFFFFF;
+    }
+  }
+
+  p{
+    font-size:1.333em;
+  }
+  blockquote{
+    font-size:2.5em;
+    font-style:italic;
+    +p{
+      clear:both;
+    }
+  }
+
+  .bold{
+    font-weight:bold;
+  }
+
+  .small{
+    font-size:1.167em;
+    text-align:center;
+  }
+
+  .quote{
+    margin-bottom:80px;
+  }
+
+  .top-benefits,
+  .tech-used,
+  .copy-section,
+  .more-section{
+    padding:50px 0;
+  }
+
+
+  .tech-used{
+    h3{
+      font-size:2.5em;
+      margin:1em auto 0;
+    }
+    .tech{
+      margin-top:45px;
+    }
+  }
+
+  .top-benefits{
+    h3{
+      text-transform:uppercase;
+      font-size:2em;
+    }
+    p{
+      max-width:170px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+
+  .copy-section{
+    p {
+      font-size:1.833em;
+      line-height:1.636em;
+      text-align:left;
+    }
+    .small{
+      font-size:1.167em;
+      text-align:center;
+      margin:0;
+      line-height:1.2em;
+    }
+  }
+  .more-section{
+    background:#f7f7f7;
+
+    .title-bg-detail{
+      background:none;
+      h2{
+        background:none;
+      }
+    }
+
+    .more-content{
+      text-align:left;
+      a{
+        display:inline-block;
+        font-size:1.167em;
+        text-transform:uppercase;
+        padding:10px 0;
+        color:$mediumGray;
+        + a{
+            border-left:1px solid $mediumGray;
+            padding-left:10px;
+            margin-left:10px;
+        }
+      }
+      p{
+        font-size:1.833em;
+        margin-top:.5em;
+        margin-bottom:2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px){
+  .long-form-content{
+    .hero{
+      padding:80px 0 40px;
+    }
+    .main-content{
+      .hero-wrapper{
+        .headline{
+          padding:0; // moved to hero
+          h1{
+            font-size:3em;
+          }
+        }
+      }
+    }
+
+    .benefit{
+      float:none;
+      margin:50px auto;
+      p{
+        max-width:100%;
+      }
+    }
+
+    .top-benefits,
+    .tech-used,
+    .copy-section,
+    .more-section{
+      padding:25px 0;
+    }
+
+    .title-bg-detail{
+      h2{
+          font-size:3.125em;
+          padding:0 10px
+      }
+    }
+    .quote{
+      margin-bottom:45px;
+    }
+  }
+}
