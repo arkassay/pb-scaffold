@@ -27,7 +27,7 @@ $catLink: #12b1c9;
     color: $catHeader;
   }
   h3.big{
-    font-size: 4em;
+    font-size: 3em;
   }
   p{
     font-size: 1.5em;
@@ -328,23 +328,53 @@ $catLink: #12b1c9;
       blockquote{
         margin: 0;
       }
+      .video-play{
+        text-align:center;
+        margin-bottom: 30px;
+      }
+      .cat-techlinks{
+        position:static;
+        top:auto;
+        left:auto;
+        a{
+          display:block;
+          background: none;
+          width: 100%;
+          margin-left: 0;
+          padding: 5px 0;
+        }
+        .link-title{
+          display:block;
+        }
+        a.read-more{
+          display:none !important;
+        }
+        .blue-box{
+          background: #12b1c9;
+          margin-left: 0;
+          padding: 10px;
+          margin-top: 5px;
+          display:inline-block;
+          a{
+            width: auto;
+            display:inline-block;
+          }
+        }
+      }
+      &.col1-fullbg{
+        .table{
+          padding: 0;
+        }
+        .vertical-wrap{
+          padding-top: 45px;
+          padding-bottom: 45px;
+        }
+      }
       &.darkbg{
         /*min-height: 400px;*/
         .table{
           /*min-height:400px;*/
           display:block;
-        }
-        .cat-techlinks{
-          a{
-          /*padding: 10px 5px;*/
-          display:none;
-          background: rgba(255,255,255,.2);
-          /*margin-left: 10px;*/
-          }
-          a:first-child,
-          a:last-child{
-            display:inline-block;
-          }
         }
       }
       &.col1-halfbg{
@@ -359,18 +389,7 @@ $catLink: #12b1c9;
           }
         }
         .cat-techlinks{
-          position:static;
-          top:auto;
-          left:auto;
-          margin-bottom:10px;
-          margin-left:5%;
-          a{
-            display:none;
-          }
-          a:first-child,
-          a:last-child{
-            display:inline-block;
-          }
+          padding: 0 5%;
         }
       }
       &.col2,
@@ -430,8 +449,8 @@ $catLink: #12b1c9;
       }
       /* used to make sure video images are big enough */
       .vert{
-        padding-top:15%;
-        padding-bottom:15%;
+        padding-top:30px;
+        padding-bottom:30px;
       }
       .type-cat{
         padding-left:5%;

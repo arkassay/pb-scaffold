@@ -37,7 +37,13 @@ header{
         top: 60px;
       }
     }
-
+    .tabs-placehold{
+      display:none;
+      &.fixed{
+        display:block;
+        position:relative;
+      }
+    }
     .tab{
       text-align:center;
       a{
@@ -87,7 +93,7 @@ header{
 
 @media (max-width: 767px){
   body{
-    font-size: 8px;
+    font-size: 10px;
   }
   .main-content{
 
