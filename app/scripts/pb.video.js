@@ -83,7 +83,3 @@ function onYouTubeIframeAPIReady() {
   /*pb.video.initVideoPlayer();*/
   /*$('.video-container').each(function(index, obj) {});*/
 }
-
-$(function() {
-  pb.video.init();
-});
