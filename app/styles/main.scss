@@ -67,7 +67,9 @@ a, a:hover{
 a:hover{
   color: $bodyLinkOnColor;
 }
-
+.black{
+  color: $bodyFontColor;
+}
 .darkbg{
   background: $darkBG;
   color: white;
@@ -143,6 +145,12 @@ hr.white{
   .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
     padding-left: 5%;
     padding-right: 5%;
+  }
+  .icn-dl{
+    width: 16px;
+    height: 16px;
+    top: 2px;
+    background-size: 16px 16px;
   }
 }
 
