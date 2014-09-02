@@ -91,7 +91,3 @@ pb.category = (function() {
     init: init
   };
 })();
-
-$(function() {
-  pb.category.init();
-});
