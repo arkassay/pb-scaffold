@@ -69,11 +69,23 @@ pb.video = (function() {
 
     $('.video-play').click(function(e) {
       e.preventDefault();
-      $(this).parent().hide();
+      //$(this).parent().hide();
+      $(this).parents('.hidden-video-content').hide();
 
-      var videoId = $(this).parents('.video-container').attr('data-video-id'),
+      if ($(this).parents().find('.video-container').hasClass('video-full')) {
+        $(this).parents('.module').addClass('no-padding')
+          .find('.video-container').toggleClass('hide');
+      }else {
+        $(this).parents('.video-container')
+          .addClass('no-padding').toggleClass('hide');
+      }
+
+      var videoId = $(this).parents('.module')
+        .find('.video-container').attr('data-video-id'),
           playerId = 'player-' + videoIndex;
-      $(this).parent().prev().attr('id', playerId);
+      //$(this).parent().prev().attr('id', playerId);
+      $(this).parents('.module')
+        .find('.video-container > div').attr('id', playerId);
 
       var player = initVideoPlayer(playerId, videoId);
       savePlayer(player);
