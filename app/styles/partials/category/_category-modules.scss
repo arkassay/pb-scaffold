@@ -98,7 +98,11 @@ $catLink: #12b1c9;
     left: 5%;
     width: 90%;
     z-index: 1;
-    padding:0;
+    padding:10px 0;
+    margin: 10px 0;
+    .links{
+      display:inline-block;
+    }
     p{
       font-size: 1em;
       color: $catHeaderDark;
@@ -340,32 +344,39 @@ $catLink: #12b1c9;
       }
       .cat-techlinks{
         position:static;
-        top:auto;
-        left:auto;
-        a{
-          display:block;
-          background: none;
-          width: 100%;
-          margin-left: 0;
-          padding: 5px 0;
+        a:not(:first-child){
+          display:none;
         }
-        .link-title{
-          display:block;
-        }
-        a.read-more{
-          display:none !important;
-        }
-        .blue-box{
-          background: #12b1c9;
-          margin-left: 0;
-          padding: 5px 10px;
-          margin-top: 5px;
-          display:inline-block;
+        &.promo {
           a{
-            width: auto;
+            display:block;
+            background: none;
+            width: 100%;
+            margin-left: 0;
+            padding: 5px 0;
+          }
+          a:not(:first-child){
+            display:block;
+          }
+          .link-title{
+            display:block;
+          }
+          a.read-more{
+            display:none !important;
+          }
+          .blue-box{
+            background: #12b1c9;
+            margin-left: 0;
+            padding: 5px 10px;
+            margin-top: 5px;
             display:inline-block;
+            a{
+              width: auto;
+              display:inline-block;
+            }
           }
         }
+
       }
       &.col1-fullbg{
         .table{
@@ -395,7 +406,7 @@ $catLink: #12b1c9;
           }
         }
         .cat-techlinks{
-          padding: 0 5%;
+          padding: 10px 5%;
         }
       }
       &.col2,

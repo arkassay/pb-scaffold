@@ -248,7 +248,7 @@ module.exports = function (grunt) {
                 assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
             },
             html: ['<%= config.dist %>/{,*/}*.html'],
-            css: ['<%= config.dist %>/styles/{,*/}*.css']
+          css: ['<%= config.dist %>/styles/{,*/}*.css']
         },
 
         // The following *-min tasks produce minified files in the dist folder
@@ -344,8 +344,30 @@ module.exports = function (grunt) {
                 cwd: '<%= config.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            devDist: {
+              files: [{
+                expand: true,
+                dot: true,
+                cwd: '<%= config.app %>',
+                dest: '<%= config.dist %>',
+                src: [
+                  '**','!styles/**'   // everything but styles/
+                ]
+              }]
             }
         },
+
+        //
+        //  compass:devDist --> compile the sass; put result in dist/styles/
+        //
+            compass: {
+              devDist: {
+                options: {
+                  cssDir: '<%= config.dist %>/styles'
+                }
+              }
+            },
 
         // Run some tasks in parallel to speed up build process
         concurrent: {
@@ -370,7 +392,6 @@ module.exports = function (grunt) {
             ]
         }
     });
-
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
@@ -439,5 +460,14 @@ module.exports = function (grunt) {
         'test',
         'build',
         'gjslint'
+    ]);
+
+    //
+    // register a 'devDist' task that calls the two tasks above
+    //
+    grunt.registerTask('devDist', [
+      'clean:dist',
+      'copy:devDist',
+      'compass:devDist'
     ]);
 };
