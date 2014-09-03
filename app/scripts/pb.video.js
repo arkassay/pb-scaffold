@@ -5,8 +5,7 @@ pb.video = (function() {
       videoIndex = 0;
 
   function init() {
-    // initiate something
-    handlers();
+    // initiate somethin
 
     //Loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -32,22 +31,48 @@ pb.video = (function() {
     return videoPlayer;
   }
 
+  function savePlayer(player) {
+    videoPlayers.push(player);
+  }
+
+
   function onPlayerReady(event) {
     event.target.playVideo();
+
+    /*console.log('videoPlayer >>  ' + videoPlayer);
+    console.log('playerReady > ' + event.target);*/
+
+    /*console.log(videoPlayers);
+
+    //currentVideo = videoPlayers.length + 1;
+    currentVideo = videoPlayers[videoPlayers.length][0];
+    currentVideo.playVideo();*/
   };
 
   function onPlayerStateChange(event) {
 
     var newState = event.data;
+
     switch (newState) {
       case -1:
         //unstarted
         break;
       case 1:
         //playing
-        $.each(pb.video.videoPlayers, function(i, val) {
-          console.log(pb.video.videoPlayers[i]);
+        //console.log('playing');
+
+        $.each(videoPlayers, function(i, val) {
+          /*console.log(i);
+          console.log((videoPlayers.length) + ' length');*/
+
+          if ((i + 1) != (videoPlayers.length)) {
+            //video.stopVideo();
+            console.log('will be stopped');
+          }else {
+            console.log('video should be playing!!!!!!! + video');
+          }
         });
+
         break;
     }
   };
@@ -64,7 +89,8 @@ pb.video = (function() {
 
       /*pb.video.videoPlayers[videoIdex] = pb.video.
         initVideoPlayer(playerId, videoId);*/
-      pb.video.initVideoPlayer(playerId, videoId);
+      var player = initVideoPlayer(playerId, videoId);
+      savePlayer(player);
       videoIndex += 1;
     });
 
@@ -72,14 +98,18 @@ pb.video = (function() {
 
   return {
     init: init,
-    initVideoPlayer: initVideoPlayer,
-    videoPlayers: videoPlayers
+    //initVideoPlayer: initVideoPlayer,
+    videoPlayers: videoPlayers,
+    handlers: handlers
   };
 
 })();
 
 //reference: https://developers.google.com/youtube/iframe_api_reference
 function onYouTubeIframeAPIReady() {
-  /*pb.video.initVideoPlayer();*/
-  /*$('.video-container').each(function(index, obj) {});*/
+  pb.video.handlers();
 }
+
+$(function() {
+  pb.video.init();
+});
