@@ -35,7 +35,6 @@ pb.video = (function() {
     videoPlayers.push(player);
   }
 
-
   function onPlayerReady(event) {
     event.target.playVideo();
 
@@ -89,6 +88,7 @@ pb.video = (function() {
 
       /*pb.video.videoPlayers[videoIdex] = pb.video.
         initVideoPlayer(playerId, videoId);*/
+
       var player = initVideoPlayer(playerId, videoId);
       savePlayer(player);
       videoIndex += 1;
