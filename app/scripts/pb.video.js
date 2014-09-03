@@ -6,7 +6,7 @@ pb.video = (function() {
 
   function init() {
     // initiate something
-    handlers();
+    //handlers();
 
     //Loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -30,6 +30,10 @@ pb.video = (function() {
     });
 
     return videoPlayer;
+  }
+
+  function savePlayer(player) {
+    videoPlayers.push(player);
   }
 
   function onPlayerReady(event) {
@@ -64,7 +68,8 @@ pb.video = (function() {
 
       /*pb.video.videoPlayers[videoIdex] = pb.video.
         initVideoPlayer(playerId, videoId);*/
-      pb.video.initVideoPlayer(playerId, videoId);
+      var player = pb.video.initVideoPlayer(playerId, videoId);
+      savePlayer(player);
       videoIndex += 1;
     });
 
@@ -73,13 +78,19 @@ pb.video = (function() {
   return {
     init: init,
     initVideoPlayer: initVideoPlayer,
-    videoPlayers: videoPlayers
+    videoPlayers: videoPlayers,
+    handlers: handlers
   };
 
 })();
 
 //reference: https://developers.google.com/youtube/iframe_api_reference
 function onYouTubeIframeAPIReady() {
-  /*pb.video.initVideoPlayer();*/
+  //pb.video.initVideoPlayer();
   /*$('.video-container').each(function(index, obj) {});*/
+  pb.video.handlers();
 }
+
+$(function() {
+  pb.video.init();
+});
