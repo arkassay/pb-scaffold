@@ -364,7 +364,8 @@ module.exports = function (grunt) {
             compass: {
               devDist: {
                 options: {
-                  cssDir: '<%= config.dist %>/styles'
+                  cssDir: '<%= config.dist %>/styles',
+                  sassDir: '<%= config.app %>/styles'
                 }
               }
             },
