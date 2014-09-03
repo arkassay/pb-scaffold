@@ -7,6 +7,7 @@ pb.menu = (function() {
 
   var $menu = $('.menu-overlay');
   var $searchMenu = $('.search-overlay');
+  var open = false;
 
   function resetMenu($overlayAnimated) {
     TweenMax.set($overlayAnimated, { transformPerspective: 1100 });
@@ -24,7 +25,7 @@ pb.menu = (function() {
   };
 
   function openMenu($overlayAnimated) {
-    $('body').addClass('scroll');
+    $('body').addClass('scroll open');
 
     $overlayAnimated.css({
       'visibility': 'visible',
@@ -34,12 +35,16 @@ pb.menu = (function() {
     TweenMax.to($overlayAnimated, .35, {
       rotationX: 0, opacity: 1, ease: Ease.easeOut
     });
+
+    open = true;
   }
 
   function closeMenu($overlayAnimated) {
     $overlayAnimated.fadeOut('fast', function() {
-      $('body').removeClass('scroll');
+      $('body').removeClass('scroll open');
+      open = false;
     });
+
   }
 
   function searchClear() {
@@ -67,12 +72,14 @@ pb.menu = (function() {
 
     $('.icn-menu').click(function(e) {
       e.preventDefault();
-      resetMenu($menu);
-    });
+      if (!open) {
+        $(this).addClass('x');
+        resetMenu($menu);
+      } else {
+        $(this).removeClass('x');
+        closeMenu($menu);
+      }
 
-    $('.close.close-menu').click(function(e) {
-      e.preventDefault();
-      closeMenu($menu);
     });
 
     /*$('.icn-search').click(function(e) {
