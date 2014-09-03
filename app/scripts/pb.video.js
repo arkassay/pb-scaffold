@@ -37,20 +37,12 @@ pb.video = (function() {
 
   function onPlayerReady(event) {
     event.target.playVideo();
-
-    /*console.log('videoPlayer >>  ' + videoPlayer);
-    console.log('playerReady > ' + event.target);*/
-
-    /*console.log(videoPlayers);
-
-    //currentVideo = videoPlayers.length + 1;
-    currentVideo = videoPlayers[videoPlayers.length][0];
-    currentVideo.playVideo();*/
   };
 
   function onPlayerStateChange(event) {
 
     var newState = event.data;
+    var currentPlayer = event.target.d.id;
 
     switch (newState) {
       case -1:
@@ -58,18 +50,15 @@ pb.video = (function() {
         break;
       case 1:
         //playing
-        //console.log('playing');
 
         $.each(videoPlayers, function(i, val) {
-          /*console.log(i);
-          console.log((videoPlayers.length) + ' length');*/
 
-          if ((i + 1) != (videoPlayers.length)) {
-            //video.stopVideo();
-            console.log('will be stopped');
+          if (currentPlayer == videoPlayers[i].d.id) {
+            console.log('currently playing');
           }else {
-            console.log('video should be playing!!!!!!! + video');
+            videoPlayers[i].pauseVideo();
           }
+
         });
 
         break;
@@ -85,9 +74,6 @@ pb.video = (function() {
       var videoId = $(this).parents('.video-container').attr('data-video-id'),
           playerId = 'player-' + videoIndex;
       $(this).parent().prev().attr('id', playerId);
-
-      /*pb.video.videoPlayers[videoIdex] = pb.video.
-        initVideoPlayer(playerId, videoId);*/
 
       var player = initVideoPlayer(playerId, videoId);
       savePlayer(player);
