@@ -347,6 +347,9 @@ $catLink: #12b1c9;
         a:not(:first-child){
           display:none;
         }
+        a.read-more{
+          display:inline-block;
+        }
         &.promo {
           a{
             display:block;
@@ -357,6 +360,9 @@ $catLink: #12b1c9;
           }
           a:not(:first-child){
             display:block;
+          }
+          a.read-more{
+            display:none;
           }
           .link-title{
             display:block;
