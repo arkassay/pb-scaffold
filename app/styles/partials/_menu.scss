@@ -12,6 +12,9 @@ header{
   z-index: 13;
   /*height: 50px;
   background: rgba(255,255,255,0.5);*/
+  .container-fluid{
+    position:relative;
+  }
   .logo{
     padding-top: 15px;
     padding-bottom: 15px;
@@ -36,7 +39,7 @@ header{
     .patty {
       width: 33px;
       height: 3px;
-      margin: 10px 0;
+      margin: 10px auto;
       background: #fff;
       -webkit-transition: all 0.3s;
       -moz-transition: all 0.3s;
@@ -47,6 +50,7 @@ header{
         display: block;
         width: 33px;
         height: 3px;
+        margin: 0 auto;
         background: #FFF;
         position: absolute;
         z-index: -1;
@@ -99,7 +103,7 @@ header{
 
   ul{
     list-style-type: none;
-    margin: 0 80px 0 0;
+    margin: 0 60px 0 0;
     padding: 0;
     float:right;
   }
