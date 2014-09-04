@@ -1,21 +1,23 @@
 footer{
   .container-fluid{
     padding: 95px 0 0 0;
+    text-align:left;
   }
-  background: $darkBG;
-  color: #FFF;
-  .link-group{
-    position:relative;
+  h2{
+    font-size: 1.5em;
   }
-  .link-group.last{
-    border-right: none;
-  }
-  .link-group-divider{
-    position:relative;
-    height: 150px;
-    border-left: 1px solid #FFF;
-    display:block;
-    margin-top: 20px;
+  background: #FFF;
+  color: #666;
+  .social{
+    h2{
+      margin-bottom: 20px;
+    }
+    a{
+      padding-right: 5px;
+    }
+    a:last-child{
+      padding-right: 0;
+    }
   }
   ul{
     margin: 20px 0 0 0;
@@ -23,27 +25,41 @@ footer{
 
     li{
       list-style-type: none;
-      font-size: 1.5em;
+      padding-bottom: 25px;
     }
   }
   a, a:hover{
-    color: white;
+    color: #010101;
+    font-size: 1.1667em;
   }
-  .bottom-links{
-    text-align:center;
+  .bottom-text{
+    text-align:left;
     margin-top: 75px;
-    padding-bottom: 35px;
+    margin-bottom: 35px;
+    font-size: 1.1667em;
+  }
+}
+
+@media screen and (max-width: 767px){
+  footer{
+    .container-fluid{
+      padding: 0 0 0 0;
+    }
+    h2{
+      margin-top: 40px;
+    }
     ul{
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
+      margin: 15px 0 0 0;
       li{
-        display:inline-block;
-        padding-right: 35px;
+        padding-bottom: 15px;
+        &:last-child{
+          padding-bottom: 0;
+        }
       }
-      li.last{
-        padding-right: 0;
-      }
+
+    }
+    .bottom-text{
+      margin-top: 40px;
     }
   }
 }
