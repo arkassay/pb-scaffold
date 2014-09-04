@@ -38,3 +38,27 @@ footer{
     font-size: 1.1667em;
   }
 }
+
+@media screen and (max-width: 767px){
+  footer{
+    .container-fluid{
+      padding: 0 0 0 0;
+    }
+    h2{
+      margin-top: 40px;
+    }
+    ul{
+      margin: 15px 0 0 0;
+      li{
+        padding-bottom: 15px;
+        &:last-child{
+          padding-bottom: 0;
+        }
+      }
+
+    }
+    .bottom-text{
+      margin-top: 40px;
+    }
+  }
+}
