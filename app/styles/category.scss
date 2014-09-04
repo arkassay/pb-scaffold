@@ -23,11 +23,15 @@ header{
   .category-content{
     background: #f1f1f1;
     padding-bottom: 20px;
+    .tabs-container{
+      max-width: 100%;
+    }
     .tabs{
       background: #FFF;
       &.fixed {
         position: fixed;
         top: 0;
+        left: 0;
         z-index: 10;
         width: 100%;
         -webkit-transition-property: top;
