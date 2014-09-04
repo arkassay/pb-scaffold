@@ -3,6 +3,9 @@
 $mediumGray: #888888;
 $lightGray: #cccccc;
 
+$blueHighlight:#12b1c9;
+$darkLinks:#000;
+
 .long-form-content{
   text-align:center;
 
@@ -162,24 +165,60 @@ $lightGray: #cccccc;
     padding:50px 0;
   }
 
-
-  .tech-used{
-    border:1px solid $lightGray;
-
+  // used for modules with View All buttons
+  .content-overflows{
+    margin-bottom:50px;
+    padding-bottom:0;
+    padding-top:0;
+    .border{
+      padding-top:50px;
+      padding-bottom:80px; /* to accomodate View All */
+      border:1px solid $lightGray;
+    }
     .title-bg-detail{
       margin-top:-66px;
-
       h2{
         font-size:2em;
       }
     }
+  }
+
+  .view-all{
+    position:absolute;
+    display:block;
+    text-align:center;
+    margin-top:37px;
+    left:25%;
+    width:50%;
+    a, a:hover{
+      display:inline-block;
+      clear:both;
+      color: $blueHighlight;
+    }
+    img{
+      display:block;
+      clear:both;
+      margin:10px auto;
+    }
+  }
+  // end view all
+
+
+  .tech-used{
 
     h3{
-      font-size:2.5em;
+      font-size:2em;
       margin:1em auto 0;
+      a, a:hover{
+        color:$blueHighlight;
+      }
     }
     .tech{
-      margin-top:45px;
+      margin-top:30px;
+      margin-bottom:30px;
+      a, a:hover{
+        font-size:1.333em;
+      }
     }
   }
 
@@ -277,10 +316,30 @@ $lightGray: #cccccc;
       padding:25px 0;
     }
 
+    // used for modules with View All buttons
+    .content-overflows{
+      margin-bottom:25px;
+      padding-bottom:0;
+      padding-top:0;
+      .border{
+        padding-top:25px;
+        padding-bottom:55px;
+      }
+      .title-bg-detail{
+        margin-top:-41px;
+        h2{
+          font-size:3.125em;
+        }
+      }
+    }
+    .view-all{
+      margin-top:17px;
+    }
+
     .title-bg-detail{
       h2{
-          font-size:3.125em;
-          padding:0 10px
+        font-size:3.125em;
+        padding:0 10px
       }
     }
     .quote{
