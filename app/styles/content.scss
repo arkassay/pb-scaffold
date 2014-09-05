@@ -9,21 +9,6 @@ $darkLinks:#000;
 .long-form-content{
   text-align:center;
 
-  .hero{
-    padding:150px 0;
-  }
-  .main-content{
-    .hero-wrapper{
-      background-image: url('../images/long-form-content/content-peugeot-citroen.jpg');
-      .headline{
-        padding:0; // moved to hero
-        h1{
-          margin-bottom:30px;
-        }
-      }
-    }
-  }
-
   .social-container{
     list-style:none;
     text-align:center;
