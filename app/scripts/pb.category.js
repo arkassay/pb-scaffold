@@ -94,8 +94,8 @@ pb.category = (function() {
   };
 })();
 
-$(function() {
+/*$(function() {
   $('a').click(function(e) {
     e.preventDefault();
   });
-});
+});*/
