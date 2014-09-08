@@ -69,7 +69,7 @@ pb.video = (function() {
 
     $('.video-play').click(function(e) {
       e.preventDefault();
-      //$(this).parent().hide();
+  
       $(this).parents('.hidden-video-content').hide();
 
       if ($(this).parents().find('.video-container').hasClass('video-full')) {
