@@ -5,14 +5,6 @@ $contentContentText:#053043;
 @import 'partials/category/_category-modules.scss';
 @import 'partials/utils/_hero.scss';
 
-header{
-  background: rgba(43,75,84,.9);
-  .cat-title{
-    color: #FFF;
-    font-size: 1.5em;
-    margin-left: 20px;
-  }
-}
 .main-content{
   .page-container{
     position:relative;

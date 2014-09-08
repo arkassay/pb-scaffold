@@ -7,6 +7,7 @@ $menuBgColor: #12b1c9;
 $menuBarBgColor: #35bdd1;
 
 header{
+  background: rgba(43,75,84,.9);
   position: fixed;
   left: 0;
   top: 0;
@@ -21,6 +22,10 @@ header{
     padding-top: 15px;
     padding-bottom: 15px;
     a{
+      width: 149px;
+      height: 25px;
+      background: url('../images/pitneybowes-logo.png') no-repeat left bottom;
+      background-size: 100% auto;
       float:left;
     }
   }
@@ -101,8 +106,16 @@ header{
         }
       }
     }
-  }
 
+  }
+  .cat-title{
+    color: #FFF;
+    font-size: 1.2em;
+    margin-left: 20px;
+    line-height: 30px;
+    text-align:left;
+    float:left;
+  }
   ul{
     list-style-type: none;
     margin: 0 60px 0 0;
@@ -139,6 +152,14 @@ header{
 
 
     &.lightHeader{
+      .cat-title{
+        color: #000;
+      }
+      .logo{
+        a{
+          background-image: url('../images/pitneybowes-logo-dark.png');
+        }
+      }
       .icn-menu,
       .icn-menu.x{
         .patty{
@@ -371,8 +392,26 @@ body.scroll.open{
 @media screen and (max-width: 767px){
   header{
     background: rgba(43,75,84,.9);
-    .logo-mobile{
-      max-width: 100%;
+    .logo{
+      padding-left: 5%;
+      padding-right: 5%;
+      box-sizing: border-box;
+      padding-bottom: 15px;
+      max-width:100%;
+      a{
+        background: url('../images/sprite-mobile/pitneybowes-logo2x.png') no-repeat;
+        background-size: 100% auto;
+      }
+    }
+    &.lightHeader{
+      .logo{
+        a{
+          background-image: url('../images/sprite-mobile/pitneybowes-logo-dark2x.png');
+        }
+      }
+      .icn-search{
+        background-image: url('../images/sprite-mobile/icn-search-dark2x.png');
+      }
     }
     li{
       /*.icn-menu,*/ .icn-search, .icn-cart{
@@ -408,22 +447,6 @@ body.scroll.open{
     .fixed-top{
       position:fixed;
       top: 0;
-    }
-    .logo{
-      padding-left: 5%;
-      padding-right: 5%;
-      box-sizing: border-box;
-      padding-bottom: 15px;
-      max-width:100%;
-      img{
-        max-width:100%;
-      }
-    }
-    .logo-mobile{
-      max-width: 100%;
-      img{
-        max-width:100%;
-      }
     }
     .close{
       background-image: url('../images/sprite-mobile/icn-close2x.png');
