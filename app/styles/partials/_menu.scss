@@ -406,11 +406,13 @@ body.scroll.open{
     &.lightHeader{
       .logo{
         a{
-          background-image: url('../images/sprite-mobile/pitneybowes-logo-dark2x.png');
+          background-image: url('../images/sprite-mobile/pitneybowes-logo2x-dark.png');
         }
       }
       .icn-search{
-        background-image: url('../images/sprite-mobile/icn-search-dark2x.png');
+        background-image: url('../images/sprite-mobile/icn-search2x-dark.png');
+        background-size: 19px 18px;
+        background-position: right center;
       }
     }
     li{
