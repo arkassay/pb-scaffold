@@ -89,3 +89,39 @@ $grid-gutter-width:1.5625%;
     }
   }
 }
+
+
+
+@media (max-width: 767px){
+
+  .long-form-content{
+    .main-content{
+      .hero-wrapper{
+        background-image: url('../images/long-form-content/hero/content-peugeot-citroen-m.jpg');
+      }
+    }
+
+    &.barbican{
+      .main-content{
+        .hero-wrapper{
+          background-image: url('../images/long-form-content/hero/barbican-m.jpg');
+        }
+      }
+    }
+    &.schwan{
+      .main-content{
+        .hero-wrapper{
+          background-image: url('../images/long-form-content/hero/schwan-m.jpg');
+        }
+      }
+    }
+    &.nationwide{
+      .main-content{
+        .hero-wrapper{
+          background-image: url('../images/long-form-content/hero/nationwide-m.jpg');
+        }
+      }
+    }
+  }
+
+}
