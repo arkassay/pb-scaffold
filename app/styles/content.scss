@@ -21,8 +21,10 @@ $darkLinks:#000;
       font-size:2em;
       line-height:1em;
       margin-bottom:.5em;
+      +ul{
+        text-align:center;
+      }
     }
-
     li{
       display:inline-block;
       padding:10px 0;
@@ -203,6 +205,7 @@ $darkLinks:#000;
       margin-bottom:30px;
       a, a:hover{
         font-size:1.333em;
+        color:$blueHighlight;
       }
     }
   }
@@ -225,10 +228,14 @@ $darkLinks:#000;
   }
 
   .copy-section{
-    p {
+    p,
+    ul {
       font-size:1.833em;
       line-height:1.636em;
       text-align:left;
+    }
+    ul li+ li{
+      margin-top:50px;
     }
     .small{
       font-size:1.167em;

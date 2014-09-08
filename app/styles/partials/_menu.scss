@@ -1,5 +1,7 @@
 $menuLinkColor: #FFF;
 $menuLinkOnColor: #FFF;
+$menuLinkColorDark: #000;
+$menuLinkOnColorDark: #000;
 $menuFontColor: #FFF;
 $menuBgColor: #12b1c9;
 $menuBarBgColor: #35bdd1;
@@ -116,9 +118,8 @@ header{
     .text-link{
       display:inline-block;
       padding:20px 15px;
-      color:$menuLinkColor;
       font-size:1.333em;
-
+      color:$menuLinkColor;
     }
     /*.icn-menu, */
     .icn-search, .icn-cart{
@@ -126,17 +127,50 @@ header{
       width: 60px;
       height: 60px;
     }
-    /*.icn-menu{
-      background: url('../images/sprite/icn-menu.png') no-repeat center;
-    }*/
+
     .icn-search{
       background: url('../images/sprite/icn-search.png') no-repeat center;
     }
     .icn-cart{
       background: url('../images/sprite/icn-cart.png') no-repeat center;
     }
+
+  }
+
+
+    &.lightHeader{
+      .icn-menu,
+      .icn-menu.x{
+        .patty{
+          background:#000;
+
+          &:before,
+          &:after{
+            background:#000000!important;
+          }
+        }
+      }
+      li .text-link{
+        color:$menuLinkColorDark;
+      }
+      /*.icn-menu{
+        background: url('../images/sprite/icn-menu-dark.png') no-repeat center;
+      }*/
+      .icn-search{
+        background: url('../images/sprite/icn-search-dark.png') no-repeat center;
+      }
+      .icn-cart{
+        background: url('../images/sprite/icn-cart-dark.png') no-repeat center;
+      }
+    }
+}
+
+.long-form-content{
+  header{
+    background:none;
   }
 }
+
 &.open{
   //STYLES FOR OPEN NAVIGATION - hamburger animates into X
   header{
@@ -324,6 +358,7 @@ body.scroll.open{
 .menu-overlay.closed{
   display:block;
 }
+
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
   .touch{
