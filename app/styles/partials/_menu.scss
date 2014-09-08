@@ -181,7 +181,7 @@ header{
   }
 }
 body.scroll.open{
-  background: #12b1c9;
+  //background: #12b1c9;
   overflow-y: scroll;
   #home-area, footer, .main-content{
     display:none;
@@ -217,6 +217,8 @@ body.scroll.open{
   color: $menuFontColor;
   box-sizing: border-box;
   padding-bottom:40px;
+  padding-top: 62px;
+  margin-top: -62px;
   //opacity: 0;
   //visibility: hidden;
   //transition: opacity 1s, visibility 0s 1s;
@@ -400,7 +402,9 @@ body.scroll.open{
   }
   .search-overlay,
   .menu-overlay{
-    overflow-y: auto;
+    position:relative;
+    padding-top: 82px;
+    margin-top: -82px;
     .fixed-top{
       position:fixed;
       top: 0;

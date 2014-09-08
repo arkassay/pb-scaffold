@@ -3,6 +3,7 @@ pb.namespace('menu');
 pb.menu = (function() {
   function init() {
     handlers();
+    setMinMenuHeight();
   };
 
   var $menu = $('.menu-overlay');
@@ -68,6 +69,10 @@ pb.menu = (function() {
     });
   };
 
+  function setMinMenuHeight() {
+    $menu.css('min-height', $(window).height());
+  };
+
   function handlers() {
 
     $('.icn-menu').click(function(e) {
@@ -80,6 +85,10 @@ pb.menu = (function() {
         closeMenu($menu);
       }
 
+    });
+
+    $(window).resize(function() {
+      setMinMenuHeight();
     });
 
     /*$('.icn-search').click(function(e) {
