@@ -6,7 +6,7 @@ $menuFontColor: #FFF;
 $menuBgColor: #12b1c9;
 $menuBarBgColor: #35bdd1;
 
-header{
+header, .open header.lightHeader{
   background: rgba(43,75,84,.9);
   position: fixed;
   left: 0;
@@ -149,46 +149,48 @@ header{
     }
 
   }
+}
 
+.lightHeader{
+  .cat-title{
+    color: #000;
+  }
+  .logo{
+    a{
+      background-image: url('../images/pitneybowes-logo-dark.png');
+    }
+  }
+  .icn-menu,
+  .icn-menu.x{
+    .patty{
+      background:#000;
 
-    &.lightHeader{
-      .cat-title{
-        color: #000;
-      }
-      .logo{
-        a{
-          background-image: url('../images/pitneybowes-logo-dark.png');
-        }
-      }
-      .icn-menu,
-      .icn-menu.x{
-        .patty{
-          background:#000;
-
-          &:before,
-          &:after{
-            background:#000000!important;
-          }
-        }
-      }
-      li .text-link{
-        color:$menuLinkColorDark;
-      }
-      /*.icn-menu{
-        background: url('../images/sprite/icn-menu-dark.png') no-repeat center;
-      }*/
-      .icn-search{
-        background: url('../images/sprite/icn-search-dark.png') no-repeat center;
-      }
-      .icn-cart{
-        background: url('../images/sprite/icn-cart-dark.png') no-repeat center;
+      &:before,
+      &:after{
+        background:#000000!important;
       }
     }
+  }
+  li .text-link{
+    color:$menuLinkColorDark;
+  }
+  /*.icn-menu{
+    background: url('../images/sprite/icn-menu-dark.png') no-repeat center;
+  }*/
+  .icn-search{
+    background: url('../images/sprite/icn-search-dark.png') no-repeat center;
+  }
+  .icn-cart{
+    background: url('../images/sprite/icn-cart-dark.png') no-repeat center;
+  }
 }
 
 .long-form-content{
+  header.lightHeader{
+    background: rgba(255,255,255,.9);
+  }
   header{
-    background:none;
+    background: rgba(0,0,0,.6);
   }
 }
 
