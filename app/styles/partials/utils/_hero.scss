@@ -66,10 +66,26 @@ $grid-gutter-width:1.5625%;
 
 }
 
-.long-form-content.barbican{
-  .main-content{
-    .hero-wrapper{
-      background-image: url('../images/long-form-content/hero/barbican.jpg');
+.long-form-content{
+  &.barbican{
+    .main-content{
+      .hero-wrapper{
+        background-image: url('../images/long-form-content/hero/barbican.jpg');
+      }
+    }
+  }
+  &.schwan{
+    .main-content{
+      .hero-wrapper{
+        background-image: url('../images/long-form-content/hero/schwan.jpg');
+      }
+    }
+  }
+  &.nationwide{
+    .main-content{
+      .hero-wrapper{
+        background-image: url('../images/long-form-content/hero/nationwide.jpg');
+      }
     }
   }
 }
