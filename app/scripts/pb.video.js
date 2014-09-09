@@ -1,8 +1,7 @@
 pb.namespace('video');
 
 pb.video = (function() {
-  var videoPlayers = [],
-      videoIndex = 0;
+  var ytPlayersArray = [];
 
   function init() {
     // initiate somethin
@@ -31,8 +30,8 @@ pb.video = (function() {
     return videoPlayer;
   }
 
-  function savePlayer(player) {
-    videoPlayers.push(player);
+  function saveYtPlayerToArray(youTubePlayer) {
+    ytPlayersArray.push(youTubePlayer);
   }
 
   function onPlayerReady(event) {
@@ -51,12 +50,12 @@ pb.video = (function() {
       case 1:
         //playing
 
-        $.each(videoPlayers, function(i, val) {
+        $.each(ytPlayersArray, function(i, val) {
 
-          if (currentPlayer == videoPlayers[i].d.id) {
-            console.log('currently playing');
+          if (currentPlayer == ytPlayersArray[i].d.id) {
+            // currently playing
           }else {
-            videoPlayers[i].pauseVideo();
+            ytPlayersArray[i].pauseVideo();
           }
 
         });
@@ -65,39 +64,54 @@ pb.video = (function() {
     }
   };
 
+  function injectNewVideoPlayer(playButton) {
+    var videoId = $(playButton).parents('.module')
+          .find('.video-container').attr('data-video-id'),
+        playerId = 'player-' + videoId,
+        playerContainer = $(playButton).parents('.module')
+          .find('.video-container');
+
+    $(playerContainer).html('<div></div>');
+    $(playerContainer).children(':first-child').attr('id', playerId);
+
+    var youTubePlayer = initVideoPlayer(playerId, videoId);
+    saveYtPlayerToArray(youTubePlayer);
+
+    showVideoContainerRemoveParentPadding(playButton);
+  };
+
+  function showVideoContainerRemoveParentPadding(playButton) {
+    if ($(playButton).parents().
+        find('.video-container').hasClass('video-full')) {
+      $(playButton).parents('.module').addClass('no-padding')
+        .find('.video-container').toggleClass('hide');
+    }else {
+      $(playButton).parents('.video-container')
+        .addClass('no-padding').toggleClass('hide');
+    }
+
+    hideStaticVideoContent(playButton);
+  };
+
+  function hideStaticVideoContent(playButton) {
+    $(playButton).parents('.hidden-video-content').hide();
+  };
+
   function handlers() {
 
     $('.video-play').click(function(e) {
       e.preventDefault();
-
-      $(this).parents('.hidden-video-content').hide();
-
-      if ($(this).parents().find('.video-container').hasClass('video-full')) {
-        $(this).parents('.module').addClass('no-padding')
-          .find('.video-container').toggleClass('hide');
-      }else {
-        $(this).parents('.video-container')
-          .addClass('no-padding').toggleClass('hide');
-      }
-
-      var videoId = $(this).parents('.module')
-        .find('.video-container').attr('data-video-id'),
-          playerId = 'player-' + videoIndex;
-      //$(this).parent().prev().attr('id', playerId);
-      $(this).parents('.module')
-        .find('.video-container > div').attr('id', playerId);
-
-      var player = initVideoPlayer(playerId, videoId);
-      savePlayer(player);
-      videoIndex += 1;
+      var playButton = $(this);
+      injectNewVideoPlayer(playButton);
     });
 
   }
 
+
   return {
     init: init,
     //initVideoPlayer: initVideoPlayer,
-    videoPlayers: videoPlayers,
+    ytPlayersArray: ytPlayersArray,
     handlers: handlers
   };
 

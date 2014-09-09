@@ -193,8 +193,8 @@ header, .open header.lightHeader{
     background: rgba(0,0,0,.6);
   }
 }
-
-&.open{
+// had &
+.open{
   //STYLES FOR OPEN NAVIGATION - hamburger animates into X
   header{
     background: none;
