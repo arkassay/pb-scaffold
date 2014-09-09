@@ -13,6 +13,44 @@ pb.video = (function() {
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   };
 
+
+  function injectNewVideoPlayer(playButton) {
+    var videoId = $(playButton).parents('.module')
+          .find('.video-container').attr('data-video-id'),
+        playerId = 'player-' + videoId,
+        playerContainer = $(playButton).parents('.module')
+          .find('.video-container');
+
+    $(playerContainer).html('<div></div>');
+    $(playerContainer).children(':first-child').attr('id', playerId);
+
+    var youTubePlayer = initVideoPlayer(playerId, videoId);
+    saveYtPlayerToArray(youTubePlayer);
+
+    showVideoContainerRemoveParentPadding(playButton);
+  };
+
+
+  function showVideoContainerRemoveParentPadding(playButton) {
+
+    if ($(playButton).parents().
+        find('.video-container').hasClass('video-full')) {
+      $(playButton).parents('.module').addClass('no-padding')
+        .find('.video-container').toggleClass('hide');
+    }else {
+      $(playButton).parents('.video-container')
+        .addClass('no-padding').toggleClass('hide');
+    }
+
+    hideStaticVideoContent(playButton);
+  };
+
+
+  function hideStaticVideoContent(playButton) {
+    $(playButton).parents('.hidden-video-content').hide();
+  };
+
+
   function initVideoPlayer(playerId, videoId) {
 
     var videoPlayer = new YT.Player(playerId, {
@@ -64,38 +102,6 @@ pb.video = (function() {
     }
   };
 
-  function injectNewVideoPlayer(playButton) {
-    var videoId = $(playButton).parents('.module')
-          .find('.video-container').attr('data-video-id'),
-        playerId = 'player-' + videoId,
-        playerContainer = $(playButton).parents('.module')
-          .find('.video-container');
-
-    $(playerContainer).html('<div></div>');
-    $(playerContainer).children(':first-child').attr('id', playerId);
-
-    var youTubePlayer = initVideoPlayer(playerId, videoId);
-    saveYtPlayerToArray(youTubePlayer);
-
-    showVideoContainerRemoveParentPadding(playButton);
-  };
-
-  function showVideoContainerRemoveParentPadding(playButton) {
-    if ($(playButton).parents().
-        find('.video-container').hasClass('video-full')) {
-      $(playButton).parents('.module').addClass('no-padding')
-        .find('.video-container').toggleClass('hide');
-    }else {
-      $(playButton).parents('.video-container')
-        .addClass('no-padding').toggleClass('hide');
-    }
-
-    hideStaticVideoContent(playButton);
-  };
-
-  function hideStaticVideoContent(playButton) {
-    $(playButton).parents('.hidden-video-content').hide();
-  };
 
   function handlers() {
 
