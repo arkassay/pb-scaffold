@@ -129,3 +129,9 @@ header, .open header.lightHeader{
     }
   }
 }
+
+@media screen and (max-width: 767px){
+  .demo-links ul.cat-links{
+    padding: 0px 0 0;
+  }
+}
