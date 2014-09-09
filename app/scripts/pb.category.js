@@ -34,12 +34,8 @@ pb.category = (function() {
   function transition(pagename, $replace) {
     if (window.history && window.history.pushState) {
       history.pushState(null, null, pagename + '.html');
-      var content = getContent(pagename);
-      if (content != false) {
-        setContent(content, $replace);
-      } else {
-        return false;
-      }
+      getContent(pagename, $replace);
+
     } else {
       location.href = pagename + '.html';
     }
@@ -72,7 +68,7 @@ pb.category = (function() {
     }
   }
 
-  function getContent(pagename) {
+  function getContent(pagename, $replace) {
 
     var req = new XMLHttpRequest(),
         path = location.pathname,
@@ -83,7 +79,13 @@ pb.category = (function() {
         '/content/' + pagename + '-content.html', false);
     req.send(null);
     if (req.status == 200) {
-      return req.responseText;
+      if (content != false) {
+        var content = req.responseText;
+        setContent(content, $replace);
+      } else {
+        return false;
+      }
+      //return req.responseText;
     }
     return false;
   }
