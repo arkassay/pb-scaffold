@@ -5,7 +5,6 @@ pb.namespace('header');
 pb.header = (function() {
   var headerpin;
   function init(options) {
-    console.log('headroom');
     var header = document.querySelector('header');
     var headroom;
     if (options) {

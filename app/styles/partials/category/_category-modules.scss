@@ -49,17 +49,7 @@ $catLink: #12b1c9;
   .uppercase{
     text-transform: uppercase;
   }
-  .type-cat{
-    top: 20px;
-    left: 0px;
-    /*width: auto;*/
-    z-index: 1;
-    a, a:hover{
-      padding: 20px 40px 20px 0;
-      text-transform: uppercase;
-      color: $catHeaderDark;
-    }
-  }
+
   .pos{
     position:absolute;
   }
@@ -73,26 +63,7 @@ $catLink: #12b1c9;
     margin: 0 auto;
     display:block;
   }
-  .type-cat.border{
-    a{
-      padding-right: 20px;
-      border-right: 1px solid $catHeaderDark;
-      margin-right: 20px;
-    }
-    a.last{
-      border-right: none;
-    }
-  }
-  .type-cat.white{
-    a{
-      color: white;
-      border-right: 1px solid #FFF;
-    }
-    a.last{
-      border-right: none;
-    }
-  }
-  .cat-techlinks{
+  .product-links{
     position:absolute;
     bottom: 20px;
     left: 5%;
@@ -143,20 +114,7 @@ $catLink: #12b1c9;
   h1, h2, h3, h4, h5, p, a, a:hover{
     color: $catHeaderLight;
   }
-  .type-cat{
-    a, a:hover{
-      color: #FFF;
-    }
-  }
-  .type-cat.border{
-    a{
-      border-right: 1px solid #FFF;
-    }
-    a.last{
-      border-right: none;
-    }
-  }
-  .cat-techlinks{
+  .product-links{
     /*position:absolute;
     bottom: 20px;
     left: 5%;
@@ -224,7 +182,7 @@ $catLink: #12b1c9;
   background: white;
   background-size: cover;
   background-repeat:no-repeat;
-  .type-cat.col-xs-12{
+  .format-industry-title.col-xs-12{
     padding-left: 20px;
   }
   > .col-xs-12{
@@ -294,7 +252,7 @@ $catLink: #12b1c9;
     blockquote{
       margin: 0;
     }
-    .cat-techlinks{
+    .product-links{
       left: 1.5625%;
     }
   }
@@ -320,13 +278,13 @@ $catLink: #12b1c9;
       padding: 0;
       margin-right:8px;
       margin-left:8px;
-      .cat-techlinks{
+      .product-links{
         bottom: 0;
       }
       .vertical-wrap{
         display:block;
       }
-      .type-cat{
+      .format-industry-title{
         a{
           padding-top: 10px;
           padding-bottom: 10px;
@@ -342,7 +300,7 @@ $catLink: #12b1c9;
         text-align:center;
         margin-bottom: 30px;
       }
-      .cat-techlinks{
+      .product-links{
         position:static;
         a:not(:first-child){
           display:none;
@@ -411,7 +369,7 @@ $catLink: #12b1c9;
             }
           }
         }
-        .cat-techlinks{
+        .product-links{
           padding: 10px 5%;
         }
       }
@@ -428,7 +386,7 @@ $catLink: #12b1c9;
           min-height: 100px;
           height: auto;
         }
-        .cat-techlinks{
+        .product-links{
           padding: 0 5%;
         }
         .col2-content{
@@ -445,7 +403,7 @@ $catLink: #12b1c9;
       }
       &.halfheight{
         padding-bottom:0;
-        .type-cat.white.border{
+        .format-industry-title.white.border{
             a{
               color:$catHeaderDark;
               border-color:$catHeaderDark;
@@ -480,16 +438,6 @@ $catLink: #12b1c9;
         padding-top:30px;
         padding-bottom:30px;
       }
-      .type-cat{
-        padding-left:5%;
-        left:auto;
-        top:auto;
-        clear:both;
-        a{
-          display:inline-block;
-          /*font-size:1.5em;*/
-        }
-      }
       blockquote{
         /*font-size:3.750em;*/
       }
@@ -523,29 +471,7 @@ $catLink: #12b1c9;
       .col-xs-1x{
         padding:0;
       }
-      .type-cat{
-        padding-left:0;
-      }
     }
-
-    /*.col2{
-      width: 100%;
-      .col-xs-12{
-        padding: 0 1.5625%;
-      }
-      .col2-content{
-        padding: 15%;
-      }
-      .col2-content.half{
-        padding: 5% 15%;
-      }
-    }
-    .col2.left{
-      margin-right: 0;
-    }
-    .col2.right{
-      margin-left: 0;
-    }*/
 
     //JUST USING THESE BG STYLES FOR STATIC PROTOTYPE -- WILL HAVE TO RECONFIGURE FOR AUTHORING IN CQ
     .col2.bgexample1, .col1-fullbg{

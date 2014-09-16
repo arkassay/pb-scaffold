@@ -15,11 +15,11 @@ pb.video = (function() {
 
 
   function injectNewVideoPlayer(playButton) {
-    var videoId = $(playButton).parents('.module')
-          .find('.video-container').attr('data-video-id'),
-        playerId = 'player-' + videoId,
-        playerContainer = $(playButton).parents('.module')
-          .find('.video-container');
+    var playerContainer = $(playButton).parents('.module')
+            .find('.video-container');
+    videoId = $(playerContainer).attr('data-video-id'),
+    playerId = 'player-' + videoId,
+
 
     $(playerContainer).html('<div></div>');
     $(playerContainer).children(':first-child').attr('id', playerId);
@@ -70,6 +70,7 @@ pb.video = (function() {
 
   function saveYtPlayerToArray(youTubePlayer) {
     ytPlayersArray.push(youTubePlayer);
+    console.log(ytPlayersArray);
   }
 
   function onPlayerReady(event) {
@@ -91,8 +92,9 @@ pb.video = (function() {
         $.each(ytPlayersArray, function(i, val) {
 
           if (currentPlayer == ytPlayersArray[i].d.id) {
-            // currently playing
-          }else {
+            // currently playing - add analytics
+          } else if (ytPlayersArray[i].getPlayerState() == 1) {
+            // if video was playing and another video is started
             ytPlayersArray[i].pauseVideo();
           }
 

@@ -1,0 +1,129 @@
+/*Format | Industry title within category template components*/
+.format-industry-title{
+  top: 20px;
+  left: 0px;
+  /*width: auto;*/
+  z-index: 1;
+  a, a:hover{
+    padding: 20px 40px 20px 0;
+    text-transform: uppercase;
+    color: $catHeaderDark;
+  }
+}
+.format-industry-title.border{
+  a{
+    padding-right: 20px;
+    border-right: 1px solid $catHeaderDark;
+    margin-right: 20px;
+  }
+  a.last{
+    border-right: none;
+  }
+}
+.format-industry-title.white{
+  a{
+    color: white;
+    border-right: 1px solid #FFF;
+  }
+  a.last{
+    border-right: none;
+  }
+}
+.module{
+  .format-industry-title{
+    a,a:hover{
+      color: #888;
+    }
+    &.white{
+      a,a:hover{
+        color: #FFF;
+      }
+    }
+
+  }
+
+}
+.module.darkbg{
+  .format-industry-title{
+    a, a:hover{
+      color: #FFF;
+    }
+  }
+  .format-industry-title.border{
+    a{
+      border-right: 1px solid #FFF;
+    }
+    a.last{
+      border-right: none;
+    }
+  }
+}
+
+
+/*Format | Industry title within hero space*/
+.main-content{
+  .hero-wrapper{
+    .format-industry-title.border{
+      a{
+        padding-right: 20px;
+        border-right: 1px solid $catHeaderDark;
+        margin-right: 20px;
+        color: #000;
+      }
+      a.last{
+        border-right: none;
+      }
+    }
+    .format-industry-title.white{
+      a{
+        color: white;
+        border-right: 1px solid #FFF;
+      }
+      a.last{
+        border-right: none;
+      }
+    }
+    .format-industry-title.pos{
+      position:absolute;
+      top:90px;
+      margin-left:$grid-gutter-width;
+    }
+  }
+}
+
+/*Format | Industry title within content page 'More Content' component*/
+.more-content{
+  .format-industry-title, .format-industry-title.border{
+    float: none;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    margin-bottom: 10px;
+    padding-left: 0;
+    a{
+      font-size:1.167em;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .format-industry-title{
+    padding-left:5%;
+    left:auto;
+    top:auto;
+    clear:both;
+    a{
+      display:inline-block;
+      /*font-size:1.5em;*/
+    }
+  }
+  .col1-fullbg{
+    .format-industry-title{
+      padding-left:0;
+    }
+  }
+}

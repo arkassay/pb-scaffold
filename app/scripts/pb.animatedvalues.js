@@ -10,7 +10,7 @@ pb.animatedvalues = function() {
     options = {};
     if (setOptions) this.options = setOptions;
     this.$el = $(el);
-    value = 0;
+    this.value = 0;
   };
 
   function changeTo(val) {
@@ -18,15 +18,21 @@ pb.animatedvalues = function() {
     if (this.options.beforeText) s += this.options.beforeText;
     s += val;
     if (this.options.afterText) s += this.options.afterText;
-    this.$el.html(s);
-    value = val;
+    var currEl = this.$el.selector;
+    var $currEl = $('#' + currEl);
+    $currEl.html(s);
   };
 
-  function animateTo(val) {
+  function animateTo() {
     var selfRef = this;
-    this.$el.css({ value: pb.animatedvalues.value });
 
-    this.$el.animate({
+    var currEl = this.$el.selector;
+    var $currEl = $('#' + currEl);
+    var val = $currEl.attr('data-val');
+
+    $currEl.css({ value: pb.animatedvalues.value });
+
+    $currEl.animate({
       value: val, left: this.percent * this.width
     }, {
       duration: 1400, step: function(now, tween)

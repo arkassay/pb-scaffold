@@ -2,13 +2,12 @@ pb.namespace('home');
 
 pb.home = (function() {
 
-  var powerPercentage;
-  var homeScreen = '.group.default';
-  var activeLinks = false;
+  var homeScreen = '.group.default',
+      activeLinks = false,
+      animatedValuesArr = [];
 
   function init() {
-    //animateCategoryLinks();
-    switchBG();
+    generateAnimatedValuesArr();
     handlers();
   };
 
@@ -37,52 +36,80 @@ pb.home = (function() {
   };
 
 
-  function switchBG() {
+  function animateCategoryBgIn(currentCategoryContainer) {
+    $(currentCategoryContainer).fadeOut(function() {
+      $(currentCategoryContainer).fadeIn(function() {
+        $(currentCategoryContainer)
+          .toggleClass('visible-xs');
+        checkForAnimatedValues(currentCategoryContainer);
+      });
+    });
+  };
+
+  function animateCategoryBgOut(currentCategoryContainer) {
+    $(currentCategoryContainer).fadeOut(function() {
+      $(currentCategoryContainer)
+      .toggleClass('visible-xs');
+      if (!$('.links .cat').hasClass('inactive')) {
+        animateHeading(false);
+      }
+    });
+  }
+
+  function generateAnimatedValuesArr() {
     // animated numbers
-
-    /*************
-    START: code to automate animated values
-    based on class for AEM integration
-
-    pb.home.animatedValues = [];
-
     $('.animatedValue').each(function(index, value) {
       var id = $(value).attr('id'),
           percent = $(value).hasClass('percent');
 
-      pb.home.animatedValues[index] = new pb.animatedvalues();
+      animatedValuesArr[index] = new pb.animatedvalues();
 
       if (percent) {
-        pb.home.animatedValues[index].init(id, {afterText: '<span>%</span>'});
+        animatedValuesArr[index].init(id, {afterText: '<span>%</span>'});
       } else {
-        pb.home.animatedValues[index].init(id, {afterText: ''});
+        animatedValuesArr[index].init(id, {afterText: ''});
       }
-      pb.home.animatedValues[index].changeTo(0);
+      animatedValuesArr[index].changeTo(0);
     });
-    END**********/
+  }
 
-    if (!pb.model.touch) {
-      pb.home.powerPercentage = new pb.animatedvalues();
-      pb.home.powerPercentage
-        .init('#power-percentage', {afterText: '<span>%</span>'});
-      //pb.home.powerPercentage.changeTo(0);
 
-      pb.home.sendValue = new pb.animatedvalues();
-      pb.home.sendValue
-        .init('#send-value', {afterText: ''});
-      pb.home.sendValue.changeTo(0);
+  function checkForAnimatedValues(currCategoryContainer) {
+    //get animated value(s) within a visible category
+    //on hover and animate it
+    var animatedVal = $(currCategoryContainer).find('.animatedValue'),
+        animateId = '';
 
-      pb.home.retailerValue = new pb.animatedvalues();
-      pb.home.retailerValue
-        .init('#retailer-value', {afterText: ''});
-      pb.home.retailerValue.changeTo(0);
+    $.each(animatedVal, function() {
+      animateId = $(this).attr('id');
+      $.each(animatedValuesArr, function(i, val) {
+        if (animatedValuesArr[i].$el.selector == animateId) {
+          animatedValuesArr[i].animateTo();
+        }
+      });
+    });
+  }
 
-      pb.home.retailerValue2 = new pb.animatedvalues();
-      pb.home.retailerValue2
-        .init('#retailer-value-2', {afterText: ''});
-      pb.home.retailerValue2.changeTo(0);
-    }
+  function handlers() {
+    //category page transition event
+    $('.cat-transition').click(function(e) {
+      e.preventDefault();
+      var catPage = $(this).attr('data-cat');
+      if (catPage) {
+        $('footer').css('position' , 'static');
+        var transitionOptions = {
+          replaceElement: $('#home-area'),
+          pagename: catPage,
+          callback: function() {
+            pb.category.fixedTabs();
+          }
+        };
+        var pageTransition = new pb.utils.pagetransition();
+        pageTransition.init(transitionOptions);
+      }
+    });
 
+    //product category link hover events
     $('.links a').mouseenter(function() {
       var category = $(this).attr('data-catshow');
       var currentCategoryContainer = '.group.' + category;
@@ -90,43 +117,9 @@ pb.home = (function() {
 
       // fade homescreen out  ==========================
       animateHeading(true);
-
-      // fade current section in ==========================
-      $(currentCategoryContainer).fadeOut(function() {
-        $(currentCategoryContainer).fadeIn(function() {
-          $(currentCategoryContainer)
-            .toggleClass('visible-xs');
-
-          //get animated value(s) within a visible category
-          //on hover and animate it
-          /*var animateVal = $(this).find('.animatedValue'),
-              animateId = $(animateVal).attr('id');
-
-          if (animateVal.length > 0) {
-            $.each(pb.home.animatedValues, function(i, val) {
-              if (pb.home.animatedValues[i].$el.selector == animateId) {
-                pb.home.animatedValues[i].animateTo(90);
-              }
-            });
-          }*/
-        });
-      });
-
-      // initiate number animations ==========================
-      if (!pb.model.touch) {
-        if (category == 'category-1') {
-          pb.home.powerPercentage.animateTo('90');
-
-        }else if (category == 'category-4') {
-          pb.home.sendValue.animateTo('38');
-        }else if (category == 'category-5') {
-          pb.home.retailerValue.animateTo('45');
-          pb.home.retailerValue2.animateTo('100');
-        }
-      }
+      animateCategoryBgIn(currentCategoryContainer);
 
     });
-
 
     $('.links a').mouseout(function() {
       var category = $(this).attr('data-catshow');
@@ -134,46 +127,12 @@ pb.home = (function() {
       $(this).parent().siblings().removeClass('inactive');
 
       // fade current section out  ==========================
+      animateCategoryBgOut(currentCategoryContainer);
 
-      $(currentCategoryContainer).fadeOut(function() {
-        $(currentCategoryContainer)
-        .toggleClass('visible-xs');
-        if (!$('.links .cat').hasClass('inactive')) {
-          animateHeading(false);
-        }
-      });
-
-      // reset number animations ===================================
-      /*if (category == 'category-1') {
-        pb.home.powerPercentage.animateTo('0');
-      }else if (category == 'category-4') {
-        pb.home.sendValue.changeTo('0');
-      }else if (category == 'category-5') {
-        pb.home.retailerValue.changeTo('0');
-        pb.home.retailerValue2.changeTo('0');
-      }*/
     });
-  };
-
-
-  function handlers() {
-    $('.cat-transition').click(function(e) {
-      e.preventDefault();
-      var catPage = $(this).attr('data-cat');
-      if (catPage) {
-        $('footer').css('position' , 'static');
-        var loaded = pb.category.transition(catPage, $('#home-area'));
-
-      }
-    });
-    //handle back button press - should load previous pages content
-    /*window.addEventListener('popstate', function(e) {
-      pb.category.loadCategory(location.pathname);
-    });*/
   }
   return {
-    init: init,
-    powerPercentage: powerPercentage
+    init: init
   };
 })();
 

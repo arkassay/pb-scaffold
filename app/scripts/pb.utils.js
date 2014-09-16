@@ -1,10 +1,8 @@
 pb.namespace('utils');
-console.log('utils!');
 
 pb.utils = (function() {
   function init() {
     handlers();
-    console.log('utils init');
     $('.additional-content').slideUp();
   };
 

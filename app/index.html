@@ -28,8 +28,6 @@
         <!--[if lt IE 9]>
         <!-- build:js scripts/ie-dependencies.js -->
         <!-- bower:js -->
-        <script src="scripts/vendors/html5shiv.min.js"></script>
-        <script src="scripts/vendors/respond.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
         <![endif]-->
@@ -93,7 +91,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-touch">We power <span id="power-percentage" class="percent animatedValue">90%</span> of the Fortune 500.</h2>
+                      <h2 class="animated fadeIn hidden-touch">We power <span id="power-percentage" class="percent animatedValue" data-val="90"></span> of the Fortune 500.</h2>
                       <h2 class="visible-touch">Customer Information Management</h2>
                       <p class="animated fadeIn">Find new marketing opportunities through data optimization.</p>
                     </div>
@@ -126,7 +124,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-touch">We print, sort and send <span id="send-value" class="animatedValue">38</span> million pieces of mail every day.</h2>
+                      <h2 class="animated fadeIn hidden-touch">We print, sort and send <span id="send-value" class="animatedValue" data-val="38">38</span> million pieces of mail every day.</h2>
                       <h2 class="visible-touch">Shipping and Mailing</h2>
                       <p class="animated fadeIn">Print. Mail. Ship. Increase productivity while lowering costs.</p>
                     </div>
@@ -137,7 +135,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-xs-12 headline">
-                      <h2 class="animated fadeIn hidden-touch"><span id='retailer-value'>45</span> of the top <span id='retailer-value-2' class="animatedValue">100</span> Internet retailers in the world use our technology.</h2>
+                      <h2 class="animated fadeIn hidden-touch"><span id='retailer-value' class="animatedValue" data-val="45">45</span> of the top <span id='retailer-value-2' data-val="100" class="animatedValue">100</span> Internet retailers in the world use our technology.</h2>
                       <h2 class="visible-touch">Global Ecommerce</h2>
                       <p class="animated fadeIn">Streamline international shipping by removing the hurdles.</p>
                     </div>
@@ -187,12 +185,16 @@
                 <li><a href="#">Compliance Information</a></li>
               </ul>
             </div>
-            <div class="col-sm-2 col-xs-12 social">
+            <div class="col-sm-2 col-xs-12">
               <h2>Follow Us</h2>
-              <a href="#" class="icn-fb-dark"></a>
-              <a href="#" class="icn-tw-dark"></a>
-              <a href="#" class="icn-in-dark"></a>
-              <a href="#" class="icn-yt-dark"></a>
+              <div class="row social-container">
+                <ul class="col-xs-12 social">
+                  <li class="icn-fb"><a href="#"></a></li>
+                  <li class="icn-tw"><a href="#"></a></li>
+                  <li class="icn-in"><a href="#"></a></li>
+                  <li class="icn-yt"><a href="#"></a></li>
+                </ul>
+              </div><!--/.row-->
             </div>
           </div><!--/.row-->
           <div class="row">
@@ -290,6 +292,8 @@
         <script src="scripts/pb.home.js"></script>
         <script src="scripts/pb.animatedvalues.js"></script>
         <script src="scripts/pb.category.js"></script>
+        <script src="scripts/pb.utils.js"></script>
+        <script src="scripts/utils/pb.utils.pagetransition.js"></script>
         <!-- endbuild -->
 
 </body>

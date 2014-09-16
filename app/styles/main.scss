@@ -13,6 +13,9 @@ $darkBG: #053043;
 @import 'partials/utils/_video';
 @import 'partials/_menu';
 @import 'partials/_footer';
+@import 'partials/_share';
+@import 'partials/utils/_hero.scss';
+@import 'partials/_format-industry-title';
 
 /*BOOTSTRAP STYLE OVERRIDES*/
 .container-fluid{
@@ -87,34 +90,7 @@ a:hover{
   background-size:100% auto;
   background-repeat:no-repeat;
 }
-.icn-dl{
-  width: 32px;
-  height: 32px;
-  display:inline-block;
-  background-image: url('../images/sprite/icn-dl.png');
-  background-repeat: no-repeat;
-  position:relative;
-  top: 10px;
-  padding-right: 10px;
-}
-.icn-fb-dark, .icn-tw-dark, .icn-yt-dark, .icn-in-dark{
-  width: 26px;
-  height: 26px;
-  display:inline-block;
-  background-repeat: no-repeat;
-}
-.icn-fb-dark{
-  background-image: url('../images/sprite/icon-facebook-dark.png');
-}
-.icn-tw-dark{
-  background-image: url('../images/sprite/icon-twitter-dark.png');
-}
-.icn-yt-dark{
-  background-image: url('../images/sprite/icon-yt-dark.png');
-}
-.icn-in-dark{
-  background-image: url('../images/sprite/icon-linkedin-dark.png');
-}
+
 //utilities
 .center{
   text-align:center;
@@ -165,29 +141,6 @@ hr.white{
   .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
     padding-left: 5%;
     padding-right: 5%;
-  }
-  .icn-fb-dark, .icn-tw-dark, .icn-yt-dark, .icn-in-dark{
-    background-size: 18px 18px;
-    width: 18px;
-    height: 18px;
-  }
-  .icn-dl{
-    width: 16px;
-    height: 16px;
-    top: 2px;
-    background-size: 16px 16px;
-  }
-  .icn-fb-dark{
-    background-image: url('../images/sprite-mobile/icon-facebook-dark.png');
-  }
-  .icn-tw-dark{
-    background-image: url('../images/sprite-mobile/icon-twitter-dark.png');
-  }
-  .icn-yt-dark{
-    background-image: url('../images/sprite-mobile/icon-yt-dark.png');
-  }
-  .icn-in-dark{
-    background-image: url('../images/sprite-mobile/icon-linkedin-dark.png');
   }
 }
 
